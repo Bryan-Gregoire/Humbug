@@ -78,4 +78,15 @@ public class Position {
         }
         return true;
     }
+
+    /**
+     * Get the position next to the direction pass in parameter.
+     *
+     * @param direction given direction
+     * @return the position next to the given direction.
+     */
+    public Position next(Direction direction) {
+        return new Position(row + direction.getDeltaRow(),
+                column + direction.getDeltaColumn());
+    }
 }
