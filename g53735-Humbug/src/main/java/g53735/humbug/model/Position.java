@@ -14,8 +14,8 @@ public class Position {
     /**
      * Constructor of a position on the board.
      *
-     * @param row the given row of a position.
-     * @param column the given column of a position.
+     * @param row the given row of a position
+     * @param column the given column of a position
      */
     public Position(int row, int column) {
         this.row = row;
