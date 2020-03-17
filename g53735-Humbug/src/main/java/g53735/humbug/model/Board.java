@@ -38,20 +38,20 @@ public class Board {
         return inside;
     }
 
-//    public SquareType getSquareType(Position pos) {
-//        if (isInside(pos) == false) {
-//            throw new IllegalArgumentException("Position not on the board");
-//        }
-//        return this.squares[pos.getRow()][pos.getColumn()].getType();
-//    }
     public SquareType getSquareType(Position pos) {
-        if (pos == null) {
-            throw new IllegalArgumentException("Position not on the board");
-        } else if (squares[pos.getRow()][pos.getColumn()] == null) {
+        if (!isInside(pos)) {
             throw new IllegalArgumentException("Position not on the board");
         }
-        return squares[pos.getRow()][pos.getColumn()].getType();
+        return this.squares[pos.getRow()][pos.getColumn()].getType();
     }
+//    public SquareType getSquareType(Position pos) {
+//        if (pos == null) {
+//            throw new IllegalArgumentException("Position not on the board");
+//        } else if (squares[pos.getRow()][pos.getColumn()] == null) {
+//            throw new IllegalArgumentException("Position not on the board");
+//        }
+//        return squares[pos.getRow()][pos.getColumn()].getType();
+//    }
 
     public int getNbRow() {
         return this.squares.length;
