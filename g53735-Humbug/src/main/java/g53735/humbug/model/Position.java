@@ -28,7 +28,7 @@ public class Position {
      * @return the value of row
      */
     public int getRow() {
-        return row;
+        return this.row;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Position {
      * @return the value of column
      */
     public int getColumn() {
-        return column;
+        return this.column;
     }
 
     /**
@@ -89,4 +89,5 @@ public class Position {
         return new Position(row + direction.getDeltaRow(),
                 column + direction.getDeltaColumn());
     }
+    
 }

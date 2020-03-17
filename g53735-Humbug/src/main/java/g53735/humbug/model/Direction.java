@@ -32,7 +32,7 @@ public enum Direction {
      * @return the value of row.
      */
     public int getDeltaRow() {
-        return deltaRow;
+        return this.deltaRow;
     }
 
     /**
@@ -41,7 +41,24 @@ public enum Direction {
      * @return the value of column.
      */
     public int getDeltaColumn() {
-        return deltaColumn;
+        return this.deltaColumn;
     }
 
+    /**
+     * Set the value of deltaRow.
+     *
+     * @param deltaRow new value of deltaRow.
+     */
+    public void setDeltaRow(int deltaRow) {
+        this.deltaRow = deltaRow;
+    }
+
+    /**
+     * Set the value of DeltaColumn.
+     *
+     * @param deltaColumn new value of DeltaColumn
+     */
+    public void setDeltaColumn(int deltaColumn) {
+        this.deltaColumn = deltaColumn;
+    }
 }
