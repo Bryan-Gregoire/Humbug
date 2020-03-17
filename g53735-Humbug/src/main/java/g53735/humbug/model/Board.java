@@ -26,12 +26,11 @@ public class Board {
         if (pos == null) {
             throw new IllegalArgumentException("Position not on the board");
         }
-        if (squares[pos.getRow()][pos.getColumn()] == null) {
-            inside = false;
-        }
         if (pos.getRow() >= this.getNbRow()
                 || pos.getColumn() >= this.getNbColumn()
                 || pos.getRow() < 0 || pos.getColumn() < 0) {
+            inside = false;
+        } else if (squares[pos.getRow()][pos.getColumn()] == null) {
             inside = false;
         } else {
             inside = true;
