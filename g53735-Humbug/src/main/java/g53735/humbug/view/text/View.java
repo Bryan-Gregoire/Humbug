@@ -2,7 +2,6 @@ package g53735.humbug.view.text;
 
 import g53735.humbug.model.Board;
 import g53735.humbug.model.Position;
-import g53735.humbug.model.Square;
 import g53735.humbug.model.SquareType;
 import g53735.humbug.model.Direction;
 import java.util.Scanner;
@@ -18,23 +17,28 @@ public class View {
         for (int lg = 0; lg < display.length; lg++) {
             for (int col = 0; col < display[lg].length; col++) {
                 Position pos = new Position(lg, col);
-                if (!board.isInside(pos)) {
-                    System.out.println("      ");
-                    System.out.println("      ");
-                    System.out.println("      ");
+                if (board.isInside(pos) 
+                        && board.getSquareType(pos) == SquareType.STAR) {
+                    display [lg][col] = "STAR";
                 } else if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.GRASS) {
-                    System.out.println("_______");
-                    System.out.println("|     |");
-                    System.out.println("|     |");
-                    System.out.println("|     |");
-                    System.out.println("_______");
+                    display[lg][col] = "GRASS";
                 } else {
-                    System.out.println("_______");
-                    System.out.println("|     |");
-                    System.out.println("|  *  |");
-                    System.out.println("|     |");
-                    System.out.println("_______");
+                    display[lg][col] = "null";
+                }
+            }
+        }
+        for (int lg = 0; lg < display.length; lg++) {
+            for (int col = 0; col < display[0].length; col++) {
+                if(col == display[0].length-1){
+                    System.out.println("");
+                }
+                if(display[lg][col].equals("GRASS")){
+                    System.out.print("|   |");
+                } else if(display[lg][col].equals("STAR")) {
+                    System.out.print("| * |");
+                } else {
+                    System.out.print("     ");
                 }
             }
         }
@@ -55,26 +59,45 @@ public class View {
      * @return the position.
      */
     public Position askPosition() {
-        System.out.println("Enter your position");
-        int a = enterInteger("Row: ");
-        int b = enterInteger("Column: ");
+        System.out.println("Enter a position: ");
+        int a = enterInteger("Row");
+        int b = enterInteger("Column");
         Position position = new Position(a, b);
-        System.out.println("The given position : " + "(" + a + "," + b + ")");
-
+        System.out.println("The given position : " + "(" + a + ", " + b + ")");
         return position;
     }
 
-//    public Direction askDirection() {
-//        Scanner keyboard = new Scanner(System.in);
-//        System.out.println("Enter a direction: ");
-//        String dir = keyboard.nextLine().toUpperCase();
-//        while (dir != "NORTH" && dir != "EAST" && dir != "SOUTH"
-//                && dir != "WEST") {
-//            keyboard.next();
-//            System.out.println("This is not a direction");
-//            System.out.println("Enter a direction: ");
-//        }
-//    }
+    /**
+     * Ask ton enter a direction.
+     *
+     * @return a given direction.
+     */
+    public Direction askDirection() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter a direction(North,East,South,West): ");
+        String dir = keyboard.nextLine().toUpperCase();
+        while (!"NORTH".equals(dir) && !"EAST".equals(dir) && !"SOUTH".equals(dir)
+                && !"WEST".equals(dir)) {
+            keyboard.next();
+            System.out.println("This is not a direction");
+            System.out.println("Enter a direction: ");
+        }
+        switch (dir) {
+            case "NORTH":
+                Direction north = Direction.NORTH;
+                return north;
+            case "EAST":
+                Direction east = Direction.EAST;
+                return east;
+            case "SOUTH":
+                Direction south = Direction.SOUTH;
+                return south;
+            case "WEST":
+                Direction west = Direction.WEST;
+                return west;
+        }
+        return null;
+    }
 
     /**
      * Ask a integer, while it is not a integer, ask again.
@@ -82,7 +105,7 @@ public class View {
      * @param message the given message to display.
      * @return the given integer.
      */
-    public int enterInteger(String message) {
+    private int enterInteger(String message) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println(message);
         while (!keyboard.hasNextInt()) {
@@ -91,5 +114,10 @@ public class View {
             System.out.println(message);
         }
         return keyboard.nextInt();
+    }
+
+    public static void main(String[] args) {
+        View view = new View();
+        view.displayBoard(Board.getInitialBoard());
     }
 }
