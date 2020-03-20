@@ -7,11 +7,17 @@ import g53735.humbug.model.Direction;
 import java.util.Scanner;
 
 /**
- *
+ * This class represents the view of the game. 
+ * 
  * @author g53735
  */
 public class View implements InterfaceView {
 
+    /**
+     * Displays the game board.
+     * 
+     * @param board the game board to display. 
+     */
     @Override
     public void displayBoard(Board board) {
         String[][] display = new String[board.getNbRow()][board.getNbColumn()];
@@ -33,11 +39,11 @@ public class View implements InterfaceView {
             for (int col = 0; col < display[0].length; col++) {
 
                 if (display[lg][col].equals("GRASS")) {
-                    System.out.print("|   |");
+                    System.out.print("\033[42m|     |\033[0m");
                 } else if (display[lg][col].equals("STAR")) {
-                    System.out.print("| * |");
+                    System.out.print("\033[42m|  *  |\033[0m");
                 } else {
-                    System.out.print("     ");
+                    System.out.print("       ");
                 }
                 if (col == display[0].length - 1) {
                     System.out.println("");
@@ -61,6 +67,7 @@ public class View implements InterfaceView {
      *
      * @return the position.
      */
+    @Override
     public Position askPosition() {
         System.out.println("Enter a position: ");
         int a = enterInteger("Row");
@@ -71,7 +78,7 @@ public class View implements InterfaceView {
     }
 
     /**
-     * Ask ton enter a direction.
+     * Ask to enter a direction.
      *
      * @return a given direction.
      */
@@ -118,10 +125,5 @@ public class View implements InterfaceView {
             System.out.println(message);
         }
         return keyboard.nextInt();
-    }
-
-    public static void main(String[] args) {
-        View view = new View();
-        view.displayBoard(Board.getInitialBoard());
     }
 }
