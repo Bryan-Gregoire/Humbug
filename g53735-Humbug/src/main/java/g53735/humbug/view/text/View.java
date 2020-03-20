@@ -31,15 +31,16 @@ public class View implements InterfaceView {
         }
         for (int lg = 0; lg < display.length; lg++) {
             for (int col = 0; col < display[0].length; col++) {
-                if (col == display[0].length - 1) {
-                    System.out.println("");
-                }
+
                 if (display[lg][col].equals("GRASS")) {
                     System.out.print("|   |");
                 } else if (display[lg][col].equals("STAR")) {
                     System.out.print("| * |");
                 } else {
                     System.out.print("     ");
+                }
+                if (col == display[0].length - 1) {
+                    System.out.println("");
                 }
             }
         }
