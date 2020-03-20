@@ -10,16 +10,17 @@ import java.util.Scanner;
  *
  * @author g53735
  */
-public class View {
+public class View implements InterfaceView {
 
+    @Override
     public void displayBoard(Board board) {
         String[][] display = new String[board.getNbRow()][board.getNbColumn()];
         for (int lg = 0; lg < display.length; lg++) {
             for (int col = 0; col < display[lg].length; col++) {
                 Position pos = new Position(lg, col);
-                if (board.isInside(pos) 
+                if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.STAR) {
-                    display [lg][col] = "STAR";
+                    display[lg][col] = "STAR";
                 } else if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.GRASS) {
                     display[lg][col] = "GRASS";
@@ -30,12 +31,12 @@ public class View {
         }
         for (int lg = 0; lg < display.length; lg++) {
             for (int col = 0; col < display[0].length; col++) {
-                if(col == display[0].length-1){
+                if (col == display[0].length - 1) {
                     System.out.println("");
                 }
-                if(display[lg][col].equals("GRASS")){
+                if (display[lg][col].equals("GRASS")) {
                     System.out.print("|   |");
-                } else if(display[lg][col].equals("STAR")) {
+                } else if (display[lg][col].equals("STAR")) {
                     System.out.print("| * |");
                 } else {
                     System.out.print("     ");
@@ -49,6 +50,7 @@ public class View {
      *
      * @param message the error message.
      */
+    @Override
     public void displayError(String message) {
         System.out.println(message);
     }
@@ -72,6 +74,7 @@ public class View {
      *
      * @return a given direction.
      */
+    @Override
     public Direction askDirection() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter a direction(North,East,South,West): ");
