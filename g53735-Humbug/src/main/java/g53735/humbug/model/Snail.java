@@ -29,8 +29,12 @@ public class Snail extends Animal {
         }
         if (board.getSquareType(nextPos) == SquareType.STAR) {
             snail = null;
-            board[nextPos.getRow()][nextPos.getColumn()].setType(SquareType.GRASS);
+            Square element = Board.getSquare(nextPos);
+            if (getSquareType(nextPos) == SquareType.STAR) {
+                element.setType(SquareType.GRASS);
+            }
         }
+
         return snail = nextPos;
     }
 }

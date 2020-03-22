@@ -93,4 +93,11 @@ public class Board {
     public int getNbColumn() {
         return this.squares[0].length;
     }
+
+//    
+//    public void removeStar(Position position){
+//        if(getSquareType(position) == SquareType.STAR) {
+//            
+//        }
+//    }
 }
