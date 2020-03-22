@@ -1,11 +1,8 @@
-package g53735.humbug.view.text;
-
-import g53735.humbug.model.Board;
-import g53735.humbug.model.Direction;
-import g53735.humbug.model.Position;
+package g53735.humbug.model;
 
 /**
- *
+ * Represent the animal on the game board.
+ * 
  * @author g53735
  */
 public abstract class Animal {
