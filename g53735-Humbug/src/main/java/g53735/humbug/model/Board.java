@@ -100,4 +100,8 @@ public class Board {
 //            
 //        }
 //    }
+    
+     public void setSquareType(Position pos,SquareType type) {
+      this.squares[pos.getRow()][pos.getColumn()].setType(type);
+    }
 }

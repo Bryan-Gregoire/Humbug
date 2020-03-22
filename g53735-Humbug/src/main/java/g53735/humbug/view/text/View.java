@@ -7,16 +7,16 @@ import g53735.humbug.model.Direction;
 import java.util.Scanner;
 
 /**
- * This class represents the view of the game. 
- * 
+ * This class represents the view of the game.
+ *
  * @author g53735
  */
 public class View implements InterfaceView {
 
     /**
      * Displays the game board.
-     * 
-     * @param board the game board to display. 
+     *
+     * @param board the game board to display.
      */
     @Override
     public void displayBoard(Board board) {
@@ -59,7 +59,7 @@ public class View implements InterfaceView {
      */
     @Override
     public void displayError(String message) {
-        System.out.println(message);
+        System.err.println(message);
     }
 
     /**
