@@ -44,6 +44,7 @@ public class Spider extends Animal {
         return spider;
     }
 
+    @Override
     public String toString() {
         return "Spider";
     }
