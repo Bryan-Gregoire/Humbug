@@ -35,12 +35,11 @@ public class Spider extends Animal {
             }
         }
         if (!free) {
+            if (board.getSquareType(spider) == SquareType.STAR) {
+                this.setOnStar(true);
+                board.setSquareType(spider, SquareType.GRASS);
+            }
             return spider;
-        }
-        if (board.getSquareType(nextPos) == SquareType.STAR) {
-            spider = null;
-            this.setOnStar(true);
-            board.setSquareType(nextPos, SquareType.GRASS);
         }
         return spider;
     }

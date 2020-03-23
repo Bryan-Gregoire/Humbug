@@ -31,7 +31,6 @@ public class Snail extends Animal {
         }
 
         if (board.getSquareType(nextPos) == SquareType.STAR) {
-            snail = null;
             this.setOnStar(true);
             board.setSquareType(nextPos, SquareType.GRASS);
         }
