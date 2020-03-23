@@ -45,15 +45,15 @@ public class View implements InterfaceView {
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[0].length; col++) {
                 if (boardDisplay[lg][col].equals("Snail")) {
-                    System.out.println("\033[42m|   SNAIL   |\033[0m");
+                    System.out.print("\033[42m|  SNAIL  |\033[0m");
                 } else if (boardDisplay[lg][col].equals("Spider")) {
-                    System.out.println("\033[42m|   SPIDER   |\033[0m");
+                    System.out.print("\033[42m|  SPIDER |\033[0m");
                 } else if (boardDisplay[lg][col].equals("GRASS")) {
-                    System.out.print("\033[42m|     |\033[0m");
+                    System.out.print("\033[42m|         |\033[0m");
                 } else if (boardDisplay[lg][col].equals("STAR")) {
-                    System.out.print("\033[42m|  *  |\033[0m");
+                    System.out.print("\033[42m|    *    |\033[0m");
                 } else {
-                    System.out.print("       ");
+                    System.out.print("           ");
                 }
                 if (col == boardDisplay[0].length - 1) {
                     System.out.println("");
