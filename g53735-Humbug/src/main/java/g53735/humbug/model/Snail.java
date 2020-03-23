@@ -36,4 +36,9 @@ public class Snail extends Animal {
         }
         return snail = nextPos;
     }
+
+    @Override
+    public String toString() {
+        return "Snail";
+    }
 }

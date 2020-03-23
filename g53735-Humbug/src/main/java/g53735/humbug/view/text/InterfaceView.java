@@ -3,6 +3,7 @@ package g53735.humbug.view.text;
 import g53735.humbug.model.Board;
 import g53735.humbug.model.Direction;
 import g53735.humbug.model.Position;
+import g53735.humbug.model.Animal;
 
 /**
  *
@@ -10,7 +11,7 @@ import g53735.humbug.model.Position;
  */
 public interface InterfaceView {
 
-    void displayBoard(Board board);
+    void displayBoard(Board board,Animal... animals);
 
     Position askPosition();
 

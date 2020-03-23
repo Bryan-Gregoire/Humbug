@@ -43,4 +43,8 @@ public class Spider extends Animal {
         }
         return spider;
     }
+
+    public String toString() {
+        return "Spider";
+    }
 }

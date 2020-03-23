@@ -1,5 +1,6 @@
 package g53735.humbug.view.text;
 
+import g53735.humbug.model.Animal;
 import g53735.humbug.model.Board;
 import g53735.humbug.model.Position;
 import g53735.humbug.model.SquareType;
@@ -17,35 +18,44 @@ public class View implements InterfaceView {
      * Displays the game board.
      *
      * @param board the game board to display.
+     * @param animals the animals on the game board.
      */
     @Override
-    public void displayBoard(Board board) {
-        String[][] display = new String[board.getNbRow()][board.getNbColumn()];
-        for (int lg = 0; lg < display.length; lg++) {
-            for (int col = 0; col < display[lg].length; col++) {
+    public void displayBoard(Board board, Animal... animals) {
+        String[][] boardDisplay = new String[board.getNbRow()][board.getNbColumn()];
+        for (int lg = 0; lg < boardDisplay.length; lg++) {
+            for (int col = 0; col < boardDisplay[lg].length; col++) {
                 Position pos = new Position(lg, col);
                 if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.STAR) {
-                    display[lg][col] = "STAR";
+                    boardDisplay[lg][col] = "STAR";
                 } else if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.GRASS) {
-                    display[lg][col] = "GRASS";
+                    boardDisplay[lg][col] = "GRASS";
                 } else {
-                    display[lg][col] = "null";
+                    boardDisplay[lg][col] = "null";
                 }
             }
         }
-        for (int lg = 0; lg < display.length; lg++) {
-            for (int col = 0; col < display[0].length; col++) {
-
-                if (display[lg][col].equals("GRASS")) {
+        for (int lg = 0; lg < animals.length; lg++) {
+            int row = animals[lg].getPositionOnBoard().getRow();
+            int col = animals[lg].getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animals[lg].toString();
+        }
+        for (int lg = 0; lg < boardDisplay.length; lg++) {
+            for (int col = 0; col < boardDisplay[0].length; col++) {
+                if (boardDisplay[lg][col].equals("Snail")) {
+                    System.out.println("\033[42m|   SNAIL   |\033[0m");
+                } else if (boardDisplay[lg][col].equals("Spider")) {
+                    System.out.println("\033[42m|   SPIDER   |\033[0m");
+                } else if (boardDisplay[lg][col].equals("GRASS")) {
                     System.out.print("\033[42m|     |\033[0m");
-                } else if (display[lg][col].equals("STAR")) {
+                } else if (boardDisplay[lg][col].equals("STAR")) {
                     System.out.print("\033[42m|  *  |\033[0m");
                 } else {
                     System.out.print("       ");
                 }
-                if (col == display[0].length - 1) {
+                if (col == boardDisplay[0].length - 1) {
                     System.out.println("");
                 }
             }
