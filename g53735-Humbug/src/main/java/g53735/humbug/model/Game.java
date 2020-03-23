@@ -6,8 +6,8 @@ package g53735.humbug.model;
  */
 public class Game implements Model {
 
-    Board board;
-    Animal[] animals;
+    private Board board;
+    private Animal[] animals;
 
     /**
      * Get the board.
@@ -30,13 +30,16 @@ public class Game implements Model {
     }
 
     /**
-     * Initialize the game board and animals for a level.
+     * Initialize the game board and animals for a given level.
      *
      * @param level the given level.
      */
     @Override
     public void startLevel(int level) {
-        this.board = Board.getInitialBoard();
+        if (level == 1) {
+            this.board = Board.getInitialBoard();
+            this.animals = new Animal[]{new Snail(new Position(0, 0))};
+        }
     }
 
     /**
@@ -46,13 +49,17 @@ public class Game implements Model {
      */
     @Override
     public boolean levelIsOver() {
-        for (int lg = 0; lg < board.getNbRow(); lg++) {
-            for (int col = 0; col < board.getNbColumn(); col++) {
-                Position pos = new Position(lg, col);
-//                if(board.getSquareType(pos) == SquareType.STAR && )
-            }
+        boolean end = true;
+        for (Animal animal : animals) {
+            do {
+                end = true;
+                if (!animal.isOnStar()) {
+                    end = false;
+                    return end;
+                }
+            } while (animal.isOnStar() && end);
         }
-        return false;
+        return end;
     }
 
     /**
@@ -63,5 +70,27 @@ public class Game implements Model {
      */
     @Override
     public void move(Position position, Direction direction) {
+        if (position == null || direction == null) {
+            throw new IllegalArgumentException("Not a good position"
+                    + " or direction");
+        }
+//        if (position.getRow() == null || position.getColumn() == null) {
+//            throw new IllegalArgumentException("Not a good position");
+//        }
+        Position nextPos = position.next(direction);
+        int i = 0;
+        boolean free = true;
+        while (i < animals.length && free) {
+            for (Animal animal : animals) {
+                if (animal.getPositionOnBoard().equals(nextPos)) {
+                    free = false;
+                }
+            }
+        }
+        if (free) {
+            position = nextPos;
+        } else {
+            System.out.println("Déplacement pas permis");
+        }
     }
 }
