@@ -73,27 +73,44 @@ public class Game implements Model {
             throw new IllegalArgumentException("Not a good position"
                     + " or direction");
         }
-//        if (position.getRow() == null || position.getColumn() == null) {
-//            throw new IllegalArgumentException("Not a good position");
-//        }
-        Position nextPos = position.next(direction);
+        for (int i = 0; i < getAnimals().length; i++) {
+            if (getAnimals()[i].move(getBoard(), direction, getAnimals())
+                    == null) {
+                throw new IllegalArgumentException("move not valid");
+            }
+        }
+
+        int index = 0;
+        Position nextPos = getAnimals()[index].move(getBoard(), direction,
+                getAnimals());
         int i = 0;
         boolean free = true;
-        while (i < animals.length && free) {
-            for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().getRow() == nextPos.getRow()
-                        && animal.getPositionOnBoard().getColumn()
+        while (i < getAnimals().length && free) {
+            for (int j = 0; j < getAnimals().length; j++) {
+                if (getAnimals()[i].getPositionOnBoard().getRow()
+                        == nextPos.getRow()
+                        && getAnimals()[i].getPositionOnBoard().getColumn()
                         == nextPos.getColumn()) {
                     free = false;
                 }
             }
+            if (free && index < getAnimals().length) {
+                position = nextPos;
+                nextPos = getAnimals()[index].move(getBoard(), direction,
+                        getAnimals());
+            } else {
+                System.out.println("Déplacement pas permis");
+            }
+            index++;
             i++;
         }
-        if (free) {
-            position = nextPos;
-            nextPos = position.next(direction);
-        } else {
-            System.out.println("Déplacement pas permis");
-        }
+        //        if (free) {
+        //            position = getAnimals()[i].move(board, direction,
+//        animals);
+        //            nextPos = position.next(direction);
+        //        }
+//        else {
+//            System.out.println("Déplacement pas permis");
+//        }
     }
 }

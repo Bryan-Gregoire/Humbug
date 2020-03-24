@@ -10,15 +10,15 @@ import g53735.humbug.view.text.View;
  * @author g53735
  */
 public class Controller {
-    
+
     private Model game;
     private View view;
-    
+
     public Controller(Model game, View interfaceView) {
         this.game = game;
         this.view = interfaceView;
     }
-    
+
     public void startGame() {
         game.startLevel(1);
         while (!game.levelIsOver()) {
