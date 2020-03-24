@@ -49,17 +49,16 @@ public class Game implements Model {
      */
     @Override
     public boolean levelIsOver() {
-        boolean end = true;
-        for (Animal animal : animals) {
-            do {
-                end = true;
-                if (!animal.isOnStar()) {
-                    end = false;
-                    return end;
-                }
-            } while (animal.isOnStar() && end);
+        boolean[] allOnStar = new boolean[getAnimals().length];
+        for (int i = 0; i < getAnimals().length; i++) {
+            allOnStar[i] = getAnimals()[i].isOnStar();
         }
-        return end;
+        for (int i = 0; i < allOnStar.length; i++) {
+            if (allOnStar[i] == false) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

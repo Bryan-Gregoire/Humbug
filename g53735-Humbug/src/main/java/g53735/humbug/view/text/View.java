@@ -37,23 +37,29 @@ public class View implements InterfaceView {
                 }
             }
         }
-        for (int lg = 0; lg < animals.length; lg++) {
-            int row = animals[lg].getPositionOnBoard().getRow();
-            int col = animals[lg].getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animals[lg].toString();
+        for (Animal animal : animals) {
+            int row = animal.getPositionOnBoard().getRow();
+            int col = animal.getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animal.toString();
         }
-        for (int lg = 0; lg < boardDisplay.length; lg++) {
+        for (String[] boardDisplay1 : boardDisplay) {
             for (int col = 0; col < boardDisplay[0].length; col++) {
-                if (boardDisplay[lg][col].equals("Snail")) {
-                    System.out.print("\033[42m|  SNAIL  |\033[0m");
-                } else if (boardDisplay[lg][col].equals("Spider")) {
-                    System.out.print("\033[42m|  SPIDER |\033[0m");
-                } else if (boardDisplay[lg][col].equals("GRASS")) {
-                    System.out.print("\033[42m|         |\033[0m");
-                } else if (boardDisplay[lg][col].equals("STAR")) {
-                    System.out.print("\033[42m|    *    |\033[0m");
-                } else {
-                    System.out.print("           ");
+                switch (boardDisplay1[col]) {
+                    case "Snail":
+                        System.out.print("\033[42m|  SNAIL  |\033[0m");
+                        break;
+                    case "Spider":
+                        System.out.print("\033[42m|  SPIDER |\033[0m");
+                        break;
+                    case "GRASS":
+                        System.out.print("\033[42m|         |\033[0m");
+                        break;
+                    case "STAR":
+                        System.out.print("\033[42m|    *    |\033[0m");
+                        break;
+                    default:
+                        System.out.print("           ");
+                        break;
                 }
                 if (col == boardDisplay[0].length - 1) {
                     System.out.println("");
@@ -79,9 +85,9 @@ public class View implements InterfaceView {
      */
     @Override
     public Position askPosition() {
-        System.out.println("Enter a position: ");
-        int a = enterInteger("Row");
-        int b = enterInteger("Column");
+        System.out.println("Enter a position");
+        int a = enterInteger("Row : ");
+        int b = enterInteger("Column : ");
         Position position = new Position(a, b);
         System.out.println("The given position : " + "(" + a + ", " + b + ")");
         return position;
@@ -132,7 +138,7 @@ public class View implements InterfaceView {
         while (!keyboard.hasNextInt()) {
             keyboard.next();
             System.out.println("The number entered is not an integer");
-            System.out.println(message);
+            System.out.print(message);
         }
         return keyboard.nextInt();
     }
