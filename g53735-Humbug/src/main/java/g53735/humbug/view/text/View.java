@@ -37,31 +37,25 @@ public class View implements InterfaceView {
                 }
             }
         }
-        for (Animal animal : animals) {
-            int row = animal.getPositionOnBoard().getRow();
-            int col = animal.getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animal.toString();
+        for (int lg = 0; lg < animals.length; lg++) {
+            int row = animals[lg].getPositionOnBoard().getRow();
+            int col = animals[lg].getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animals[lg].toString();
         }
-        for (String[] boardDisplay1 : boardDisplay) {
+        for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[0].length; col++) {
-                switch (boardDisplay1[col]) {
-                    case "Snail":
-                        System.out.print("\033[42m|  SNAIL  |\033[0m");
-                        break;
-                    case "Spider":
-                        System.out.print("\033[42m|  SPIDER |\033[0m");
-                        break;
-                    case "GRASS":
-                        System.out.print("\033[42m|         |\033[0m");
-                        break;
-                    case "STAR":
-                        System.out.print("\033[42m|    *    |\033[0m");
-                        break;
-                    default:
-                        System.out.print("           ");
-                        break;
+                if (boardDisplay[lg][col].equals("Snail")) {
+                    System.out.print("\033[42m|  SNAIL  |\033[0m");
+                } else if (boardDisplay[lg][col].equals("Spider")) {
+                    System.out.print("\033[42m|  SPIDER |\033[0m");
+                } else if (boardDisplay[lg][col].equals("GRASS")) {
+                    System.out.print("\033[42m|         |\033[0m");
+                } else if (boardDisplay[lg][col].equals("STAR")) {
+                    System.out.print("\033[42m|    *    |\033[0m");
+                } else {
+                    System.out.print("           ");
                 }
-                if (col == boardDisplay[0].length - 1) {
+                if(col == boardDisplay[0].length - 1){
                     System.out.println("");
                 }
             }

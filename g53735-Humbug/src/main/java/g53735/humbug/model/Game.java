@@ -81,13 +81,17 @@ public class Game implements Model {
         boolean free = true;
         while (i < animals.length && free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)) {
+                if (animal.getPositionOnBoard().getRow() == nextPos.getRow()
+                        && animal.getPositionOnBoard().getColumn()
+                        == nextPos.getColumn()) {
                     free = false;
                 }
             }
+            i++;
         }
         if (free) {
             position = nextPos;
+            nextPos = position.next(direction);
         } else {
             System.out.println("Déplacement pas permis");
         }
