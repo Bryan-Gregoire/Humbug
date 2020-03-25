@@ -37,10 +37,10 @@ public class View implements InterfaceView {
                 }
             }
         }
-        for (int lg = 0; lg < animals.length; lg++) {
-            int row = animals[lg].getPositionOnBoard().getRow();
-            int col = animals[lg].getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animals[lg].toString();
+        for (int i = 0; i < animals.length; i++) {
+            int row = animals[i].getPositionOnBoard().getRow();
+            int col = animals[i].getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animals[i].toString();
         }
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[0].length; col++) {

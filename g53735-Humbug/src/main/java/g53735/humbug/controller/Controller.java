@@ -8,11 +8,11 @@ import g53735.humbug.view.text.View;
 /**
  * The controller represents the dynamics of the game and the update of the view
  * as you go along.
- * 
+ *
  * @author g53735
  */
 public class Controller {
-
+    
     private Model game;
     private View view;
 
@@ -37,7 +37,12 @@ public class Controller {
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
             Direction direction = view.askDirection();
-            game.move(position, direction);
+            try {
+                game.move(position, direction);
+            } catch (ArithmeticException e) {
+                view.displayError("You lost");
+            }
         }
+        System.out.println("Well done, you won");
     }
 }

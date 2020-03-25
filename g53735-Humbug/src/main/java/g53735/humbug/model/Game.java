@@ -3,7 +3,7 @@ package g53735.humbug.model;
 /**
  * Brings together the elements necessary for the game to present a facade to
  * the view.
- * 
+ *
  * @author g53735
  */
 public class Game implements Model {
@@ -78,16 +78,16 @@ public class Game implements Model {
         for (int i = 0; i < getAnimals().length; i++) {
             if (getAnimals()[i].move(getBoard(), direction, getAnimals())
                     == null) {
-                throw new IllegalArgumentException("move not valid");
+                throw new IllegalArgumentException("You lost");
             }
         }
 
-        int index = 0;
-        Position nextPos = getAnimals()[index].move(getBoard(), direction,
-                getAnimals());
         int i = 0;
+        Position nextPos = getAnimals()[0].move(getBoard(), direction,
+                getAnimals());
         boolean free = true;
-        while (i < getAnimals().length && free) {        // Ajout d'une méthode privé c'est mieux !
+        int index = 1;
+        while (i < getAnimals().length && free) {
             for (int j = 0; j < getAnimals().length; j++) {
                 if (getAnimals()[i].getPositionOnBoard().getRow()
                         == nextPos.getRow()
@@ -96,15 +96,15 @@ public class Game implements Model {
                     free = false;
                 }
             }
-            if (free && index < getAnimals().length) {
-                position = nextPos;
-                nextPos = getAnimals()[index].move(getBoard(), direction,
-                        getAnimals());
+            if (free) {
+                getAnimals()[i].setPositionOnBoard(nextPos);
             } else {
                 System.out.println("Déplacement pas permis");
             }
-            index++;
+            nextPos = getAnimals()[index].move(getBoard(), direction,
+                    getAnimals());
             i++;
+            index++;
         }
     }
 }
