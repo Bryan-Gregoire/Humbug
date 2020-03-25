@@ -95,16 +95,18 @@ public class Game implements Model {
                         == nextPos.getColumn()) {
                     free = false;
                 }
-            }
-            if (free) {
-                getAnimals()[i].setPositionOnBoard(nextPos);
-            } else {
-                System.out.println("Déplacement pas permis");
-            }
-            nextPos = getAnimals()[index].move(getBoard(), direction,
+                if (free) {
+                    getAnimals()[i].setPositionOnBoard(nextPos);
+                } else {
+                    System.out.println("move not valid");
+                }
+                if(index < getAnimals().length) {
+                    nextPos = getAnimals()[index].move(getBoard(), direction,
                     getAnimals());
+                }
+                index++;
+            }
             i++;
-            index++;
         }
     }
 }
