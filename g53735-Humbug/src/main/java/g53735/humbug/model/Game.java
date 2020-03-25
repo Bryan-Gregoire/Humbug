@@ -1,7 +1,9 @@
 package g53735.humbug.model;
 
 /**
- *
+ * Brings together the elements necessary for the game to present a facade to
+ * the view.
+ * 
  * @author g53735
  */
 public class Game implements Model {
@@ -85,7 +87,7 @@ public class Game implements Model {
                 getAnimals());
         int i = 0;
         boolean free = true;
-        while (i < getAnimals().length && free) {
+        while (i < getAnimals().length && free) {        // Ajout d'une méthode privé c'est mieux !
             for (int j = 0; j < getAnimals().length; j++) {
                 if (getAnimals()[i].getPositionOnBoard().getRow()
                         == nextPos.getRow()
@@ -104,13 +106,5 @@ public class Game implements Model {
             index++;
             i++;
         }
-        //        if (free) {
-        //            position = getAnimals()[i].move(board, direction,
-//        animals);
-        //            nextPos = position.next(direction);
-        //        }
-//        else {
-//            System.out.println("Déplacement pas permis");
-//        }
     }
 }

@@ -1,6 +1,7 @@
 package g53735.humbug.model;
 
 /**
+ * Represent the snail in the game.
  *
  * @author g53735
  */
@@ -10,6 +11,14 @@ public class Snail extends Animal {
         super(positionOnBoard);
     }
 
+    /**
+     * Move the animal, change the position of the animal.
+     *
+     * @param board the given board.
+     * @param direction the given direction where we want to move the animal.
+     * @param animals the animals.
+     * @return the new position of the animal.
+     */
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
         Position snail = this.getPositionOnBoard();
@@ -37,6 +46,9 @@ public class Snail extends Animal {
         return snail = nextPos;
     }
 
+    /**
+     * @return a String that represent the animal. 
+     */
     @Override
     public String toString() {
         return "Snail";

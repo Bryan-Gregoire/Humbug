@@ -2,7 +2,7 @@ package g53735.humbug.model;
 
 /**
  * Represent the animal on the game board.
- * 
+ *
  * @author g53735
  */
 public abstract class Animal {

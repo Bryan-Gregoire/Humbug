@@ -6,7 +6,8 @@ import g53735.humbug.model.Position;
 import g53735.humbug.model.Animal;
 
 /**
- *
+ * Interface that represents the methods that must be in the view.
+ * 
  * @author g53735
  */
 public interface InterfaceView {

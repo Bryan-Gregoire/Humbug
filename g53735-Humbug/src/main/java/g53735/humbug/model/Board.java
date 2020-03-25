@@ -19,6 +19,47 @@ public class Board {
     }
 
     /**
+     * Check the type of the square of a given position.
+     *
+     * @param pos the given position.
+     * @return the type of the square, grass or star.
+     */
+    public SquareType getSquareType(Position pos) {
+        if (!isInside(pos)) {
+            throw new IllegalArgumentException("Position not on the board");
+        }
+        return this.squares[pos.getRow()][pos.getColumn()].getType();
+    }
+
+    /**
+     * Gives the number of rows on the game board.
+     *
+     * @return the number of rows.
+     */
+    public int getNbRow() {
+        return this.squares.length;
+    }
+
+    /**
+     * Gives the number of columns on the game board.
+     *
+     * @return the number of columns.
+     */
+    public int getNbColumn() {
+        return this.squares[0].length;
+    }
+
+    /**
+     * Set a type for a given position.
+     * 
+     * @param pos the given position.
+     * @param type the given type to set.
+     */
+    public void setSquareType(Position pos, SquareType type) {
+        this.squares[pos.getRow()][pos.getColumn()].setType(type);
+    }
+
+    /**
      * Initializes a game board.
      *
      * @return the game board.
@@ -53,55 +94,5 @@ public class Board {
             inside = true;
         }
         return inside;
-    }
-
-    /**
-     * Check the type of the square of a given position.
-     *
-     * @param pos the given position.
-     * @return the type of the square, grass or star.
-     */
-    public SquareType getSquareType(Position pos) {
-        if (!isInside(pos)) {
-            throw new IllegalArgumentException("Position not on the board");
-        }
-        return this.squares[pos.getRow()][pos.getColumn()].getType();
-    }
-//    public SquareType getSquareType(Position pos) {
-//        if (pos == null) {
-//            throw new IllegalArgumentException("Position not on the board");
-//        } else if (squares[pos.getRow()][pos.getColumn()] == null) {
-//            throw new IllegalArgumentException("Position not on the board");
-//        }
-//        return squares[pos.getRow()][pos.getColumn()].getType();
-//    }
-
-    /**
-     * Gives the number of rows on the game board.
-     *
-     * @return the number of rows.
-     */
-    public int getNbRow() {
-        return this.squares.length;
-    }
-
-    /**
-     * Gives the number of columns on the game board.
-     *
-     * @return the number of columns.
-     */
-    public int getNbColumn() {
-        return this.squares[0].length;
-    }
-
-//    
-//    public void removeStar(Position position){
-//        if(getSquareType(position) == SquareType.STAR) {
-//            
-//        }
-//    }
-    
-     public void setSquareType(Position pos,SquareType type) {
-      this.squares[pos.getRow()][pos.getColumn()].setType(type);
     }
 }
