@@ -103,21 +103,7 @@ public class View implements InterfaceView {
             System.out.println("This is not a direction");
             System.out.println("Enter a direction: ");
         }
-        switch (dir) {
-            case "NORTH":
-                Direction north = Direction.NORTH;
-                return north;
-            case "EAST":
-                Direction east = Direction.EAST;
-                return east;
-            case "SOUTH":
-                Direction south = Direction.SOUTH;
-                return south;
-            case "WEST":
-                Direction west = Direction.WEST;
-                return west;
-        }
-        return null;
+        return cardinalDirection(dir);
     }
 
     /**
@@ -135,5 +121,23 @@ public class View implements InterfaceView {
             System.out.print(message);
         }
         return keyboard.nextInt();
+    }
+    
+    private Direction cardinalDirection(String direction){
+        switch(direction){
+            case "NORTH":
+                Direction north = Direction.NORTH;
+                return north;
+            case "EAST":
+                Direction east = Direction.EAST;
+                return east;
+            case "SOUTH":
+                Direction south = Direction.SOUTH;
+                return south;
+            case "WEST":
+                Direction west = Direction.WEST;
+                return west;
+        }
+        return null;
     }
 }
