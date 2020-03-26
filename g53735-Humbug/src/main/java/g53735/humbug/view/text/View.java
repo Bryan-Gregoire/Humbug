@@ -84,7 +84,7 @@ public class View implements InterfaceView {
      */
     @Override
     public Position askPosition() {
-        System.out.println("Enter a position");
+        System.out.println("Enter the position of the animal to move");
         int a = enterInteger("Row : ");
         int b = enterInteger("Column : ");
         Position position = new Position(a, b);
@@ -100,10 +100,11 @@ public class View implements InterfaceView {
     @Override
     public Direction askDirection() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter a direction(North,East,South,West): ");
+        System.out.println("Enter a direction( N(North),E(East),S(South),"
+                + "W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
-        while (!"NORTH".equals(dir) && !"EAST".equals(dir) && !"SOUTH".equals(dir)
-                && !"WEST".equals(dir)) {
+        while (!"N".equals(dir) && !"E".equals(dir) && !"S".equals(dir)
+                && !"W".equals(dir)) {
             keyboard.next();
             System.out.println("This is not a direction");
             System.out.println("Enter a direction: ");
@@ -130,16 +131,16 @@ public class View implements InterfaceView {
     
     private Direction cardinalDirection(String direction){
         switch(direction){
-            case "NORTH":
+            case "N":
                 Direction north = Direction.NORTH;
                 return north;
-            case "EAST":
+            case "E":
                 Direction east = Direction.EAST;
                 return east;
-            case "SOUTH":
+            case "S":
                 Direction south = Direction.SOUTH;
                 return south;
-            case "WEST":
+            case "W":
                 Direction west = Direction.WEST;
                 return west;
         }

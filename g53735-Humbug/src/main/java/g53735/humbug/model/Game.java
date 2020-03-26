@@ -75,12 +75,6 @@ public class Game implements Model {
             throw new IllegalArgumentException("Not a good position"
                     + " or direction");
         }
-        for (int i = 0; i < getAnimals().length; i++) {
-            if (getAnimals()[i].move(getBoard(), direction, getAnimals())
-                    == null) {
-                throw new IllegalArgumentException("You lost");
-            }
-        }
 
         int i = 0;
         Position nextPos = getAnimals()[0].move(getBoard(), direction,
@@ -100,9 +94,9 @@ public class Game implements Model {
                 } else {
                     System.out.println("move not valid");
                 }
-                if(index < getAnimals().length) {
+                if (index < getAnimals().length) {
                     nextPos = getAnimals()[index].move(getBoard(), direction,
-                    getAnimals());
+                            getAnimals());
                 }
                 index++;
             }

@@ -46,6 +46,12 @@ public class Controller {
                 System.out.println("Position not in game board, try again");
                 position = view.askPosition();
             }
+            int i = 0;
+            while (!game.getAnimals()[i].getPositionOnBoard().equals(position)){
+                System.out.println("There is no animal in this position.");
+                position = view.askPosition();
+            }
+            i++;
             Direction direction = view.askDirection();
             try {
                 game.move(position, direction);
