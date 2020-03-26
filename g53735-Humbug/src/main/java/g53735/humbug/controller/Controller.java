@@ -36,14 +36,9 @@ public class Controller {
         while (!game.levelIsOver()) {
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
-            if (position.getRow() > game.getBoard().getNbRow() - 1
-                    || position.getRow() < 0) {
-                System.out.println("Position not in the game board, try again");
-                position = view.askPosition();
-            }
-            if (position.getColumn() > game.getBoard().getNbColumn() - 1
-                    || position.getColumn() < 0) {
-                System.out.println("Position not in game board, try again");
+            if (!game.getBoard().isInside(position)){
+                System.out.println("Position out of the boundaries "
+                        + "of the game board, try again");
                 position = view.askPosition();
             }
             int i = 0;
@@ -56,7 +51,7 @@ public class Controller {
             try {
                 game.move(position, direction);
             } catch (Exception e) {
-                view.displayError("You lost");
+                view.displayError(e.getMessage());
             }
         }
         view.displayBoard(game.getBoard(), game.getAnimals());

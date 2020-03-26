@@ -88,11 +88,8 @@ public class Board {
                 || pos.getColumn() >= this.getNbColumn()
                 || pos.getRow() < 0 || pos.getColumn() < 0) {
             inside = false;
-        } else if (squares[pos.getRow()][pos.getColumn()] == null) {
-            inside = false;
-        } else {
-            inside = true;
-        }
+        } else inside = squares[pos.getRow()][pos.getColumn()] != null;
+        
         return inside;
     }
 }

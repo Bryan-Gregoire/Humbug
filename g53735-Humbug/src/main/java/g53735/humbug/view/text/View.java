@@ -22,7 +22,8 @@ public class View implements InterfaceView {
      */
     @Override
     public void displayBoard(Board board, Animal... animals) {
-        String[][] boardDisplay = new String[board.getNbRow()][board.getNbColumn()];
+        String[][] boardDisplay = new String[board.getNbRow()]
+                [board.getNbColumn()];
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[lg].length; col++) {
                 Position pos = new Position(lg, col);
@@ -42,8 +43,7 @@ public class View implements InterfaceView {
             int col = animals[i].getPositionOnBoard().getColumn();
             boardDisplay[row][col] = animals[i].toString();
             if(animals[i].isOnStar()){
-                boardDisplay[animals[i].getPositionOnBoard().getRow()]
-                        [animals[i].getPositionOnBoard().getColumn()] = "GRASS";
+                boardDisplay[row][col] = "GRASS";
             }
         }
             
@@ -85,8 +85,8 @@ public class View implements InterfaceView {
     @Override
     public Position askPosition() {
         System.out.println("Enter the position of the animal to move");
-        int a = enterInteger("Row : ");
-        int b = enterInteger("Column : ");
+        int a = enterInteger("Enter the row you want to select: ");
+        int b = enterInteger("Enter the Column you want to select");
         Position position = new Position(a, b);
         System.out.println("The given position : " + "(" + a + ", " + b + ")");
         return position;
@@ -123,7 +123,7 @@ public class View implements InterfaceView {
         System.out.println(message);
         while (!keyboard.hasNextInt()) {
             keyboard.next();
-            System.out.println("The number entered is not an integer");
+            System.out.println("not an integer, try again");
             System.out.print(message);
         }
         return keyboard.nextInt();
