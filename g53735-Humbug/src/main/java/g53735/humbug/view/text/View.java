@@ -100,14 +100,15 @@ public class View implements InterfaceView {
     @Override
     public Direction askDirection() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter a direction( N(North),E(East),S(South),"
-                + "W(West)): ");
+        System.out.println("Enter a direction(N(North), E(East), S(South),"
+                + " W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
-        while (!"N".equals(dir) && !"E".equals(dir) && !"S".equals(dir)
-                && !"W".equals(dir)) {
-            keyboard.next();
+        while (!"N".equals(dir) && !"NORTH".equals(dir) && !"E".equals(dir)&& 
+                !"EAST".equals(dir) && !"S".equals(dir) && !"SOUTH".equals(dir)
+                && !"W".equals(dir) && !"WEST".equals(dir)) {
             System.out.println("This is not a direction");
             System.out.println("Enter a direction: ");
+            dir = keyboard.nextLine().toUpperCase();
         }
         return cardinalDirection(dir);
     }
@@ -132,15 +133,27 @@ public class View implements InterfaceView {
     private Direction cardinalDirection(String direction){
         switch(direction){
             case "N":
+                Direction n = Direction.NORTH;
+                return n;
+            case "NORTH":
                 Direction north = Direction.NORTH;
                 return north;
             case "E":
+                Direction e = Direction.EAST;
+                return e;
+            case "EAST":
                 Direction east = Direction.EAST;
                 return east;
             case "S":
+                Direction s = Direction.SOUTH;
+                return s;
+            case "SOUTH":
                 Direction south = Direction.SOUTH;
                 return south;
             case "W":
+                Direction w = Direction.WEST;
+                return w;
+            case "WEST":
                 Direction west = Direction.WEST;
                 return west;
         }
