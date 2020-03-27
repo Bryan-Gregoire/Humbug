@@ -12,8 +12,8 @@ import g53735.humbug.view.text.View;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("          HUMBUG          ");
-        System.out.println("--------------------------");
+        System.out.println("              HUMBUG             ");
+        System.out.println("---------------------------------");
         Controller controller = new Controller(new Game(), new View());
         controller.startGame();
     }
