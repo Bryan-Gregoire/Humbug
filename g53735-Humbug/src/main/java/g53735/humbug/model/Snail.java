@@ -47,7 +47,7 @@ public class Snail extends Animal {
     }
 
     /**
-     * @return a String that represent the animal. 
+     * @return a String that represent the animal.
      */
     @Override
     public String toString() {

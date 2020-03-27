@@ -2,7 +2,7 @@ package g53735.humbug.model;
 
 /**
  * Represent the spider in the game.
- * 
+ *
  * @author g53735
  */
 public class Spider extends Animal {
@@ -10,10 +10,10 @@ public class Spider extends Animal {
     public Spider(Position positionOnBoard) {
         super(positionOnBoard);
     }
-    
+
     /**
      * Move the animal, change the position of the animal.
-     * 
+     *
      * @param board the given board.
      * @param direction the given direction where we want to move the animal.
      * @param animals the animals.
@@ -23,11 +23,11 @@ public class Spider extends Animal {
     public Position move(Board board, Direction direction, Animal... animals) {
         Position spider = this.getPositionOnBoard();
         Position nextPos = spider.next(direction);
-        boolean free = true;
         if (!board.isInside(nextPos)) {
             this.setPositionOnBoard(null);
             return null;
         }
+        boolean free = true;
         while (board.isInside(nextPos) && free) {
             for (Animal animal : animals) {
                 if (animal.getPositionOnBoard().equals(nextPos)) {

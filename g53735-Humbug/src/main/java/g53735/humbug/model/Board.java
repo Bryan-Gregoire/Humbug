@@ -51,7 +51,7 @@ public class Board {
 
     /**
      * Set a type for a given position.
-     * 
+     *
      * @param pos the given position.
      * @param type the given type to set.
      */
@@ -88,8 +88,10 @@ public class Board {
                 || pos.getColumn() >= this.getNbColumn()
                 || pos.getRow() < 0 || pos.getColumn() < 0) {
             inside = false;
-        } else inside = squares[pos.getRow()][pos.getColumn()] != null;
-        
+        } else {
+            inside = squares[pos.getRow()][pos.getColumn()] != null;
+        }
+
         return inside;
     }
 }

@@ -6,7 +6,7 @@ import g53735.humbug.view.text.View;
 
 /**
  * Create the controller and start the game.
- * 
+ *
  * @author g53735
  */
 public class Main {

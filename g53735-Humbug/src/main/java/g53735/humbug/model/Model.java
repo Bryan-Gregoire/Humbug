@@ -2,7 +2,7 @@ package g53735.humbug.model;
 
 /**
  * Define methods that the class Game should implement.
- * 
+ *
  * @author g53735
  */
 public interface Model {

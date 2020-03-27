@@ -36,7 +36,7 @@ public class Controller {
         while (!game.levelIsOver()) {
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
-            if (!game.getBoard().isInside(position)){
+            if (!game.getBoard().isInside(position)) {
                 System.out.println("Position out of the boundaries "
                         + "of the game board, try again");
                 position = view.askPosition();
@@ -51,7 +51,7 @@ public class Controller {
             try {
                 game.move(position, direction);
             } catch (Exception e) {
-                view.displayError(e.getMessage());
+                view.displayError(e.getMessage() + "You lost");
             }
         }
         view.displayBoard(game.getBoard(), game.getAnimals());

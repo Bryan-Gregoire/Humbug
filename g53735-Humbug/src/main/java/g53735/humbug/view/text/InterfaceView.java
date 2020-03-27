@@ -7,12 +7,12 @@ import g53735.humbug.model.Animal;
 
 /**
  * Interface that represents the methods that must be in the view.
- * 
+ *
  * @author g53735
  */
 public interface InterfaceView {
 
-    void displayBoard(Board board,Animal... animals);
+    void displayBoard(Board board, Animal... animals);
 
     Position askPosition();
 

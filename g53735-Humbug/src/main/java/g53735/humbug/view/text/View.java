@@ -22,8 +22,7 @@ public class View implements InterfaceView {
      */
     @Override
     public void displayBoard(Board board, Animal... animals) {
-        String[][] boardDisplay = new String[board.getNbRow()]
-                [board.getNbColumn()];
+        String[][] boardDisplay = new String[board.getNbRow()][board.getNbColumn()];
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[lg].length; col++) {
                 Position pos = new Position(lg, col);
@@ -42,11 +41,11 @@ public class View implements InterfaceView {
             int row = animals[i].getPositionOnBoard().getRow();
             int col = animals[i].getPositionOnBoard().getColumn();
             boardDisplay[row][col] = animals[i].toString();
-            if(animals[i].isOnStar()){
+            if (animals[i].isOnStar()) {
                 boardDisplay[row][col] = "GRASS";
             }
         }
-            
+
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[0].length; col++) {
                 if (boardDisplay[lg][col].equals("Snail")) {
@@ -60,7 +59,7 @@ public class View implements InterfaceView {
                 } else {
                     System.out.print("           ");
                 }
-                if(col == boardDisplay[0].length - 1){
+                if (col == boardDisplay[0].length - 1) {
                     System.out.println("");
                 }
             }
@@ -103,8 +102,8 @@ public class View implements InterfaceView {
         System.out.println("Enter a direction(N(North), E(East), S(South),"
                 + " W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
-        while (!"N".equals(dir) && !"NORTH".equals(dir) && !"E".equals(dir)&& 
-                !"EAST".equals(dir) && !"S".equals(dir) && !"SOUTH".equals(dir)
+        while (!"N".equals(dir) && !"NORTH".equals(dir) && !"E".equals(dir)
+                && !"EAST".equals(dir) && !"S".equals(dir) && !"SOUTH".equals(dir)
                 && !"W".equals(dir) && !"WEST".equals(dir)) {
             System.out.println("This is not a direction");
             System.out.println("Enter a direction: ");
@@ -129,15 +128,16 @@ public class View implements InterfaceView {
         }
         return keyboard.nextInt();
     }
-    
+
     /**
-     * If a given string corresponds to a cardinal direction, 
-     * we return this direction.
+     * If a given string corresponds to a cardinal direction, we return this
+     * direction.
+     *
      * @param direction the given string
      * @return a cardinal direction.
      */
-    private Direction cardinalDirection(String direction){
-        switch(direction){
+    private Direction cardinalDirection(String direction) {
+        switch (direction) {
             case "N":
                 Direction n = Direction.NORTH;
                 return n;
