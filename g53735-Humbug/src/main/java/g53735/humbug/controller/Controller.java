@@ -33,8 +33,9 @@ public class Controller {
      *
      */
     public void startGame() {
-        game.startLevel(1);
-        while (!game.levelIsOver()) {
+        try {
+            game.startLevel(1);
+            while (!game.levelIsOver()) {
                 view.displayBoard(game.getBoard(), game.getAnimals());
                 Position position = view.askPosition();
                 if (!game.getBoard().isInside(position)) {
@@ -43,19 +44,20 @@ public class Controller {
                     position = view.askPosition();
                 }
                 int i = 0;
-            while (!game.getAnimals()[i].getPositionOnBoard().equals(position)){
+                while (!game.getAnimals()[i].getPositionOnBoard()
+                        .equals(position)) {
                     System.out.println("There is no animal in this position.");
                     position = view.askPosition();
                 }
                 i++;
                 Direction direction = view.askDirection();
-            try {
                 game.move(position, direction);
-            } catch (Exception e) {
-                view.displayError("You lost");
             }
+            view.displayBoard(game.getBoard(), game.getAnimals());
+            System.out.println("Well done, you won :) ");
+        } catch (Exception e) {
+            System.out.println("");
+            view.displayError("You lost :( ");
         }
-        view.displayBoard(game.getBoard(), game.getAnimals());
-        System.out.println("Well done, you won");
     }
 }
