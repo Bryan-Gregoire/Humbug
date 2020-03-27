@@ -51,7 +51,7 @@ public class Controller {
             try {
                 game.move(position, direction);
             } catch (Exception e) {
-                view.displayError(e.getMessage() + "You lost");
+                view.displayError("You lost");
             }
         }
         view.displayBoard(game.getBoard(), game.getAnimals());
