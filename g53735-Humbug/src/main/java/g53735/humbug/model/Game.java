@@ -51,12 +51,8 @@ public class Game implements Model {
      */
     @Override
     public boolean levelIsOver() {
-        boolean[] allOnStar = new boolean[getAnimals().length];
-        for (int i = 0; i < getAnimals().length; i++) {
-            allOnStar[i] = getAnimals()[i].isOnStar();
-        }
-        for (int i = 0; i < allOnStar.length; i++) {
-            if (allOnStar[i] == false) {
+        for (Animal animal : getAnimals()) {
+            if (!animal.isOnStar()) {
                 return false;
             }
         }

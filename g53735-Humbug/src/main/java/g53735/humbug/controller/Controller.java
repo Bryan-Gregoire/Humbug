@@ -38,18 +38,23 @@ public class Controller {
             while (!game.levelIsOver()) {
                 view.displayBoard(game.getBoard(), game.getAnimals());
                 Position position = view.askPosition();
-                if (!game.getBoard().isInside(position)) {
-                    System.out.println("Position out of the boundaries "
-                            + "of the game board, try again");
-                    position = view.askPosition();
-                }
                 int i = 0;
-                while (!game.getAnimals()[i].getPositionOnBoard()
-                        .equals(position)) {
-                    System.out.println("There is no animal in this position.");
-                    position = view.askPosition();
+                while (!game.getBoard().isInside(position)
+                        || !game.getAnimals()[i].getPositionOnBoard()
+                                .equals(position)) {
+                    if (!game.getBoard().isInside(position)) {
+                        System.out.println("Position is not on the game board");
+                        position = view.askPosition();
+                    } else {
+                        if (i == game.getAnimals().length - 1) {
+                            System.out.println("There is no animal in this"
+                                    + " position.");
+                            position = view.askPosition();
+                        } else {
+                            i++;
+                        }
+                    }
                 }
-                i++;
                 Direction direction = view.askDirection();
                 game.move(position, direction);
             }
