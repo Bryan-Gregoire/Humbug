@@ -22,7 +22,8 @@ public class View implements InterfaceView {
      */
     @Override
     public void displayBoard(Board board, Animal... animals) {
-        String[][] boardDisplay = new String[board.getNbRow()][board.getNbColumn()];
+        String[][] boardDisplay
+                = new String[board.getNbRow()][board.getNbColumn()];
         for (int lg = 0; lg < boardDisplay.length; lg++) {
             for (int col = 0; col < boardDisplay[lg].length; col++) {
                 Position pos = new Position(lg, col);
@@ -103,8 +104,9 @@ public class View implements InterfaceView {
                 + " W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
         while (!"N".equals(dir) && !"NORTH".equals(dir) && !"E".equals(dir)
-                && !"EAST".equals(dir) && !"S".equals(dir) && !"SOUTH".equals(dir)
-                && !"W".equals(dir) && !"WEST".equals(dir)) {
+                && !"EAST".equals(dir) && !"S".equals(dir)
+                && !"SOUTH".equals(dir) && !"W".equals(dir)
+                && !"WEST".equals(dir)) {
             System.out.println("This is not a direction");
             System.out.println("Enter a direction: ");
             dir = keyboard.nextLine().toUpperCase();
