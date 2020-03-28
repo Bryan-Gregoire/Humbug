@@ -33,36 +33,40 @@ public class Controller {
      *
      */
     public void startGame() {
-        try {
-            game.startLevel(1);
-            while (!game.levelIsOver()) {
-                view.displayBoard(game.getBoard(), game.getAnimals());
-                Position position = view.askPosition();
-                int i = 0;
-                while (!game.getBoard().isInside(position)
-                        || !game.getAnimals()[i].getPositionOnBoard()
-                                .equals(position)) {
-                    if (!game.getBoard().isInside(position)) {
-                        System.out.println("Position is not on the game board");
+        game.startLevel(1);
+        while (!game.levelIsOver()) {
+            view.displayBoard(game.getBoard(), game.getAnimals());
+            Position position = view.askPosition();
+            int i = 0;
+            while (!game.getBoard().isInside(position)
+                    || !game.getAnimals()[i].getPositionOnBoard()
+                            .equals(position)) {
+                if (!game.getBoard().isInside(position)) {
+                    System.out.println("Position is not on the game board");
+                    position = view.askPosition();
+                } else {
+                    if (i == game.getAnimals().length - 1) {
+                        System.out.println("There is no animal in this"
+                                + " position.");
                         position = view.askPosition();
                     } else {
-                        if (i == game.getAnimals().length - 1) {
-                            System.out.println("There is no animal in this"
-                                    + " position.");
-                            position = view.askPosition();
-                        } else {
-                            i++;
-                        }
+                        i++;
                     }
                 }
-                Direction direction = view.askDirection();
-                game.move(position, direction);
             }
+            Direction direction = view.askDirection();
+            try {
+                game.move(position, direction);
+            } catch (Exception e) {
+                System.out.println("");
+                view.displayError("You lost :( ");
+                break;
+            }
+        }
+        if (game.levelIsOver()) {
             view.displayBoard(game.getBoard(), game.getAnimals());
             System.out.println("Well done, you won :) ");
-        } catch (Exception e) {
-            System.out.println("");
-            view.displayError("You lost :( ");
         }
+
     }
 }

@@ -85,7 +85,7 @@ public class View implements InterfaceView {
     public Position askPosition() {
         System.out.println("Enter the position of the animal to move");
         int a = enterInteger("Enter the row you want to select: ");
-        int b = enterInteger("Enter the Column you want to select");
+        int b = enterInteger("Enter the Column you want to select: ");
         Position position = new Position(a, b);
         System.out.println("The given position : " + "(" + a + ", " + b + ")");
         return position;
