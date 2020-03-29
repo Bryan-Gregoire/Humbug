@@ -72,31 +72,25 @@ public class Game implements Model {
                     + " or direction");
         }
 
-        int i = 0;
-        Position nextPos = getAnimals()[0].move(getBoard(), direction,
-                getAnimals());
-        boolean free = true;
-        int index = 1;
-        while (i < getAnimals().length && free) {
-            for (int j = 0; j < getAnimals().length; j++) {
-                if (getAnimals()[i].getPositionOnBoard().getRow()
-                        == nextPos.getRow()
-                        && getAnimals()[i].getPositionOnBoard().getColumn()
-                        == nextPos.getColumn()) {
-                    free = false;
-                }
-                if (free) {
-                    getAnimals()[i].setPositionOnBoard(nextPos);
-                } else {
-                    System.out.println("move not valid");
-                }
-                if (index < getAnimals().length) {
-                    nextPos = getAnimals()[index].move(getBoard(), direction,
-                            getAnimals());
-                }
-                index++;
+        Position nextPos = position;
+        for (Animal animal : getAnimals()) {
+            if (position.equals(animal.getPositionOnBoard())) {
+                nextPos = animal.move(getBoard(), direction,
+                        getAnimals());
             }
-            i++;
+        }
+        boolean free = true;
+        for (Animal animal : getAnimals()) {
+            if (animal.getPositionOnBoard().equals(nextPos)) {
+                free = false;
+            }
+        }
+        if (free) {
+            for (Animal animal : getAnimals()) {
+                if (position.equals(animal.getPositionOnBoard())) {
+                    animal.setPositionOnBoard(nextPos);
+                }
+            }
         }
     }
 }
