@@ -100,8 +100,8 @@ public class View implements InterfaceView {
     @Override
     public Direction askDirection() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter a direction(N(North), E(East), S(South),"
-                + " W(West)): ");
+        System.out.println("Enter a cardinal direction(N(North), E(East),"
+                + " S(South), W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
         while (!"N".equals(dir) && !"NORTH".equals(dir) && !"E".equals(dir)
                 && !"EAST".equals(dir) && !"S".equals(dir)
@@ -132,11 +132,10 @@ public class View implements InterfaceView {
     }
 
     /**
-     * If a given string corresponds to a cardinal direction, we return this
-     * direction.
+     * If a given string corresponds to a cardinal direction.
      *
-     * @param direction the given string
-     * @return a cardinal direction.
+     * @param direction the given string.
+     * @return the cardinal direction.
      */
     private Direction cardinalDirection(String direction) {
         switch (direction) {

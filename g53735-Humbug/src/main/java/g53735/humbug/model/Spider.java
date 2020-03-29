@@ -7,6 +7,11 @@ package g53735.humbug.model;
  */
 public class Spider extends Animal {
 
+    /**
+     * Constructor of spider.
+     *
+     * @param positionOnBoard the position of spider in the game board.
+     */
     public Spider(Position positionOnBoard) {
         super(positionOnBoard);
     }

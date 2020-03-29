@@ -67,6 +67,5 @@ public class Controller {
             view.displayBoard(game.getBoard(), game.getAnimals());
             System.out.println("Well done, you won :) ");
         }
-
     }
 }

@@ -89,5 +89,4 @@ public class Position {
         return new Position(row + direction.getDeltaRow(),
                 column + direction.getDeltaColumn());
     }
-
 }

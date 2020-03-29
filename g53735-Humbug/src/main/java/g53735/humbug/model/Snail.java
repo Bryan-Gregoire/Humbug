@@ -7,6 +7,11 @@ package g53735.humbug.model;
  */
 public class Snail extends Animal {
 
+    /**
+     * Constructor of Snail.
+     * 
+     * @param positionOnBoard the position of snail on the game board.
+     */
     public Snail(Position positionOnBoard) {
         super(positionOnBoard);
     }

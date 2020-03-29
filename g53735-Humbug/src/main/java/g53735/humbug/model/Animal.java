@@ -13,7 +13,7 @@ public abstract class Animal {
     /**
      * Constructor of animal.
      *
-     * @param positionOnBoard
+     * @param positionOnBoard the position of the animal on the game board.
      */
     public Animal(Position positionOnBoard) {
         this.positionOnBoard = positionOnBoard;
