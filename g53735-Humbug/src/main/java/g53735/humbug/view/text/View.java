@@ -38,11 +38,11 @@ public class View implements InterfaceView {
                 }
             }
         }
-        for (int i = 0; i < animals.length; i++) {
-            int row = animals[i].getPositionOnBoard().getRow();
-            int col = animals[i].getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animals[i].toString();
-            if (animals[i].isOnStar()) {
+        for (Animal animal : animals) {
+            int row = animal.getPositionOnBoard().getRow();
+            int col = animal.getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animal.toString();
+            if (animal.isOnStar()) {
                 boardDisplay[row][col] = "GRASS";
             }
         }
