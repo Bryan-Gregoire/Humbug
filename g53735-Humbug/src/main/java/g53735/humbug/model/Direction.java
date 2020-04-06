@@ -12,8 +12,8 @@ public enum Direction {
     EAST(0, 1),
     WEST(0, -1),;
 
-    private int deltaRow;
-    private int deltaColumn;
+    private final int deltaRow;
+    private final int deltaColumn;
 
     /**
      * Constructor of a direction where we want to move.
@@ -42,23 +42,5 @@ public enum Direction {
      */
     public int getDeltaColumn() {
         return this.deltaColumn;
-    }
-
-    /**
-     * Set the value of deltaRow.
-     *
-     * @param deltaRow new value of deltaRow.
-     */
-    public void setDeltaRow(int deltaRow) {
-        this.deltaRow = deltaRow;
-    }
-
-    /**
-     * Set the value of DeltaColumn.
-     *
-     * @param deltaColumn new value of DeltaColumn
-     */
-    public void setDeltaColumn(int deltaColumn) {
-        this.deltaColumn = deltaColumn;
     }
 }

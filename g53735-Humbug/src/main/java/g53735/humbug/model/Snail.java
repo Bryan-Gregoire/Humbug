@@ -9,7 +9,7 @@ public class Snail extends Animal {
 
     /**
      * Constructor of Snail.
-     * 
+     *
      * @param positionOnBoard the position of snail on the game board.
      */
     public Snail(Position positionOnBoard) {
@@ -29,11 +29,6 @@ public class Snail extends Animal {
         Position snail = this.getPositionOnBoard();
         Position nextPos = snail.next(direction);
 
-        if (!board.isInside(nextPos)) {
-            this.setPositionOnBoard(null);
-            return null;
-        }
-
         boolean free = true;
         for (Animal animal : animals) {
             if (animal.getPositionOnBoard().equals(nextPos)) {
@@ -48,7 +43,12 @@ public class Snail extends Animal {
             this.setOnStar(true);
             board.setSquareType(nextPos, SquareType.GRASS);
         }
-        return snail = nextPos;
+        snail = nextPos;
+        if (!board.isInside(snail)) {
+            this.setPositionOnBoard(null);
+            return null;
+        }
+        return snail;
     }
 
     /**

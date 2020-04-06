@@ -7,7 +7,7 @@ package g53735.humbug.model;
  */
 public class Board {
 
-    private Square[][] squares;
+    private final Square[][] squares;
 
     /**
      * Constructor of a game board.
@@ -56,6 +56,9 @@ public class Board {
      * @param type the given type to set.
      */
     public void setSquareType(Position pos, SquareType type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Not a type");
+        }
         this.squares[pos.getRow()][pos.getColumn()].setType(type);
     }
 
@@ -80,18 +83,15 @@ public class Board {
      * @return true if pos is in the game board, else false.
      */
     public boolean isInside(Position pos) {
-        boolean inside;
         if (pos == null) {
             throw new IllegalArgumentException("Position not on the board");
         }
         if (pos.getRow() >= this.getNbRow()
                 || pos.getColumn() >= this.getNbColumn()
                 || pos.getRow() < 0 || pos.getColumn() < 0) {
-            inside = false;
+            return false;
         } else {
-            inside = squares[pos.getRow()][pos.getColumn()] != null;
+            return squares[pos.getRow()][pos.getColumn()] != null;
         }
-
-        return inside;
     }
 }

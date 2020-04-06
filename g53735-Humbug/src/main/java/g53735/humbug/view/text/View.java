@@ -24,47 +24,12 @@ public class View implements InterfaceView {
     public void displayBoard(Board board, Animal... animals) {
         String[][] boardDisplay
                 = new String[board.getNbRow()][board.getNbColumn()];
-        for (int lg = 0; lg < boardDisplay.length; lg++) {
-            for (int col = 0; col < boardDisplay[lg].length; col++) {
-                Position pos = new Position(lg, col);
-                if (board.isInside(pos)
-                        && board.getSquareType(pos) == SquareType.STAR) {
-                    boardDisplay[lg][col] = "STAR";
-                } else if (board.isInside(pos)
-                        && board.getSquareType(pos) == SquareType.GRASS) {
-                    boardDisplay[lg][col] = "GRASS";
-                } else {
-                    boardDisplay[lg][col] = "null";
-                }
-            }
-        }
-        for (Animal animal : animals) {
-            int row = animal.getPositionOnBoard().getRow();
-            int col = animal.getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animal.toString();
-            if (animal.isOnStar()) {
-                boardDisplay[row][col] = "GRASS";
-            }
-        }
 
-        for (int lg = 0; lg < boardDisplay.length; lg++) {
-            for (int col = 0; col < boardDisplay[0].length; col++) {
-                if (boardDisplay[lg][col].equals("Snail")) {
-                    System.out.print("\033[42m|  SNAIL  |\033[0m");
-                } else if (boardDisplay[lg][col].equals("Spider")) {
-                    System.out.print("\033[42m|  SPIDER |\033[0m");
-                } else if (boardDisplay[lg][col].equals("GRASS")) {
-                    System.out.print("\033[42m|         |\033[0m");
-                } else if (boardDisplay[lg][col].equals("STAR")) {
-                    System.out.print("\033[42m|    *    |\033[0m");
-                } else {
-                    System.out.print("           ");
-                }
-                if (col == boardDisplay[0].length - 1) {
-                    System.out.println("");
-                }
-            }
-        }
+        boardDisplay = boardString(board, boardDisplay);
+
+        boardDisplay = animalOnBoard(boardDisplay, animals);
+
+        displayGameBoard(boardDisplay);
     }
 
     /**
@@ -92,6 +57,7 @@ public class View implements InterfaceView {
         return position;
     }
 
+    
     /**
      * Ask to enter a direction.
      *
@@ -114,6 +80,7 @@ public class View implements InterfaceView {
         return cardinalDirection(dir);
     }
 
+    
     /**
      * Ask a integer, while it is not a integer, ask again.
      *
@@ -131,6 +98,7 @@ public class View implements InterfaceView {
         return keyboard.nextInt();
     }
 
+    
     /**
      * If a given string corresponds to a cardinal direction.
      *
@@ -140,30 +108,84 @@ public class View implements InterfaceView {
     private Direction cardinalDirection(String direction) {
         switch (direction) {
             case "N":
-                Direction n = Direction.NORTH;
-                return n;
             case "NORTH":
-                Direction north = Direction.NORTH;
-                return north;
+                return Direction.NORTH;
             case "E":
-                Direction e = Direction.EAST;
-                return e;
             case "EAST":
-                Direction east = Direction.EAST;
-                return east;
+                return Direction.EAST;
             case "S":
-                Direction s = Direction.SOUTH;
-                return s;
             case "SOUTH":
-                Direction south = Direction.SOUTH;
-                return south;
+                return Direction.SOUTH;
             case "W":
-                Direction w = Direction.WEST;
-                return w;
             case "WEST":
-                Direction west = Direction.WEST;
-                return west;
+                return Direction.WEST;
         }
         return null;
+    }
+
+    /**
+     * 
+     * @param board
+     * @param boardDisplay
+     * @return 
+     */
+    private String[][] boardString(Board board, String[][] boardDisplay) {
+        for (int lg = 0; lg < boardDisplay.length; lg++) {
+            for (int col = 0; col < boardDisplay[lg].length; col++) {
+                Position pos = new Position(lg, col);
+                if (board.isInside(pos)
+                        && board.getSquareType(pos) == SquareType.STAR) {
+                    boardDisplay[lg][col] = "STAR";
+                } else if (board.isInside(pos)
+                        && board.getSquareType(pos) == SquareType.GRASS) {
+                    boardDisplay[lg][col] = "GRASS";
+                } else {
+                    boardDisplay[lg][col] = "null";
+                }
+            }
+        }
+        return boardDisplay;
+    }
+
+    
+    private String[][] animalOnBoard(String[][] boardDisplay,
+            Animal... animals) {
+        for (Animal animal : animals) {
+            int row = animal.getPositionOnBoard().getRow();
+            int col = animal.getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animal.toString();
+            if (animal.isOnStar()) {
+                boardDisplay[row][col] = "GRASS";
+            }
+        }
+        return boardDisplay;
+    }
+
+    
+    private void displayGameBoard(String[][] boardDisplay) {
+        for (String[] boardDisplay1 : boardDisplay) {
+            for (int col = 0; col < boardDisplay[0].length; col++) {
+                switch (boardDisplay1[col]) {
+                    case "Snail":
+                        System.out.print("\033[42m|  SNAIL  |\033[0m");
+                        break;
+                    case "Spider":
+                        System.out.print("\033[42m|  SPIDER |\033[0m");
+                        break;
+                    case "GRASS":
+                        System.out.print("\033[42m|         |\033[0m");
+                        break;
+                    case "STAR":
+                        System.out.print("\033[42m|    *    |\033[0m");
+                        break;
+                    default:
+                        System.out.print("           ");
+                        break;
+                }
+                if (col == boardDisplay[0].length - 1) {
+                    System.out.println("");
+                }
+            }
+        }
     }
 }
