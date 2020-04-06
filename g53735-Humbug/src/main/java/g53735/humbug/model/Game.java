@@ -71,11 +71,24 @@ public class Game implements Model {
             throw new IllegalArgumentException("Not a good position"
                     + " or direction");
         }
+        Position nextPos = position;
 
         for (Animal animal : getAnimals()) {
             if (position.equals(animal.getPositionOnBoard())) {
-                animal.setPositionOnBoard(animal.move(getBoard(), direction,
-                        getAnimals()));
+                nextPos = animal.move(getBoard(), direction, getAnimals());
+            }
+        }
+        boolean free = true;
+        for (Animal animal : getAnimals()) {
+            if (animal.getPositionOnBoard().equals(nextPos)) {
+                free = false;
+            }
+        }
+        if (free) {
+            for (Animal animal : getAnimals()) {
+                if (position.equals(animal.getPositionOnBoard())) {
+                    animal.setPositionOnBoard(nextPos);
+                }
             }
         }
     }

@@ -5,12 +5,11 @@ import static g53735.humbug.model.SquareType.STAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author Alex
+ * @author g53735
  */
 public class SnailTest {
 

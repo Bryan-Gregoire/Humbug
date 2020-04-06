@@ -28,6 +28,10 @@ public class Spider extends Animal {
     public Position move(Board board, Direction direction, Animal... animals) {
         Position spider = this.getPositionOnBoard();
         Position nextPos = spider.next(direction);
+        if (!board.isInside(nextPos)) {
+            this.setPositionOnBoard(null);
+            return null;
+        }
         boolean free = true;
         while (board.isInside(nextPos) && free) {
             for (Animal animal : animals) {
@@ -38,7 +42,7 @@ public class Spider extends Animal {
             if (free) {
                 spider = nextPos;
                 nextPos = spider.next(direction);
-                if (!board.isInside(spider)) {
+                if (!board.isInside(nextPos)) {
                     this.setPositionOnBoard(null);
                     return null;
                 }

@@ -28,7 +28,11 @@ public class Snail extends Animal {
     public Position move(Board board, Direction direction, Animal... animals) {
         Position snail = this.getPositionOnBoard();
         Position nextPos = snail.next(direction);
-
+        if (!board.isInside(nextPos)) {
+            this.setPositionOnBoard(null);
+            return null;
+        }
+        
         boolean free = true;
         for (Animal animal : animals) {
             if (animal.getPositionOnBoard().equals(nextPos)) {
@@ -43,12 +47,7 @@ public class Snail extends Animal {
             this.setOnStar(true);
             board.setSquareType(nextPos, SquareType.GRASS);
         }
-        snail = nextPos;
-        if (!board.isInside(snail)) {
-            this.setPositionOnBoard(null);
-            return null;
-        }
-        return snail;
+        return snail = nextPos;
     }
 
     /**
