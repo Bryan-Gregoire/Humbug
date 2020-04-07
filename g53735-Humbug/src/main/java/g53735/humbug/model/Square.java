@@ -34,6 +34,9 @@ public class Square {
      * @param type the given type.
      */
     public void setType(SquareType type) {
+        if(type == null){
+            throw new IllegalArgumentException("Wrong type");
+        }
         this.type = type;
     }
 }
