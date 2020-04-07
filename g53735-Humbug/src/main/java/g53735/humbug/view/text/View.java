@@ -124,10 +124,11 @@ public class View implements InterfaceView {
     }
 
     /**
+     * Array representing the type of square.
      * 
-     * @param board
-     * @param boardDisplay
-     * @return 
+     * @param board the given board.
+     * @param boardDisplay the array of type of square.
+     * @return the array of type of square.
      */
     private String[][] boardString(Board board, String[][] boardDisplay) {
         for (int lg = 0; lg < boardDisplay.length; lg++) {
@@ -147,7 +148,12 @@ public class View implements InterfaceView {
         return boardDisplay;
     }
 
-    
+    /**
+     * Place an animal on the game board and check if the animal is on star.
+     * @param boardDisplay the given array string.
+     * @param animals the given animals.
+     * @return the String array with the animals
+     */
     private String[][] animalOnBoard(String[][] boardDisplay,
             Animal... animals) {
         for (Animal animal : animals) {
@@ -161,7 +167,10 @@ public class View implements InterfaceView {
         return boardDisplay;
     }
 
-    
+    /**
+     * Display the game board.
+     * @param boardDisplay the given board to display.
+     */
     private void displayGameBoard(String[][] boardDisplay) {
         for (String[] boardDisplay1 : boardDisplay) {
             for (int col = 0; col < boardDisplay[0].length; col++) {

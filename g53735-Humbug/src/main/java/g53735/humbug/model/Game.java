@@ -76,7 +76,8 @@ public class Game implements Model {
                 if (animal.move(getBoard(), direction, getAnimals()) == null) {
                     throw new IllegalArgumentException("perdu");
                 } else {
-                    animal.setPositionOnBoard(animal.move(getBoard(), direction, getAnimals()));
+                    animal.setPositionOnBoard(animal.move(getBoard(), direction,
+                            getAnimals()));
                 }
             }
         }

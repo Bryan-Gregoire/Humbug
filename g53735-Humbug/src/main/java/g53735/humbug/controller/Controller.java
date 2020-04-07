@@ -53,6 +53,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Check if the given position is valid.
+     * 
+     * @param position the given position.
+     */
     private void validPosition(Position position) {
         int i = 0;
         while (!game.getBoard().isInside(position)
