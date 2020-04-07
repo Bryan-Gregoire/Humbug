@@ -32,7 +32,7 @@ public class Snail extends Animal {
             this.setPositionOnBoard(null);
             return null;
         }
-        
+
         boolean free = true;
         for (Animal animal : animals) {
             if (animal.getPositionOnBoard().equals(nextPos)) {
