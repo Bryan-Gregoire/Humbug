@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static g53735.humbug.model.SquareType.GRASS;
 import static g53735.humbug.model.SquareType.STAR;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+//import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author g53735
@@ -17,11 +19,8 @@ public class SpiderTest {
     private Board board;
     private Animal[] animals;
 
-    /**
-     * Test of move method, of class Spider.
-     */
-    @Test
-    public void testMove() {
+    @BeforeEach
+    public void setUp() {
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), null},
             {null, new Square(GRASS), new Square(GRASS)},
@@ -31,6 +30,13 @@ public class SpiderTest {
             new Spider(new Position(0, 0)),
             new Snail(new Position(1, 2))
         };
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove() {
         System.out.println("move and fall");
         Spider instance = (Spider) animals[0];
         Position expResult = null; // fall
@@ -49,10 +55,6 @@ public class SpiderTest {
             {null, new Square(GRASS), new Square(GRASS)},
             {null, null, new Square(STAR)}
         });
-        animals = new Animal[]{
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(1, 2))
-        };
         Spider instance = (Spider) animals[0];
         Position expResult = null;
         Position result = instance.move(board, Direction.EAST, animals);
@@ -70,10 +72,6 @@ public class SpiderTest {
             {null, new Square(GRASS), new Square(GRASS)},
             {null, null, new Square(STAR)}
         });
-        animals = new Animal[]{
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(1, 2))
-        };
         animals[1] = new Snail(new Position(0, 2));
         Spider instance = (Spider) animals[0];
         Position expResult = new Position(0, 1);
@@ -86,15 +84,6 @@ public class SpiderTest {
      */
     @Test
     public void testMove_next_notfree() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
-        animals = new Animal[]{
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(1, 2))
-        };
         System.out.println("move next case not free");
         Spider instance = (Spider) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
@@ -108,15 +97,6 @@ public class SpiderTest {
      */
     @Test
     public void testMove_next_notinside() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
-        animals = new Animal[]{
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(1, 2))
-        };
         System.out.println("move next case null and fall");
         Spider instance = (Spider) animals[0];
         Position expResult = null; // fall

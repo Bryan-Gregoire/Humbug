@@ -1,49 +1,52 @@
 package g53735.humbug.model;
 
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static g53735.humbug.model.SquareType.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author g53735
+ * @author Pierre Bettens (pbt) <pbettens@he2b.be>
  */
 public class BoardTest {
-    
+
     private Board board;
-    private Square[][] squares;
+
+    public BoardTest() {
+
+    }
+
+    @BeforeEach
+    public void setUp() {
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), null},
+            {null, new Square(GRASS), new Square(GRASS)},
+            {null, null, new Square(STAR)}
+        });
+    }
 
     /**
      * Test of isInside method, of class Board.
      */
     @Test
     public void testIsInside_general_true() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("isInside general");
-        Position position = new Position(0,0);
+        Position position = new Position(0, 0);
         boolean expResult = true;
         boolean result = board.isInside(position);
         assertEquals(expResult, result);
     }
-    
-    
+
     /**
      * Test of isInside method, of class Board.
      */
     @Test
     public void testIsInside_false_null() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("isInside false null");
-        Position position = new Position(1,0);
+        Position position = new Position(1, 0);
         boolean expResult = false;
         boolean result = board.isInside(position);
         assertEquals(expResult, result);
@@ -54,30 +57,20 @@ public class BoardTest {
      */
     @Test
     public void testIsInside_false_outbound_negative() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("isInside false out of bound");
-        Position position = new Position(-1,0);
+        Position position = new Position(-1, 0);
         boolean expResult = false;
         boolean result = board.isInside(position);
         assertEquals(expResult, result);
     }
-    
+
     /**
      * Test of isInside method, of class Board.
      */
     @Test
     public void testIsInside_false_outbound_positive_row() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("isInside false out of bound");
-        Position position = new Position(10,1);
+        Position position = new Position(10, 1);
         boolean expResult = false;
         boolean result = board.isInside(position);
         assertEquals(expResult, result);
@@ -88,13 +81,8 @@ public class BoardTest {
      */
     @Test
     public void testIsInside_false_outbound_positive_column() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("isInside false out of bound");
-        Position position = new Position(2,23);
+        Position position = new Position(2, 23);
         boolean expResult = false;
         boolean result = board.isInside(position);
         assertEquals(expResult, result);
@@ -102,41 +90,26 @@ public class BoardTest {
 
     @Test
     public void testGetSquareType_exist() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("get square type exist");
         SquareType expResult = SquareType.GRASS;
-        SquareType result = board.getSquareType(new Position(0,0));
+        SquareType result = board.getSquareType(new Position(0, 0));
         assertEquals(expResult, result);
     }
 
     @Test
     public void testGetSquareType_exist_star() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("get square type exist");
         SquareType expResult = SquareType.STAR;
-        SquareType result = board.getSquareType(new Position(2,2));
+        SquareType result = board.getSquareType(new Position(2, 2));
         assertEquals(expResult, result);
     }
 
     @Test
     public void testGetSquareType_null() {
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
         System.out.println("get case type illegal argument");
-        assertThrows(IllegalArgumentException.class, 
-                () -> { board.getSquareType(new Position(1, 0));
-    });
-
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> {
+                    board.getSquareType(new Position(1, 0));
+                });
     }
 }
