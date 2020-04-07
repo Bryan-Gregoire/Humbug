@@ -37,7 +37,7 @@ public class Controller {
         while (!game.levelIsOver()) {
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
-            validPosition(position);
+            position = validPosition(position);
             Direction direction = view.askDirection();
             try {
                 game.move(position, direction);
@@ -58,7 +58,7 @@ public class Controller {
      * 
      * @param position the given position.
      */
-    private void validPosition(Position position) {
+    private Position validPosition(Position position) {
         int i = 0;
         while (!game.getBoard().isInside(position)
                 || !game.getAnimals()[i].getPositionOnBoard()
@@ -76,5 +76,6 @@ public class Controller {
                 }
             }
         }
+        return position;
     }
 }
