@@ -14,6 +14,12 @@ import java.util.Scanner;
  */
 public class View implements InterfaceView {
 
+    private Scanner keyboard;
+
+    public View(Scanner keyboard) {
+        this.keyboard = new Scanner(System.in);
+    }
+
     /**
      * Displays the game board.
      *
@@ -64,7 +70,6 @@ public class View implements InterfaceView {
      */
     @Override
     public Direction askDirection() {
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter a cardinal direction(N(North), E(East),"
                 + " S(South), W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();
@@ -86,7 +91,6 @@ public class View implements InterfaceView {
      * @return the given integer.
      */
     private int enterInteger(String message) {
-        Scanner keyboard = new Scanner(System.in);
         System.out.println(message);
         while (!keyboard.hasNextInt()) {
             keyboard.next();
