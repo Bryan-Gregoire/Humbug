@@ -16,6 +16,11 @@ public class View implements InterfaceView {
 
     private Scanner keyboard;
 
+    /**
+     * Constructor of my Scanner.
+     *
+     * @param keyboard the scanner.
+     */
     public View(Scanner keyboard) {
         this.keyboard = new Scanner(System.in);
     }
@@ -70,6 +75,7 @@ public class View implements InterfaceView {
      */
     @Override
     public Direction askDirection() {
+        keyboard.nextLine();
         System.out.println("Enter a cardinal direction(N(North), E(East),"
                 + " S(South), W(West)): ");
         String dir = keyboard.nextLine().toUpperCase();

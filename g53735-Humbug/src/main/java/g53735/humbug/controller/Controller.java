@@ -55,7 +55,7 @@ public class Controller {
 
     /**
      * Check if the given position is valid.
-     * 
+     *
      * @param position the given position.
      */
     private Position validPosition(Position position) {
