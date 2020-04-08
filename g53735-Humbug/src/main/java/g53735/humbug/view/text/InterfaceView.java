@@ -12,11 +12,32 @@ import g53735.humbug.model.Animal;
  */
 public interface InterfaceView {
 
+    /**
+     * Display the game board.
+     *
+     * @param board the given board to display.
+     * @param animals the animals on the board.
+     */
     void displayBoard(Board board, Animal... animals);
 
+    /**
+     * Ask for a position.
+     *
+     * @return the given position.
+     */
     Position askPosition();
 
+    /**
+     * Ask for a cardinal direction.
+     *
+     * @return the given direction.
+     */
     Direction askDirection();
 
+    /**
+     * Display an error message.
+     *
+     * @param message the given message to display.
+     */
     void displayError(String message);
 }

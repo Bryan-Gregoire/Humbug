@@ -57,11 +57,10 @@ public class View implements InterfaceView {
         return position;
     }
 
-    
     /**
-     * Ask to enter a direction.
+     * Ask to enter a cardinal direction.
      *
-     * @return a given direction.
+     * @return the given direction.
      */
     @Override
     public Direction askDirection() {
@@ -80,7 +79,6 @@ public class View implements InterfaceView {
         return cardinalDirection(dir);
     }
 
-    
     /**
      * Ask a integer, while it is not a integer, ask again.
      *
@@ -98,7 +96,6 @@ public class View implements InterfaceView {
         return keyboard.nextInt();
     }
 
-    
     /**
      * If a given string corresponds to a cardinal direction.
      *
@@ -125,7 +122,7 @@ public class View implements InterfaceView {
 
     /**
      * Array representing the type of square.
-     * 
+     *
      * @param board the given board.
      * @param boardDisplay the array of type of square.
      * @return the array of type of square.
@@ -150,6 +147,7 @@ public class View implements InterfaceView {
 
     /**
      * Place an animal on the game board and check if the animal is on star.
+     *
      * @param boardDisplay the given array string.
      * @param animals the given animals.
      * @return the String array with the animals
@@ -169,6 +167,7 @@ public class View implements InterfaceView {
 
     /**
      * Display the game board.
+     *
      * @param boardDisplay the given board to display.
      */
     private void displayGameBoard(String[][] boardDisplay) {
