@@ -181,26 +181,42 @@ public class View implements InterfaceView {
      * @param boardDisplay the given board to display.
      */
     private void displayGameBoard(String[][] boardDisplay) {
-        for (String[] boardDisplay1 : boardDisplay) {
-            for (int col = 0; col < boardDisplay[0].length; col++) {
-                switch (boardDisplay1[col]) {
+        int lineCount = boardDisplay.length * 3;
+        int colCount = boardDisplay[0].length;
+        for (int line = 0; line < lineCount; line++) {
+            for (int col = 0; col < colCount; col++) {
+                int blocPos = line % 3;
+                String value = boardDisplay[line / 3][col];
+                switch (value) {
                     case "Snail":
-                        System.out.print("\033[42m|  SNAIL  |\033[0m");
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m|  SNAIL  |\033[0m");
+                        } else {
+                            System.out.print("\033[42m|         |\033[0m");
+                        }
                         break;
                     case "Spider":
-                        System.out.print("\033[42m|  SPIDER |\033[0m");
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m|  SPIDER |\033[0m");
+                        } else {
+                            System.out.println("\033[42m|         |\033[0m");
+                        }
                         break;
                     case "GRASS":
                         System.out.print("\033[42m|         |\033[0m");
                         break;
                     case "STAR":
-                        System.out.print("\033[42m|    *    |\033[0m");
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m|    *    |\033[0m");
+                        } else {
+                            System.out.print("\033[42m|         |\033[0m");
+                        }
                         break;
                     default:
                         System.out.print("           ");
                         break;
                 }
-                if (col == boardDisplay[0].length - 1) {
+                if (col == colCount - 1) {
                     System.out.println("");
                 }
             }

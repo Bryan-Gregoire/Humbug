@@ -31,10 +31,19 @@ public class Board {
         return this.squares[pos.getRow()][pos.getColumn()].getType();
     }
 
+    /**
+     * Get a square of a given position.
+     *
+     * @param pos the given position.
+     * @return the square.
+     */
     public Square getSquare(Position pos) {
+        if (isInside(pos)) {
+            throw new IllegalArgumentException("Wrong Position");
+        }
         return this.squares[pos.getRow()][pos.getColumn()];
     }
-    
+
     /**
      * Gives the number of rows on the game board.
      *

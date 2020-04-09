@@ -28,6 +28,12 @@ public class Snail extends Animal {
     public Position move(Board board, Direction direction, Animal... animals) {
         Position snail = this.getPositionOnBoard();
         Position nextPos = snail.next(direction);
+        
+        if (board.getSquare(snail).hasWall(direction)
+                || board.getSquare(nextPos).hasWall(direction.opposite())) {
+            return snail;
+        }
+        
         if (!board.isInside(nextPos)) {
             this.setPositionOnBoard(null);
             return null;
@@ -38,10 +44,6 @@ public class Snail extends Animal {
             if (animal.getPositionOnBoard().equals(nextPos)) {
                 free = false;
             }
-        }
-        if(board.getSquare(snail).hasWall(direction) 
-                || board.getSquare(nextPos).hasWall(direction.opposite())){
-            free = false;
         }
         if (!free) {
             return snail;

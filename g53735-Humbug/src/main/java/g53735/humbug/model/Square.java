@@ -9,7 +9,7 @@ package g53735.humbug.model;
 public class Square {
 
     private SquareType type;
-    private boolean nortWall;
+    private boolean northWall;
     private boolean southWall;
     private boolean westWall;
     private boolean eastWall;
@@ -21,7 +21,7 @@ public class Square {
      */
     public Square(SquareType type) {
         this.type = type;
-        this.nortWall = false;
+        this.northWall = false;
         this.southWall = false;
         this.westWall = false;
         this.eastWall = false;
@@ -32,8 +32,8 @@ public class Square {
      * 
      * @param nortWall set a wall or no.
      */
-    public void setNortWall(boolean nortWall) {
-        this.nortWall = nortWall;
+    public void setNorthWall(boolean nortWall) {
+        this.northWall = nortWall;
     }
 
     /**
@@ -91,15 +91,19 @@ public class Square {
      * @return true if there is a wall else false.
      */
     public boolean hasWall(Direction direction) {
+        if(direction == null){
+            throw new IllegalArgumentException("Wrong direction");
+        }
+        
         switch(direction){
             case NORTH :
-                return nortWall;
+                return this.northWall;
             case SOUTH :
-                return southWall;
+                return this.southWall;
             case WEST :
-                return westWall;
+                return this.westWall;
             case EAST : 
-                return eastWall;
+                return this.eastWall;
         }
         return false;
     }

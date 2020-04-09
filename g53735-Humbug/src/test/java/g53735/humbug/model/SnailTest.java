@@ -80,4 +80,111 @@ public class SnailTest {
         Position result = instance.move(board, Direction.WEST, animals);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal() {
+        System.out.println("move next case wall in front");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0, 0)).setEastWall(true);
+        Position expResult = new Position(0, 0);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_2() {
+        System.out.println("move next case wall in front 2");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0, 1)).setWestWall(true);
+        Position expResult = new Position(0, 0);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_3() {
+        System.out.println("move next case wall in front 3");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0,0)).setSouthWall(true);
+        Position expResult = new Position(0,0);
+        Position result = instance.move(board, Direction.SOUTH, animals);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_4() {
+        System.out.println("move next case wall in front 4");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0,0)).setWestWall(true);
+        Position expResult = new Position(0,0);
+        Position result = instance.move(board, Direction.WEST, animals);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_5() {
+        System.out.println("move next case wall in front 5");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0,0)).setNorthWall(true);
+        Position expResult = new Position(0,0);
+        Position result = instance.move(board, Direction.NORTH, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasNotWallOnAnimal() {
+        System.out.println("move next case not wall in front of the animal");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0, 1)).setEastWall(true);
+        Position expResult = new Position(0, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasNotWallOnAnimal_2() {
+        System.out.println("move next case not wall in front of the animal 2");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(1, 1)).setWestWall(true);
+        Position expResult = new Position(0, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_next_hasNotWallOnAnimal_3() {
+        System.out.println("move next case not wall in front of the animal 3");
+        Snail instance = (Snail) animals[0];
+        board.getSquare(new Position(0, 0)).setNorthWall(true);
+        board.getSquare(new Position(0, 0)).setSouthWall(true);
+        board.getSquare(new Position(0, 0)).setWestWall(true);
+        Position expResult = new Position(0, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
 }
