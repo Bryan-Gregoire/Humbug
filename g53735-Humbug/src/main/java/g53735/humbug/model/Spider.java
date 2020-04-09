@@ -39,6 +39,10 @@ public class Spider extends Animal {
                     free = false;
                 }
             }
+            if (board.getSquare(spider).hasWall(direction)
+                    || board.getSquare(nextPos).hasWall(direction.opposite())) {
+                free = false;
+            }
             if (free) {
                 spider = nextPos;
                 nextPos = spider.next(direction);

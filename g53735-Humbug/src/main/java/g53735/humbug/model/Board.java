@@ -31,6 +31,10 @@ public class Board {
         return this.squares[pos.getRow()][pos.getColumn()].getType();
     }
 
+    public Square getSquare(Position pos) {
+        return this.squares[pos.getRow()][pos.getColumn()];
+    }
+    
     /**
      * Gives the number of rows on the game board.
      *

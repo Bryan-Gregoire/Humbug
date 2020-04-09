@@ -39,6 +39,10 @@ public class Snail extends Animal {
                 free = false;
             }
         }
+        if(board.getSquare(snail).hasWall(direction) 
+                || board.getSquare(nextPos).hasWall(direction.opposite())){
+            free = false;
+        }
         if (!free) {
             return snail;
         }

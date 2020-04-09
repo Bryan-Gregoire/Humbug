@@ -43,4 +43,23 @@ public enum Direction {
     public int getDeltaColumn() {
         return this.deltaColumn;
     }
+
+    /**
+     * The opposite direction of a direction.
+     * 
+     * @return the opposite direction.
+     */
+    public Direction opposite() {
+        switch (name()) {
+            case "NORTH":
+                return SOUTH;
+            case "SOUTH":
+                return NORTH;
+            case "WEST":
+                return EAST;
+            case "EAST":
+                return WEST;
+        }
+        return null;
+    }
 }
