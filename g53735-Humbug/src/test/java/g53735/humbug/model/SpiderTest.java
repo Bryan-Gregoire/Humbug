@@ -104,6 +104,9 @@ public class SpiderTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test of move method, of class Snail.
+     */
     @Test
     public void testMove_passOnStar() {
         System.out.println("move and pass on star without win");
@@ -124,6 +127,9 @@ public class SpiderTest {
         assertFalse(board.getSquareType(new Position(0, 1)) == GRASS);
     }
 
+    /**
+     * Test of move method, of class Snail.
+     */
     @Test
     public void testMove_nextOnStar() {
         System.out.println("move, next on star and win");
@@ -142,5 +148,117 @@ public class SpiderTest {
         assertEquals(expResult, result);
         assertTrue(animals[0].isOnStar());
         assertEquals(GRASS, board.getSquareType(result));
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal() {
+        System.out.println("move next case wall in front");
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 0)).setEastWall(true);
+        Position expResult = new Position(0, 0);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_2() {
+        System.out.println("move next case wall in front");
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 1)).setEastWall(true);
+        Position expResult = new Position(0, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_next_hasWallOnAnimal_3() {
+        System.out.println("move next case wall in front");
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 0)).setSouthWall(true);
+        Position expResult = new Position(0, 0);
+        Position result = instance.move(board, Direction.SOUTH, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_next_hasNotWallOnAnimal() {
+        System.out.println("move next case not wall in front");
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 0)).setNorthWall(true);
+        board.getSquare(new Position(0, 0)).setWestWall(true);
+        board.getSquare(new Position(0, 0)).setSouthWall(true);
+        Position expResult = null;
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Snail.
+     */
+    @Test
+    public void testMove_nextOnStar_hasWall() {
+        System.out.println("move, next on star and win");
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), new Square(STAR), new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS), null},
+            {null, null, new Square(STAR), null}
+        });
+        animals = new Animal[]{
+            new Spider(new Position(0, 0)),};
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 2)).setEastWall(true);
+        Position expResult = new Position(0, 2);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+        assertTrue(animals[0].isOnStar());
+        assertEquals(GRASS, board.getSquareType(result));
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_endlineWall() {
+        System.out.println("move end line and block by wall");
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS)},
+            {null, null, new Square(STAR)}
+        });
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 2)).setEastWall(true);
+        Position expResult = new Position(0, 2);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_WallOnWay() {
+        System.out.println("move and wall on the way");
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), null, new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS), null},
+            {null, null, new Square(STAR), null}
+        });
+        Spider instance = (Spider) animals[0];
+        board.getSquare(new Position(0, 1)).setEastWall(true);
+        Position expResult = new Position(0, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
     }
 }

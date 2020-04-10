@@ -114,12 +114,12 @@ public class SnailTest {
     public void testMove_next_hasWallOnAnimal_3() {
         System.out.println("move next case wall in front 3");
         Snail instance = (Snail) animals[0];
-        board.getSquare(new Position(0,0)).setSouthWall(true);
-        Position expResult = new Position(0,0);
+        board.getSquare(new Position(0, 0)).setSouthWall(true);
+        Position expResult = new Position(0, 0);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
     }
-    
+
     /**
      * Test of move method, of class Snail.
      */
@@ -127,12 +127,12 @@ public class SnailTest {
     public void testMove_next_hasWallOnAnimal_4() {
         System.out.println("move next case wall in front 4");
         Snail instance = (Snail) animals[0];
-        board.getSquare(new Position(0,0)).setWestWall(true);
-        Position expResult = new Position(0,0);
+        board.getSquare(new Position(0, 0)).setWestWall(true);
+        Position expResult = new Position(0, 0);
         Position result = instance.move(board, Direction.WEST, animals);
         assertEquals(expResult, result);
     }
-    
+
     /**
      * Test of move method, of class Snail.
      */
@@ -140,8 +140,8 @@ public class SnailTest {
     public void testMove_next_hasWallOnAnimal_5() {
         System.out.println("move next case wall in front 5");
         Snail instance = (Snail) animals[0];
-        board.getSquare(new Position(0,0)).setNorthWall(true);
-        Position expResult = new Position(0,0);
+        board.getSquare(new Position(0, 0)).setNorthWall(true);
+        Position expResult = new Position(0, 0);
         Position result = instance.move(board, Direction.NORTH, animals);
         assertEquals(expResult, result);
     }
@@ -186,5 +186,4 @@ public class SnailTest {
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
-
 }
