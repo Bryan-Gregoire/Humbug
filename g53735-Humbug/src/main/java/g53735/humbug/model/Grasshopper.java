@@ -34,7 +34,9 @@ public class Grasshopper extends Animal {
                     free = false;
                 }
             }
-            if (!free) {
+            if (free) {
+                break;
+            } else {
                 grasshopper = nextPos;
                 nextPos = grasshopper.next(drection);
 
@@ -42,8 +44,10 @@ public class Grasshopper extends Animal {
                     this.setPositionOnBoard(null);
                     return null;
                 }
-            } 
+            }
+            free = true;
         }
+
         grasshopper = nextPos;
         if (board.getSquareType(grasshopper) == SquareType.STAR) {
             this.setOnStar(true);
