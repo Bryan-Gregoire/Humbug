@@ -60,10 +60,10 @@ public abstract class Animal {
      * Move the animal.
      *
      * @param board board game.
-     * @param drection the direction where we want to move.
+     * @param direction the direction where we want to move.
      * @param animals the animal(s) we want to move.
      * @return the new position.
      */
-    public abstract Position move(Board board, Direction drection,
+    public abstract Position move(Board board, Direction direction,
             Animal... animals);
 }

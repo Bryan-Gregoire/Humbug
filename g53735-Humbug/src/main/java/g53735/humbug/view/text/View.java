@@ -190,30 +190,43 @@ public class View implements InterfaceView {
                 switch (value) {
                     case "Snail":
                         if (blocPos == 1) {
-                            System.out.print("\033[42m|  SNAIL  |\033[0m");
+                            System.out.print("\033[42m|   SNAIL   |\033[0m");
                         } else {
-                            System.out.print("\033[42m|         |\033[0m");
+                            System.out.print("\033[42m|           |\033[0m");
                         }
                         break;
                     case "Spider":
                         if (blocPos == 1) {
-                            System.out.print("\033[42m|  SPIDER |\033[0m");
+                            System.out.print("\033[42m|   SPIDER  |\033[0m");
                         } else {
-                            System.out.println("\033[42m|         |\033[0m");
+                            System.out.print("\033[42m|           |\033[0m");
                         }
                         break;
+                    case "Grasshopper":
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m|GRASSHOPPER|\033[0m");
+                        } else {
+                            System.out.print("\033[42m|           |\033[0m");
+                        }
+                        break;
+                    case "Ladybird":
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m|  Ladybird |\033[0m");
+                        } else {
+                            System.out.print("\033[42m|           |\033[0m");
+                        }
                     case "GRASS":
-                        System.out.print("\033[42m|         |\033[0m");
+                        System.out.print("\033[42m|           |\033[0m");
                         break;
                     case "STAR":
                         if (blocPos == 1) {
-                            System.out.print("\033[42m|    *    |\033[0m");
+                            System.out.print("\033[42m|     *     |\033[0m");
                         } else {
-                            System.out.print("\033[42m|         |\033[0m");
+                            System.out.print("\033[42m|           |\033[0m");
                         }
                         break;
                     default:
-                        System.out.print("           ");
+                        System.out.print("             ");
                         break;
                 }
                 if (col == colCount - 1) {

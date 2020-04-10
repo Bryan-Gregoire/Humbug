@@ -56,4 +56,11 @@ public class Grasshopper extends Animal {
         return grasshopper;
     }
 
+    /**
+     * @return a String that represent the animal.
+     */
+    @Override
+    public String toString() {
+        return "Grasshopper";
+    }
 }
