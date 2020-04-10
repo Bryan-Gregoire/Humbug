@@ -38,9 +38,6 @@ public class Board {
      * @return the square.
      */
     public Square getSquare(Position pos) {
-        if (isInside(pos)) {
-            throw new IllegalArgumentException("Wrong Position");
-        }
         return this.squares[pos.getRow()][pos.getColumn()];
     }
 
