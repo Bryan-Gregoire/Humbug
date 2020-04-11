@@ -215,6 +215,12 @@ public class View implements InterfaceView {
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
+                    case "Bumblebee":
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m| Bumblebee |\033[0m");
+                        } else {
+                            System.out.print("\033[42m|           |\033[0m");
+                        }
                     case "GRASS":
                         System.out.print("\033[42m|           |\033[0m");
                         break;

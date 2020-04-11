@@ -1,6 +1,7 @@
 package g53735.humbug.model;
 
 /**
+ * Represent the ladybird in the game.
  *
  * @author g53735
  */
@@ -15,6 +16,14 @@ public class Ladybird extends Animal {
         super(positionOnBoard);
     }
 
+    /**
+     * Move the animal, change the position of the animal.
+     *
+     * @param board the given board.
+     * @param direction the given direction where we want to move the animal.
+     * @param animals the animals.
+     * @return the new position of the animal.
+     */
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
         Position ladyBird = this.getPositionOnBoard();

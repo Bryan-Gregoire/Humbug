@@ -37,7 +37,7 @@ public class Snail extends Animal {
             this.setPositionOnBoard(null);
             return null;
         }
-        
+
         if (board.getSquare(nextPos).hasWall(direction.opposite())) {
             return snail;
         }

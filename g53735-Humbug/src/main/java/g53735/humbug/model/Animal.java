@@ -57,7 +57,7 @@ public abstract class Animal {
     }
 
     /**
-     * Move the animal.
+     * Move the animal, change the position of the animal.
      *
      * @param board board game.
      * @param direction the direction where we want to move.

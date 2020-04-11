@@ -1,18 +1,18 @@
 package g53735.humbug.model;
 
 /**
- * Represent the grasshopper in the game.
+ * Represent the bumblebee in the game.
  *
  * @author g53735
  */
-public class Grasshopper extends Animal {
+public class Bumblebee extends Animal {
 
     /**
-     * Constructor of grasshopper.
+     * Constructor of bumblebee.
      *
-     * @param positionOnBoard the position of grasshopper on the game board.
+     * @param positionOnBoard the position of bumblebee on the game board.
      */
-    public Grasshopper(Position positionOnBoard) {
+    public Bumblebee(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -26,10 +26,10 @@ public class Grasshopper extends Animal {
      */
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
-        Position grasshopper = this.getPositionOnBoard();
-        Position nextPos = grasshopper.next(direction);
-
-        if (!board.isInside(nextPos)) {
+        Position bumblebee = this.getPositionOnBoard();
+        Position nextPos = bumblebee.next(direction);
+        Position arrivalPos = nextPos.next(direction);
+        if (!board.isInside(arrivalPos)) {
             this.setPositionOnBoard(null);
             return null;
         }
@@ -37,37 +37,35 @@ public class Grasshopper extends Animal {
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)) {
+                if (animal.getPositionOnBoard().equals(arrivalPos)) {
                     free = false;
                 }
             }
             if (free) {
                 break;
             } else {
-                grasshopper = nextPos;
-                nextPos = grasshopper.next(direction);
-
-                if (!board.isInside(nextPos)) {
+                bumblebee = arrivalPos;
+                arrivalPos = bumblebee.next(direction);
+                if (!board.isInside(arrivalPos)) {
                     this.setPositionOnBoard(null);
                     return null;
                 }
             }
             free = true;
         }
-
-        grasshopper = nextPos;
-        if (board.getSquareType(grasshopper) == SquareType.STAR) {
+        bumblebee = arrivalPos;
+        if (board.getSquareType(bumblebee) == SquareType.STAR) {
             this.setOnStar(true);
-            board.setSquareType(grasshopper, SquareType.GRASS);
+            board.setSquareType(bumblebee, SquareType.GRASS);
         }
-        return grasshopper;
+        return bumblebee;
     }
 
     /**
-     * @return a String that represent the animal.
+     * @return a? String that represent the animal.
      */
     @Override
     public String toString() {
-        return "Grasshopper";
+        return "Bumblebee";
     }
 }
