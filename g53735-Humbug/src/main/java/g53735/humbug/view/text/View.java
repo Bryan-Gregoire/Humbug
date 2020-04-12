@@ -211,13 +211,19 @@ public class View implements InterfaceView {
                         break;
                     case "Ladybird":
                         if (blocPos == 1) {
-                            System.out.print("\033[42m|  Ladybird |\033[0m");
+                            System.out.print("\033[42m| Ladybird  |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
                     case "Bumblebee":
                         if (blocPos == 1) {
                             System.out.print("\033[42m| Bumblebee |\033[0m");
+                        } else {
+                            System.out.print("\033[42m|           |\033[0m");
+                        }
+                    case "Butterfly":
+                        if (blocPos == 1) {
+                            System.out.print("\033[42m| Butterfly |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }

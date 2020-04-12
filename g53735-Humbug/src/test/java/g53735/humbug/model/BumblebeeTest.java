@@ -179,7 +179,7 @@ public class BumblebeeTest {
      */
     @Test
     public void testMove_Onstar_2() {
-        System.out.println("fly on animal and on star");
+        System.out.println("fly, land on animal and on star");
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), null},
             {null, new Square(GRASS), new Square(GRASS), null},
@@ -201,7 +201,7 @@ public class BumblebeeTest {
      */
     @Test
     public void testMove_Onstar_3() {
-        System.out.println("fly over nul, On animal and on star");
+        System.out.println("fly over nul, land on animal and on star");
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), null},
             {null, new Square(GRASS), new Square(GRASS), null},

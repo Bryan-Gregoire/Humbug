@@ -1,18 +1,17 @@
 package g53735.humbug.model;
 
 /**
- * Represent the bumblebee in the game.
  *
  * @author g53735
  */
-public class Bumblebee extends Animal {
+public class Butterfly extends Animal {
 
     /**
-     * Constructor of bumblebee.
+     * The constructor of the butterfly.
      *
-     * @param positionOnBoard the position of bumblebee on the game board.
+     * @param positionOnBoard the position of butterfly in the game board.
      */
-    public Bumblebee(Position positionOnBoard) {
+    public Butterfly(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -27,17 +26,18 @@ public class Bumblebee extends Animal {
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
         Position bumblebee = this.getPositionOnBoard();
-        Position nextPos = bumblebee.next(direction);
-        Position arrivalPos = nextPos.next(direction);
-        
+        Position fly1 = bumblebee.next(direction);
+        Position fly2 = fly1.next(direction);
+        Position arrivalPos = fly2.next(direction);
+
         return moveOneFlying(board, arrivalPos, direction, animals);
     }
 
     /**
-     * @return a? String that represent the animal.
+     * @return a String that represent the animal.
      */
     @Override
     public String toString() {
-        return "Bumblebee";
+        return "Butterfly";
     }
 }

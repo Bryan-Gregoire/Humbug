@@ -66,4 +66,50 @@ public abstract class Animal {
      */
     public abstract Position move(Board board, Direction direction,
             Animal... animals);
+
+    /**
+     * The animal flies up to its destination, go to the next case if there is
+     * an animal on the square where the animal land. Change the position of the
+     * animal.
+     *
+     * @param board the given board.
+     * @param arrivalPos The given position where the animal should landed.
+     * @param direction the given direction where to move.
+     * @param animals the others animals on the game board.
+     * @return the position where landed the animal.
+     */
+    protected Position moveOneFlying(Board board, Position arrivalPos,
+            Direction direction, Animal... animals) {
+        if (!board.isInside(arrivalPos)) {
+            this.setPositionOnBoard(null);
+            return null;
+        }
+
+        boolean free = true;
+        while (free) {
+            for (Animal animal : animals) {
+                if (animal.getPositionOnBoard().equals(arrivalPos)) {
+                    free = false;
+                }
+            }
+            if (free) {
+                break;
+            } else {
+                this.setPositionOnBoard(arrivalPos);
+                arrivalPos = this.positionOnBoard.next(direction);
+                if (!board.isInside(arrivalPos)) {
+                    this.setPositionOnBoard(null);
+                    return null;
+                }
+            }
+            free = true;
+        }
+
+        this.setPositionOnBoard(arrivalPos);
+        if (board.getSquareType(this.positionOnBoard) == SquareType.STAR) {
+            this.setOnStar(true);
+            board.setSquareType(this.positionOnBoard, SquareType.GRASS);
+        }
+        return this.positionOnBoard;
+    }
 }
