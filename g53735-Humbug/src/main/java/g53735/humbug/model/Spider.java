@@ -53,7 +53,6 @@ public class Spider extends Animal {
                 spider = nextPos;
                 nextPos = spider.next(direction);
                 if (board.getSquare(spider).hasWall(direction)) {
-                    free = false;
                     break;
                 }
                 if (!board.isInside(nextPos)) {
@@ -65,12 +64,10 @@ public class Spider extends Animal {
                 }
             }
         }
-        if (!free) {
-            if (board.getSquareType(spider) == SquareType.STAR) {
-                this.setOnStar(true);
-                board.setSquareType(spider, SquareType.GRASS);
-            }
-            return spider;
+
+        if (board.getSquareType(spider) == SquareType.STAR) {
+            this.setOnStar(true);
+            board.setSquareType(spider, SquareType.GRASS);
         }
         return spider;
     }

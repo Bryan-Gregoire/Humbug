@@ -7,8 +7,8 @@ package g53735.humbug.model;
  */
 public abstract class Animal {
 
-    private Position positionOnBoard;
-    private boolean onStar;
+    protected Position positionOnBoard;
+    protected boolean onStar;
 
     /**
      * Constructor of animal.
