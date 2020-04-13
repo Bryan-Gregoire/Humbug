@@ -101,6 +101,9 @@ public class Level {
                 {new Square(SquareType.STAR), new Square(SquareType.GRASS),
                     new Square(SquareType.GRASS)} //Manque les murs.
             });
+            level.board.getSquare(new Position(0,0)).setNorthWall(true);
+            level.board.getSquare(new Position(3,0)).setWestWall(true);
+            level.board.getSquare(new Position(3,2)).setSouthWall(true);
             level.animals = new Animal[]{
                 new Spider(new Position(2, 0))};
 
