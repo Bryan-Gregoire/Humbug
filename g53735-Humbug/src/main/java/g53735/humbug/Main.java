@@ -16,6 +16,9 @@ public class Main {
         System.out.println("              HUMBUG             ");
         System.out.println("---------------------------------");
         Controller controller = new Controller(new Game(), new View(new Scanner(System.in)));
-        controller.startGame();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Quel niveau voulez jouer: ");
+        int nLevel = keyboard.nextInt();
+        controller.startGame(nLevel);
     }
 }

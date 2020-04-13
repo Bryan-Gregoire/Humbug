@@ -11,9 +11,11 @@ public interface Model {
 
     Animal[] getAnimals();
 
+    int getRemainingMoves();
+
     void startLevel(int level);
 
-    boolean levelIsOver();
+    LevelStatus getLevelStatus();
 
     void move(Position position, Direction direction);
 }
