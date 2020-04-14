@@ -35,7 +35,7 @@ public class Game implements Model {
 
     /**
      * Get the remaining moves of a level.
-     * 
+     *
      * @return the remaining moves.
      */
     @Override
@@ -45,7 +45,7 @@ public class Game implements Model {
 
     /**
      * The status of a level.
-     * 
+     *
      * @return the status.
      */
     @Override

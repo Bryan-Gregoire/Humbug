@@ -58,23 +58,23 @@ public class Level {
      * @return the level.
      */
     public static Level getLevel(int nbLevel) {
-        Level level = null;
         if (nbLevel == 1) {
-            level.board = new Board(new Square[][]{
+            Board boardOne = new Board(new Square[][]{
                 {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
                     null},
                 {null, new Square(SquareType.GRASS),
                     new Square(SquareType.GRASS)},
                 {null, null, new Square(SquareType.STAR)}
             });
-            level.animals = new Animal[]{
+            Animal[] animalsOne = new Animal[]{
                 new Snail(new Position(0, 0)),};
-            level.nMoves = 4;
-            return level;
+            int nMovesOne = 4;
+
+            return new Level(boardOne, animalsOne, nMovesOne);
         }
 
         if (nbLevel == 2) {
-            level.board = new Board(new Square[][]{
+            Board boardTwo = new Board(new Square[][]{
                 {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
                     null},
                 {null, new Square(SquareType.STAR), null},
@@ -82,16 +82,16 @@ public class Level {
                     new Square(SquareType.STAR)},
                 {null, new Square(SquareType.GRASS), null}
             });
-            level.animals = new Animal[]{
+            Animal[] animalsTwo = new Animal[]{
                 new Snail(new Position(0, 0)),
                 new Snail(new Position(2, 1)),
                 new Snail(new Position(3, 1))};
-            level.nMoves = 5;
+            int nMovesTwo = 5;
 
-            return level;
+            return new Level(boardTwo, animalsTwo, nMovesTwo);
         }
         if (nbLevel == 3) {
-            level.board = new Board(new Square[][]{
+            Board boardThree = new Board(new Square[][]{
                 {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
                     new Square(SquareType.GRASS)}, //Faut rajouter les murs.
                 {new Square(SquareType.GRASS), null,
@@ -101,14 +101,15 @@ public class Level {
                 {new Square(SquareType.STAR), new Square(SquareType.GRASS),
                     new Square(SquareType.GRASS)} //Manque les murs.
             });
-            level.board.getSquare(new Position(0,0)).setNorthWall(true);
-            level.board.getSquare(new Position(3,0)).setWestWall(true);
-            level.board.getSquare(new Position(3,2)).setSouthWall(true);
-            level.animals = new Animal[]{
+            boardThree.getSquare(new Position(0, 0)).setNorthWall(true);
+            boardThree.getSquare(new Position(3, 0)).setWestWall(true);
+            boardThree.getSquare(new Position(3, 2)).setSouthWall(true);
+            Animal[] animalsThree = new Animal[]{
                 new Spider(new Position(2, 0))};
 
-            level.nMoves = 4;
+            int nMovesThree = 4;
+            return new Level(boardThree, animalsThree, nbLevel);
         }
-        return level;
+        return null;
     }
 }
