@@ -77,6 +77,6 @@ public class Spider extends Animal {
      */
     @Override
     public String toString() {
-        return "Spider";
+        return "S";
     }
 }

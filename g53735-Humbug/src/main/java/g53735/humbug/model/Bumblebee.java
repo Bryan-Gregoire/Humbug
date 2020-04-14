@@ -38,6 +38,6 @@ public class Bumblebee extends Animal {
      */
     @Override
     public String toString() {
-        return "Bumblebee";
+        return "β";
     }
 }

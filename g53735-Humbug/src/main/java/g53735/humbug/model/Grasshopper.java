@@ -37,6 +37,6 @@ public class Grasshopper extends Animal {
      */
     @Override
     public String toString() {
-        return "Grasshopper";
+        return "G";
     }
 }

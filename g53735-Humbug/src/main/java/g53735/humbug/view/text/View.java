@@ -40,7 +40,7 @@ public class View implements InterfaceView {
 
         boardDisplay = animalOnBoard(boardDisplay, animals);
 
-        displayGameBoard(boardDisplay);
+        displayGameBoard(boardDisplay, board);
     }
 
     /**
@@ -143,10 +143,10 @@ public class View implements InterfaceView {
                 Position pos = new Position(lg, col);
                 if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.STAR) {
-                    boardDisplay[lg][col] = "STAR";
+                    boardDisplay[lg][col] = "*";
                 } else if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.GRASS) {
-                    boardDisplay[lg][col] = "GRASS";
+                    boardDisplay[lg][col] = " ";
                 } else {
                     boardDisplay[lg][col] = "null";
                 }
@@ -180,65 +180,80 @@ public class View implements InterfaceView {
      *
      * @param boardDisplay the given board to display.
      */
-    private void displayGameBoard(String[][] boardDisplay) {
+    private void displayGameBoard(String[][] boardDisplay, Board board) {
         int lineCount = boardDisplay.length * 3;
-        int colCount = boardDisplay[0].length;
+        int colCount = boardDisplay[0].length * 3;
         for (int line = 0; line < lineCount; line++) {
             for (int col = 0; col < colCount; col++) {
-                int blocPos = line % 3;
-                String value = boardDisplay[line / 3][col];
+                int vBlocPos = line % 3;
+                int hBlocPos = col % 3;
+                String value = boardDisplay[line / 3][col / 3];
+                Position wallPos = new Position(line/3, col/3);
                 switch (value) {
-                    case "Snail":
-                        if (blocPos == 1) {
-                            System.out.print("\033[42m|   SNAIL   |\033[0m");
+                    case " " :
+                    case "*":
+                    case "§": 
+                    case "S": 
+                    case "L":
+                    case "G":
+                    case "β":
+                    case "B":
+                        if (vBlocPos == 1 && hBlocPos == 1) {
+                            System.out.print("\033[42m| " + value + " |\033[0m");
+                        } else if ((vBlocPos == 0 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.NORTH))
+                                || (vBlocPos == 1 && hBlocPos == 2 && board.getSquare(wallPos).hasWall(Direction.EAST))
+                                || (vBlocPos == 2 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.SOUTH))
+                                || (vBlocPos == 1 && hBlocPos == 0 && board.getSquare(wallPos).hasWall(Direction.WEST))) {
+                            System.out.print("\033[42m| \033[0m\033[41m \033[0m\033[42m |\033[0m");
+                        
                         } else {
-                            System.out.print("\033[42m|           |\033[0m");
+                            System.out.print("\033[42m|   |\033[0m");
                         }
                         break;
-                    case "Spider":
-                        if (blocPos == 1) {
+                    /* case "Spider":
+                        if (vBlocPos == 1 && hBlocPos == 1) {
                             System.out.print("\033[42m|   SPIDER  |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
                         break;
                     case "Grasshopper":
-                        if (blocPos == 1) {
+                        if (vBlocPos == 1 && hBlocPos == 1) {
                             System.out.print("\033[42m|GRASSHOPPER|\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
                         break;
                     case "Ladybird":
-                        if (blocPos == 1) {
+                        if (vBlocPos == 1 && hBlocPos == 1) {
                             System.out.print("\033[42m| Ladybird  |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
                     case "Bumblebee":
-                        if (blocPos == 1) {
+                        if (vBlocPos == 1 && hBlocPos == 1) {
                             System.out.print("\033[42m| Bumblebee |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
                         }
                     case "Butterfly":
-                        if (blocPos == 1) {
+                        if (vBlocPos == 1 && hBlocPos == 1) {
                             System.out.print("\033[42m| Butterfly |\033[0m");
                         } else {
                             System.out.print("\033[42m|           |\033[0m");
-                        }
-                    case "GRASS":
-                        System.out.print("\033[42m|           |\033[0m");
-                        break;
-                    case "STAR":
-                        if (blocPos == 1) {
-                            System.out.print("\033[42m|     *     |\033[0m");
-                        } else {
-                            System.out.print("\033[42m|           |\033[0m");
-                        }
-                        break;
+                        }*/
+                   // case "GRASS":
+                   //     System.out.print("\033[42m|           |\033[0m");
+                   //     break;
+                   // case "STAR":
+                   //     if (vBlocPos == 1 && hBlocPos == 1) {
+                   //         System.out.print("\033[42m|     *     |\033[0m");
+                   //     } else {
+                   //         System.out.print("\033[42m|           |\033[0m");
+                    //    }
+                    //    break;
                     default:
-                        System.out.print("             ");
+                        System.out.print("     ");
                         break;
                 }
                 if (col == colCount - 1) {

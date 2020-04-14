@@ -66,10 +66,10 @@ public class Level {
                     new Square(SquareType.GRASS)},
                 {null, null, new Square(SquareType.STAR)}
             });
-            
+
             Animal[] animalsOne = new Animal[]{
                 new Snail(new Position(0, 0)),};
-            
+
             int nMovesOne = 4;
 
             return new Level(boardOne, animalsOne, nMovesOne);
@@ -109,15 +109,15 @@ public class Level {
             boardThree.getSquare(new Position(0, 0)).setNorthWall(true);
             boardThree.getSquare(new Position(3, 0)).setWestWall(true);
             boardThree.getSquare(new Position(3, 2)).setSouthWall(true);
-            
+
             Animal[] animalsThree = new Animal[]{
                 new Spider(new Position(2, 0))};
 
             int nMovesThree = 4;
-            
+
             return new Level(boardThree, animalsThree, nMovesThree);
         }
-        
+
         return null;
     }
 }

@@ -84,6 +84,6 @@ public class Ladybird extends Animal {
      */
     @Override
     public String toString() {
-        return "Ladybird";
+        return "L";
     }
 }

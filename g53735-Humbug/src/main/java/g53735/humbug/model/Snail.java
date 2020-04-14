@@ -64,6 +64,6 @@ public class Snail extends Animal {
      */
     @Override
     public String toString() {
-        return "Snail";
+        return "§";
     }
 }

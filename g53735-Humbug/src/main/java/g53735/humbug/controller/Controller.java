@@ -36,7 +36,8 @@ public class Controller {
      * @param nLevel the number of the level.
      */
     public void startGame(int nLevel) {
-        Level.getLevel(nLevel);
+        Level lev = Level.getLevel(nLevel);
+        view.displayBoard(lev.getBoard(), lev.getAnimals());
         while (game.getLevelStatus() == LevelStatus.IN_PROGRESS) {
             view.displayBoard(Level.getLevel(nLevel).getBoard(),
                     Level.getLevel(nLevel).getAnimals());
