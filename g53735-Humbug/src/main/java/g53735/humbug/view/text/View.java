@@ -200,7 +200,7 @@ public class View implements InterfaceView {
                         case "G":
                         case "β":
                         case "B":
-                            if (vBlocPos == 0 || line == lineCount - 1) {//||(vBlocPos == 4 && (lineCount-1)/5==line)) {
+                            if (vBlocPos == 0 || line == lineCount - 1) {
                                 System.out.print("\033[42m-----\033[0m");
                             } else {
                                 if (vBlocPos == 2 && hBlocPos == 1) {
