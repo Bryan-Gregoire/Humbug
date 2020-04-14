@@ -7,6 +7,7 @@ import g53735.humbug.model.Position;
 import g53735.humbug.view.text.InterfaceView;
 import g53735.humbug.view.text.View;
 import g53735.humbug.model.Level;
+
 /**
  * The controller represents the dynamics of the game and the update of the view
  * as you go along.
