@@ -72,7 +72,7 @@ public class Game implements Model {
         if (inProgress == animals.length - 1) {
             return LevelStatus.IN_PROGRESS;
         }
-        return LevelStatus.NOT_STARTED;
+        return LevelStatus.IN_PROGRESS;
     }
 
     /**
@@ -82,10 +82,9 @@ public class Game implements Model {
      */
     @Override
     public void startLevel(int level) {
-        if (level == 1) {
-            this.board = Board.getInitialBoard();
-            this.animals = new Animal[]{new Snail(new Position(0, 0))};
-        }
+        this.board = Level.getLevel(level).getBoard();
+        this.animals = Level.getLevel(level).getAnimals();
+        this.remainingMoves = Level.getLevel(level).getnMoves();
     }
 
     /**
@@ -100,11 +99,14 @@ public class Game implements Model {
             throw new IllegalArgumentException("Not a good position"
                     + " or direction");
         }
+        
         if (getLevelStatus() == LevelStatus.NOT_STARTED) {
             throw new IllegalStateException("Level not started");
         }
+        
         for (Animal animal : getAnimals()) {
             if (position.equals(animal.getPositionOnBoard())) {
+                getLevelStatus();
                 if (animal.move(getBoard(), direction, getAnimals()) == null) {
                     throw new IllegalArgumentException("perdu");
                 } else {

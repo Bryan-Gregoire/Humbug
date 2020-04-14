@@ -1,6 +1,7 @@
 package g53735.humbug.controller;
 
 import g53735.humbug.model.Direction;
+import g53735.humbug.model.Game;
 import g53735.humbug.model.LevelStatus;
 import g53735.humbug.model.Model;
 import g53735.humbug.model.Position;
@@ -36,9 +37,8 @@ public class Controller {
      * @param nLevel the number of the level.
      */
     public void startGame(int nLevel) {
-        Level lev = Level.getLevel(nLevel);
-        view.displayBoard(lev.getBoard(), lev.getAnimals());
-        while (game.getLevelStatus() == LevelStatus.IN_PROGRESS) {
+        game.startLevel(nLevel);
+        while (game.getLevelStatus() != LevelStatus.NOT_STARTED) {
             view.displayBoard(Level.getLevel(nLevel).getBoard(),
                     Level.getLevel(nLevel).getAnimals());
             Position position = view.askPosition();
