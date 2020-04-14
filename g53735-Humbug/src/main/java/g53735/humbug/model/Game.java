@@ -99,11 +99,11 @@ public class Game implements Model {
             throw new IllegalArgumentException("Not a good position"
                     + " or direction");
         }
-        
+
         if (getLevelStatus() == LevelStatus.NOT_STARTED) {
             throw new IllegalStateException("Level not started");
         }
-        
+
         for (Animal animal : getAnimals()) {
             if (position.equals(animal.getPositionOnBoard())) {
                 getLevelStatus();

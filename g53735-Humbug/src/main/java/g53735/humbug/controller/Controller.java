@@ -1,7 +1,6 @@
 package g53735.humbug.controller;
 
 import g53735.humbug.model.Direction;
-import g53735.humbug.model.Game;
 import g53735.humbug.model.LevelStatus;
 import g53735.humbug.model.Model;
 import g53735.humbug.model.Position;
@@ -39,8 +38,7 @@ public class Controller {
     public void startGame(int nLevel) {
         game.startLevel(nLevel);
         while (game.getLevelStatus() != LevelStatus.NOT_STARTED) {
-            view.displayBoard(Level.getLevel(nLevel).getBoard(),
-                    Level.getLevel(nLevel).getAnimals());
+            view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
             position = validPosition(position);
             Direction direction = view.askDirection();
