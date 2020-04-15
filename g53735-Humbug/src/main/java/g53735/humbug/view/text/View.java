@@ -89,13 +89,13 @@ public class View implements InterfaceView {
         }
         return cardinalDirection(dir);
     }
-    
+
     /**
      * Display the remaining moves.
      */
     @Override
-    public void displayRemaining(int remainingMoves){
-        System.out.println("Il vous reste "+ remainingMoves + " mouvement");
+    public void displayRemaining(int remainingMoves) {
+        System.out.println("Il vous reste " + remainingMoves + " mouvement");
     }
 
     /**
@@ -217,10 +217,30 @@ public class View implements InterfaceView {
                                         || (vBlocPos == 2 && hBlocPos == 2 && board.getSquare(wallPos).hasWall(Direction.EAST))
                                         || (vBlocPos == 3 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.SOUTH))
                                         || (vBlocPos == 2 && hBlocPos == 0 && board.getSquare(wallPos).hasWall(Direction.WEST))) {
-                                    System.out.print("\033[42m| \033[0m\033[41m \033[0m\033[42m |\033[0m");
-
+                                    switch (hBlocPos) {
+                                        case 0:
+                                            System.out.print("\033[42m| \033[0m\033[41m \033[0m\033[42m  \033[0m");
+                                            break;
+                                        case 1:
+                                            System.out.print("\033[42m  \033[0m\033[41m \033[0m\033[42m  \033[0m");
+                                            break;
+                                        case 2:
+                                            System.out.print("\033[42m  \033[0m\033[41m \033[0m\033[42m |\033[0m");
+                                            break;
+                                    }
                                 } else {
-                                    System.out.print("\033[42m|   |\033[0m");
+                                    switch (hBlocPos) {
+                                        case 0:
+                                            System.out.print("\033[42m|    \033[0m");
+                                            break;
+                                        case 1:
+                                            System.out.print("\033[42m     \033[0m");
+                                            break;
+                                        case 2:
+                                            System.out.print("\033[42m    |\033[0m");
+                                            break;
+
+                                    }
                                 }
                             }
                             break;

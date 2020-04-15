@@ -78,7 +78,8 @@ public abstract class Animal {
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos) && !animal.onStar) {
+                if (animal.getPositionOnBoard().equals(arrivalPos) 
+                        && !animal.onStar) {
                     free = false;
                 }
             }
@@ -125,7 +126,8 @@ public abstract class Animal {
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos) && !animal.onStar) {
+                if (animal.getPositionOnBoard().equals(arrivalPos) 
+                        && !animal.onStar) {
                     free = false;
                 }
             }
