@@ -44,7 +44,7 @@ public class Snail extends Animal {
 
         boolean free = true;
         for (Animal animal : animals) {
-            if (animal.getPositionOnBoard().equals(nextPos)) {
+            if (animal.getPositionOnBoard().equals(nextPos) && !animal.onStar) {
                 free = false;
             }
         }

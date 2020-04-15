@@ -45,7 +45,7 @@ public class Ladybird extends Animal {
         int move = 0;
         while (free && move < 2) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)) {
+                if (animal.getPositionOnBoard().equals(nextPos) && !animal.onStar) {
                     free = false;
                 }
             }

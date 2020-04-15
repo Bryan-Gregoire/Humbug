@@ -45,7 +45,7 @@ public class Spider extends Animal {
         boolean free = true;
         while (board.isInside(nextPos) && free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)) {
+                if (animal.getPositionOnBoard().equals(nextPos) && !animal.onStar) {
                     free = false;
                 }
             }

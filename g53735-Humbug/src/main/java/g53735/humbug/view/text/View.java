@@ -89,6 +89,14 @@ public class View implements InterfaceView {
         }
         return cardinalDirection(dir);
     }
+    
+    /**
+     * Display the remaining moves.
+     */
+    @Override
+    public void displayRemaining(int remainingMoves){
+        System.out.println("Il vous reste "+ remainingMoves + " mouvement");
+    }
 
     /**
      * Ask a integer, while it is not a integer, ask again.
@@ -169,7 +177,7 @@ public class View implements InterfaceView {
             int col = animal.getPositionOnBoard().getColumn();
             boardDisplay[row][col] = animal.toString();
             if (animal.isOnStar()) {
-                boardDisplay[row][col] = "GRASS";
+                boardDisplay[row][col] = " ";
             }
         }
         return boardDisplay;

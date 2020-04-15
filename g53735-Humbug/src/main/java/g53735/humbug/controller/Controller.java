@@ -37,7 +37,8 @@ public class Controller {
      */
     public void startGame(int nLevel) {
         game.startLevel(nLevel);
-        while (game.getLevelStatus() != LevelStatus.NOT_STARTED) {
+        while (game.getLevelStatus() == LevelStatus.IN_PROGRESS) {
+            view.displayRemaining(game.getRemainingMoves());
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
             position = validPosition(position);
