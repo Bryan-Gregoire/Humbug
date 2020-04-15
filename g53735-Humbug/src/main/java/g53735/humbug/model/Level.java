@@ -107,6 +107,7 @@ public class Level {
                     new Square(SquareType.GRASS)} //Manque les murs.
             });
             boardThree.getSquare(new Position(0, 0)).setNorthWall(true);
+            boardThree.getSquare(new Position(0, 2)).setEastWall(true);
             boardThree.getSquare(new Position(3, 0)).setWestWall(true);
             boardThree.getSquare(new Position(3, 2)).setSouthWall(true);
 

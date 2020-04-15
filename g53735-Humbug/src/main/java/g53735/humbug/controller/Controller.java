@@ -6,7 +6,6 @@ import g53735.humbug.model.Model;
 import g53735.humbug.model.Position;
 import g53735.humbug.view.text.InterfaceView;
 import g53735.humbug.view.text.View;
-import g53735.humbug.model.Level;
 
 /**
  * The controller represents the dynamics of the game and the update of the view
@@ -47,13 +46,16 @@ public class Controller {
                 game.move(position, direction);
             } catch (Exception e) {
                 System.out.println("");
-                view.displayError("You lost :( ");
-                break;
             }
-        }
-        if (game.getLevelStatus() == LevelStatus.WIN) {
-            nLevel++;
-            startGame(nLevel);
+            if (game.getLevelStatus().equals(LevelStatus.WIN)) {
+                System.out.println("Well done");
+                nLevel++;
+                game.startLevel(nLevel);
+            }
+            if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
+                System.out.println("You lost, try again");
+                game.startLevel(nLevel);
+            }
         }
     }
 
