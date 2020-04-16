@@ -47,14 +47,11 @@ public class Controller {
             } catch (Exception e) {
                 System.out.println("");
             }
-            if (game.getLevelStatus().equals(LevelStatus.WIN)) {
-                System.out.println("Well done");
-                nLevel++;
-                game.startLevel(nLevel);
-            }
-            if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
-                System.out.println("You lost, try again");
-                game.startLevel(nLevel);
+            try {
+                nLevel = winOrLose(nLevel);
+            } catch (Exception e) {
+                System.out.println("It was the last level for the moment,"
+                        + " we will add more levels later :)");
             }
         }
     }
@@ -84,5 +81,18 @@ public class Controller {
             }
         }
         return position;
+    }
+
+    private int winOrLose(int nLevel) {
+        if (game.getLevelStatus().equals(LevelStatus.WIN)) {
+            System.out.println("Well done");
+            nLevel++;
+            game.startLevel(nLevel);
+        }
+        if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
+            System.out.println("You lost, try again");
+            game.startLevel(nLevel);
+        }
+        return nLevel;
     }
 }
