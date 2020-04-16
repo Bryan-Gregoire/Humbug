@@ -25,8 +25,7 @@ public class Butterfly extends Animal {
      */
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
-        Position bumblebee = this.getPositionOnBoard();
-        Position fly1 = bumblebee.next(direction);
+        Position fly1 = this.positionOnBoard.next(direction);
         Position fly2 = fly1.next(direction);
         Position arrivalPos = fly2.next(direction);
 

@@ -68,12 +68,13 @@ public class Controller {
         int i = 0;
         while (!game.getBoard().isInside(position)
                 || !game.getAnimals()[i].getPositionOnBoard()
-                        .equals(position)) {
+                        .equals(position) || game.getAnimals()[i].isOnStar()) {
             if (!game.getBoard().isInside(position)) {
                 System.out.println("Position is not on the game board");
                 position = view.askPosition();
             } else {
                 if (i == game.getAnimals().length - 1) {
+                    i = 0;
                     System.out.println("There is no animal in this"
                             + " position.");
                     position = view.askPosition();

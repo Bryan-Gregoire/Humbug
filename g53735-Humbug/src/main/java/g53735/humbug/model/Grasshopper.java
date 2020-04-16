@@ -26,10 +26,7 @@ public class Grasshopper extends Animal {
      */
     @Override
     public Position move(Board board, Direction direction, Animal... animals) {
-        Position grasshopper = this.getPositionOnBoard();
-        Position arrivalPos = grasshopper.next(direction);
-
-        return moveOnJumping(board, arrivalPos, direction, animals);
+        return moveOnJumping(board, direction, animals);
     }
 
     /**

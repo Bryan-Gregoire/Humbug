@@ -95,7 +95,7 @@ public class View implements InterfaceView {
      */
     @Override
     public void displayRemaining(int remainingMoves) {
-        System.out.println("Il vous reste " + remainingMoves + " mouvement");
+        System.out.println("You have " + remainingMoves + " movements left");
     }
 
     /**

@@ -67,9 +67,9 @@ public abstract class Animal {
     public abstract Position move(Board board, Direction direction,
             Animal... animals);
 
-    protected Position moveOnJumping(Board board, Position arrivalPos,
-            Direction direction, Animal... animals) {
-
+    protected Position moveOnJumping(Board board,Direction direction,
+            Animal... animals) {
+        Position arrivalPos = this.positionOnBoard.next(direction);
         if (!board.isInside(arrivalPos)) {
             this.setPositionOnBoard(null);
             return null;
@@ -78,7 +78,7 @@ public abstract class Animal {
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos) 
+                if (animal.getPositionOnBoard().equals(arrivalPos)
                         && !animal.onStar) {
                     free = false;
                 }
@@ -126,7 +126,7 @@ public abstract class Animal {
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos) 
+                if (animal.getPositionOnBoard().equals(arrivalPos)
                         && !animal.onStar) {
                     free = false;
                 }
