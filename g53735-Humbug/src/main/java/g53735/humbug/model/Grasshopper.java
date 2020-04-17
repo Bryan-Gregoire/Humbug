@@ -17,6 +17,13 @@ public class Grasshopper extends Animal {
     }
 
     /**
+     * Constructor of Grasshopper.
+     * 
+     */
+    public Grasshopper() {
+    }
+
+    /**
      * Move the animal, change the position of the animal.
      *
      * @param board the given board.
@@ -34,6 +41,6 @@ public class Grasshopper extends Animal {
      */
     @Override
     public String toString() {
-        return "G";
+        return "GH";
     }
 }

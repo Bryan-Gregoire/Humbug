@@ -23,6 +23,15 @@ public class Position {
     }
 
     /**
+     * Constructor of a position on the board.
+     * 
+     */
+    public Position() {
+        this.row = 0;
+        this.column = 0;
+    }
+
+    /**
      * Get the value of a row.
      *
      * @return the value of row
@@ -77,6 +86,16 @@ public class Position {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Text representing a position.
+     *
+     * @return The text position.
+     */
+    @Override
+    public String toString() {
+        return "Position{" + "row=" + row + ", column=" + column + '}';
     }
 
     /**

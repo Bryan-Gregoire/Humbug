@@ -151,10 +151,10 @@ public class View implements InterfaceView {
                 Position pos = new Position(lg, col);
                 if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.STAR) {
-                    boardDisplay[lg][col] = "*";
+                    boardDisplay[lg][col] = "* ";
                 } else if (board.isInside(pos)
                         && board.getSquareType(pos) == SquareType.GRASS) {
-                    boardDisplay[lg][col] = " ";
+                    boardDisplay[lg][col] = "  ";
                 } else {
                     boardDisplay[lg][col] = "null";
                 }
@@ -177,7 +177,7 @@ public class View implements InterfaceView {
             int col = animal.getPositionOnBoard().getColumn();
             boardDisplay[row][col] = animal.toString();
             if (animal.isOnStar()) {
-                boardDisplay[row][col] = " ";
+                boardDisplay[row][col] = "  ";
             }
         }
         return boardDisplay;
@@ -200,19 +200,19 @@ public class View implements InterfaceView {
                 Position wallPos = new Position(line / 5, col / 3);
                 if ((vBlocPos != 4) || (line == lineCount - 1)) {
                     switch (value) {
-                        case " ":
-                        case "*":
-                        case "§":
-                        case "S":
-                        case "L":
-                        case "G":
-                        case "β":
-                        case "B":
+                        case "  ":
+                        case "* ":
+                        case "SL":
+                        case "SP":
+                        case "LB":
+                        case "GH":
+                        case "BB":
+                        case "BF":
                             if (vBlocPos == 0 || line == lineCount - 1) {
                                 System.out.print("\033[42m-----\033[0m");
                             } else {
                                 if (vBlocPos == 2 && hBlocPos == 1) {
-                                    System.out.print("\033[42m  " + value + "  \033[0m");
+                                    System.out.print("\033[42m  " + value + " \033[0m");
                                 } else if ((vBlocPos == 1 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.NORTH))
                                         || (vBlocPos == 2 && hBlocPos == 2 && board.getSquare(wallPos).hasWall(Direction.EAST))
                                         || (vBlocPos == 3 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.SOUTH))

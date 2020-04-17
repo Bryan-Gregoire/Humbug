@@ -15,6 +15,14 @@ public class Butterfly extends Animal {
         super(positionOnBoard);
     }
 
+    
+    /**
+     * Constructor of Butterfly.
+     * 
+     */
+    public Butterfly() {
+    }
+
     /**
      * Move the animal, change the position of the animal.
      *
@@ -37,6 +45,6 @@ public class Butterfly extends Animal {
      */
     @Override
     public String toString() {
-        return "B";
+        return "BY";
     }
 }

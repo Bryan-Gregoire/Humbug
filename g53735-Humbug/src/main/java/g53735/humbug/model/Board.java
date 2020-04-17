@@ -19,6 +19,14 @@ public class Board {
     }
 
     /**
+     * Constructor of a board.
+     * 
+     */
+    public Board() {
+        this.squares = null;
+    }
+
+    /**
      * Check the type of the square of a given position.
      *
      * @param pos the given position.
@@ -40,6 +48,16 @@ public class Board {
     public Square getSquare(Position pos) {
         return this.squares[pos.getRow()][pos.getColumn()];
     }
+
+    /**
+     * Get a Square.
+     * 
+     * @return square.
+     */
+    public Square[][] getSquares() {
+        return squares;
+    }
+    
 
     /**
      * Gives the number of rows on the game board.

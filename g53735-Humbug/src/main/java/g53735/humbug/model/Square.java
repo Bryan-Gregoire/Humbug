@@ -28,6 +28,13 @@ public class Square {
     }
 
     /**
+     * Constructor of Square on board.
+     * 
+     */
+    public Square() {
+    }
+      
+    /**
      * North wall setter.
      * 
      * @param nortWall set a wall or no.

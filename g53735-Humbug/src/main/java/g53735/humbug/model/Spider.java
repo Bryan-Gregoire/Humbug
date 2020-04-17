@@ -17,6 +17,14 @@ public class Spider extends Animal {
     }
 
     /**
+     * Constructor of spider.
+     * 
+     */
+    public Spider() {
+    }
+    
+
+    /**
      * Move the animal, change the position of the animal.
      *
      * @param board the given board.
@@ -45,7 +53,7 @@ public class Spider extends Animal {
         boolean free = true;
         while (board.isInside(nextPos) && free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos) 
+                if (animal.getPositionOnBoard().equals(nextPos)
                         && !animal.onStar) {
                     free = false;
                 }
@@ -78,6 +86,6 @@ public class Spider extends Animal {
      */
     @Override
     public String toString() {
-        return "S";
+        return "SP";
     }
 }

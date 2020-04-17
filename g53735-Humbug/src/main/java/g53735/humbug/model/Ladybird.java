@@ -17,6 +17,14 @@ public class Ladybird extends Animal {
     }
 
     /**
+     * Constructor of Ladybird.
+     */
+    public Ladybird() {
+    }
+    
+    
+
+    /**
      * Move the animal, change the position of the animal.
      *
      * @param board the given board.
@@ -86,6 +94,6 @@ public class Ladybird extends Animal {
      */
     @Override
     public String toString() {
-        return "L";
+        return "LB";
     }
 }

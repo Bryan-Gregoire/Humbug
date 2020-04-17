@@ -1,23 +1,45 @@
 package g53735.humbug.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 /**
  * Represent the animal on the game board.
  *
  * @author g53735
  */
+@JsonTypeInfo(use = Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+    @Type(value = Bumbelbee.class),
+    @Type(value = Grasshopper.class),
+    @Type(value = Ladybird.class),
+    @Type(value = Snail.class),
+    @Type(value = Spider.class),})
 public abstract class Animal {
-
+    
     protected Position positionOnBoard;
     protected boolean onStar;
 
     /**
-     * Constructor of animal.
+     * Constructor of Animal.
      *
      * @param positionOnBoard the position of the animal on the game board.
      */
     public Animal(Position positionOnBoard) {
         this.positionOnBoard = positionOnBoard;
         this.onStar = false;
+    }
+    
+    
+    /**
+     * Constructor of Animal.
+     * 
+     */
+    public Animal() {
     }
 
     /**
@@ -66,19 +88,20 @@ public abstract class Animal {
      */
     public abstract Position move(Board board, Direction direction,
             Animal... animals);
-
-    protected Position moveOnJumping(Board board,Direction direction,
+    
+    protected Position moveOnJumping(Board board, Direction direction,
             Animal... animals) {
-        Position arrivalPos = this.positionOnBoard.next(direction);
-        if (!board.isInside(arrivalPos)) {
+        Position arrivalPos = this.positionOnBoard;
+        Position nextPos = arrivalPos.next(direction);
+        if (!board.isInside(nextPos)) {
             this.setPositionOnBoard(null);
             return null;
         }
-
+        
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos)
+                if (animal.getPositionOnBoard().equals(nextPos)
                         && !animal.onStar) {
                     free = false;
                 }
@@ -86,23 +109,23 @@ public abstract class Animal {
             if (free) {
                 break;
             } else {
-                this.positionOnBoard = arrivalPos;
-                arrivalPos = this.positionOnBoard.next(direction);
-
-                if (!board.isInside(arrivalPos)) {
+                arrivalPos = nextPos;
+                nextPos = arrivalPos.next(direction);
+                
+                if (!board.isInside(nextPos)) {
                     this.setPositionOnBoard(null);
                     return null;
                 }
             }
             free = true;
         }
-
-        this.positionOnBoard = arrivalPos;
-        if (board.getSquareType(this.positionOnBoard) == SquareType.STAR) {
+        
+        arrivalPos = nextPos;
+        if (board.getSquareType(arrivalPos) == SquareType.STAR) {
             this.setOnStar(true);
-            board.setSquareType(this.positionOnBoard, SquareType.GRASS);
+            board.setSquareType(arrivalPos, SquareType.GRASS);
         }
-        return this.positionOnBoard;
+        return arrivalPos;
     }
 
     /**
@@ -118,11 +141,12 @@ public abstract class Animal {
      */
     protected Position moveOneFlying(Board board, Position arrivalPos,
             Direction direction, Animal... animals) {
+        Position initialPos;
         if (!board.isInside(arrivalPos)) {
-            this.positionOnBoard = null;
+            this.setPositionOnBoard(null);
             return null;
         }
-
+        
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
@@ -134,21 +158,21 @@ public abstract class Animal {
             if (free) {
                 break;
             } else {
-                this.positionOnBoard = arrivalPos;
-                arrivalPos = this.positionOnBoard.next(direction);
+                initialPos = arrivalPos;
+                arrivalPos = initialPos.next(direction);
                 if (!board.isInside(arrivalPos)) {
-                    this.positionOnBoard = null;
+                    this.setPositionOnBoard(null);
                     return null;
                 }
             }
             free = true;
         }
-
-        this.positionOnBoard = arrivalPos;
-        if (board.getSquareType(this.positionOnBoard) == SquareType.STAR) {
+        
+        initialPos = arrivalPos;
+        if (board.getSquareType(initialPos) == SquareType.STAR) {
             this.setOnStar(true);
-            board.setSquareType(this.positionOnBoard, SquareType.GRASS);
+            board.setSquareType(initialPos, SquareType.GRASS);
         }
-        return this.positionOnBoard;
+        return initialPos;
     }
 }

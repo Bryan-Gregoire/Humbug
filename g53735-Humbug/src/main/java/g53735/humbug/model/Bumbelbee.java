@@ -1,20 +1,27 @@
 package g53735.humbug.model;
 
 /**
- * Represent the bumblebee in the game.
+ * Represent the bumbelbee in the game.
  *
  * @author g53735
  */
-public class Bumblebee extends Animal {
+public class Bumbelbee extends Animal {
 
     /**
-     * Constructor of bumblebee.
+     * Constructor of bumbelbee.
      *
      * @param positionOnBoard the position of bumblebee on the game board.
      */
-    public Bumblebee(Position positionOnBoard) {
+    public Bumbelbee(Position positionOnBoard) {
         super(positionOnBoard);
     }
+
+    /**
+     * Constructor of Bumbelbee.
+     * 
+     */
+    public Bumbelbee() {
+    } 
 
     /**
      * Move the animal, change the position of the animal.
@@ -33,10 +40,10 @@ public class Bumblebee extends Animal {
     }
 
     /**
-     * @return a? String that represent the animal.
+     * @return a String that represent the animal.
      */
     @Override
     public String toString() {
-        return "β";
+        return "BB";
     }
 }

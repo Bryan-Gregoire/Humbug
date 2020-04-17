@@ -1,5 +1,8 @@
 package g53735.humbug.model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+
 /**
  * Provides a level to the game.
  *
@@ -22,6 +25,16 @@ public class Level {
         this.board = board;
         this.animals = animals;
         this.nMoves = nMoves;
+    }
+
+    /**
+     * Constructor of the level.
+     *
+     */
+    public Level() {
+        this.board = null;
+        this.animals = null;
+        this.nMoves = 0;
     }
 
     /**
@@ -58,67 +71,26 @@ public class Level {
      * @return the level.
      */
     public static Level getLevel(int nbLevel) {
-        if (nbLevel == 1) {
-            Board boardOne = new Board(new Square[][]{
-                {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
-                    null},
-                {null, new Square(SquareType.GRASS),
-                    new Square(SquareType.GRASS)},
-                {null, null, new Square(SquareType.STAR)}
-            });
+        return readLevel(nbLevel);
+    }
 
-            Animal[] animalsOne = new Animal[]{
-                new Snail(new Position(0, 0)),};
-
-            int nMovesOne = 4;
-
-            return new Level(boardOne, animalsOne, nMovesOne);
+    /**
+     * Read a json file that represents a level of the game .
+     *
+     * @param n the number of the level.
+     * @return the level.
+     */
+    public static Level readLevel(int n) {
+        try {
+            var objectMapper = new ObjectMapper();
+            var inputStream = Level.class.getResourceAsStream(
+                    "/data/level-" + n + ".json");
+            var level = objectMapper.readValue(inputStream, Level.class);
+            return level;
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
-
-        if (nbLevel == 2) {
-            Board boardTwo = new Board(new Square[][]{
-                {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
-                    null},
-                {null, new Square(SquareType.STAR), null},
-                {new Square(SquareType.STAR), new Square(SquareType.GRASS),
-                    new Square(SquareType.STAR)},
-                {null, new Square(SquareType.GRASS), null}
-            });
-
-            Animal[] animalsTwo = new Animal[]{
-                new Snail(new Position(0, 0)),
-                new Snail(new Position(2, 1)),
-                new Snail(new Position(3, 1))};
-
-            int nMovesTwo = 5;
-
-            return new Level(boardTwo, animalsTwo, nMovesTwo);
-        }
-
-        if (nbLevel == 3) {
-            Board boardThree = new Board(new Square[][]{
-                {new Square(SquareType.GRASS), new Square(SquareType.GRASS),
-                    new Square(SquareType.GRASS)}, //Faut rajouter les murs.
-                {new Square(SquareType.GRASS), null,
-                    new Square(SquareType.GRASS)},
-                {new Square(SquareType.GRASS), null,
-                    new Square(SquareType.GRASS)},
-                {new Square(SquareType.STAR), new Square(SquareType.GRASS),
-                    new Square(SquareType.GRASS)} //Manque les murs.
-            });
-            boardThree.getSquare(new Position(0, 0)).setNorthWall(true);
-            boardThree.getSquare(new Position(0, 2)).setEastWall(true);
-            boardThree.getSquare(new Position(3, 0)).setWestWall(true);
-            boardThree.getSquare(new Position(3, 2)).setSouthWall(true);
-
-            Animal[] animalsThree = new Animal[]{
-                new Spider(new Position(2, 0))};
-
-            int nMovesThree = 4;
-
-            return new Level(boardThree, animalsThree, nMovesThree);
-        }
-
         return null;
     }
+
 }

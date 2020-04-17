@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author g53735
  */
-public class BumblebeeTest {
+public class BumbelbeeTest {
 
     private Board board;
     private Animal[] animals;
@@ -25,37 +25,37 @@ public class BumblebeeTest {
             {new Square(GRASS), null, new Square(STAR), new Square(GRASS)}
         });
         animals = new Animal[]{
-            new Bumblebee(new Position(0, 0)),
-            new Bumblebee(new Position(1, 1))
+            new Bumbelbee(new Position(0, 0)),
+            new Bumbelbee(new Position(1, 1))
         };
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove() {
         System.out.println("move_general");
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(0, 2); //.next(Direction.EAST);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverNull() {
         System.out.println("fly over null");
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(2, 0); //.next(Direction.SOUTH);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverNull_fall() {
@@ -66,19 +66,19 @@ public class BumblebeeTest {
             {new Square(GRASS), null, null, new Square(STAR)}
         });
         animals[0].setPositionOnBoard(new Position(2, 0));
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = null; //.next(Direction.EAST);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverAnimal() {
         System.out.println("fly over an animal");
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
         Position expResult = new Position(0, 2); //.next(Direction.EAST);
         Position result = instance.move(board, Direction.EAST, animals);
@@ -86,7 +86,7 @@ public class BumblebeeTest {
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverAnimals_Fall() {
@@ -98,18 +98,18 @@ public class BumblebeeTest {
             {new Square(GRASS), new Square(GRASS), null, new Square(GRASS)}
         });
         animals = new Animal[]{
-            new Bumblebee(new Position(0, 0)),
-            new Bumblebee(new Position(3, 0)),
+            new Bumbelbee(new Position(0, 0)),
+            new Bumbelbee(new Position(3, 0)),
             new Snail(new Position(2, 0))
         };
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = null; //.next(Direction.SOUTH);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverAnimals_2() {
@@ -122,35 +122,35 @@ public class BumblebeeTest {
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), null}
         });
         animals = new Animal[]{
-            new Bumblebee(new Position(0, 0)),
-            new Bumblebee(new Position(3, 0)),
+            new Bumbelbee(new Position(0, 0)),
+            new Bumbelbee(new Position(3, 0)),
             new Snail(new Position(2, 0))
         };
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(4, 0); //.next(Direction.SOUTH);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_notInside() {
         System.out.println("move outside the game board");
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = null; //.next(Direction.NORTH);
         Position result = instance.move(board, Direction.NORTH, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_flyOverWall() {
         System.out.println("move over a wall");
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         board.getSquare(new Position(0, 0)).setEastWall(true);
         board.getSquare(new Position(0, 1)).setWestWall(true);
         board.getSquare(new Position(0, 1)).setEastWall(true);
@@ -160,13 +160,13 @@ public class BumblebeeTest {
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_Onstar() {
         System.out.println("fly on star");
         animals[0].setPositionOnBoard(new Position(0, 2));
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(2, 2); //.next(Direction.SOUTH);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
@@ -175,7 +175,7 @@ public class BumblebeeTest {
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_Onstar_2() {
@@ -188,7 +188,7 @@ public class BumblebeeTest {
         });
         animals[1].setPositionOnBoard(new Position(2, 2));
         animals[0].setPositionOnBoard(new Position(0, 2));
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(3, 2); //.next(Direction.SOUTH);
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
@@ -197,7 +197,7 @@ public class BumblebeeTest {
     }
 
     /**
-     * Test of move method, of class Bumblebee.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_Onstar_3() {
@@ -210,7 +210,7 @@ public class BumblebeeTest {
         });
         animals[1].setPositionOnBoard(new Position(2, 2));
         animals[0].setPositionOnBoard(new Position(2, 0));
-        Bumblebee instance = (Bumblebee) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(2, 3); //.next(Direction.EAST);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);

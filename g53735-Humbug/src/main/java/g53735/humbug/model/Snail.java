@@ -17,6 +17,13 @@ public class Snail extends Animal {
     }
 
     /**
+     * Constructor of Snail.
+     * 
+     */
+    public Snail() {
+    }
+
+    /**
      * Move the animal, change the position of the animal.
      *
      * @param board the given board.
@@ -64,6 +71,6 @@ public class Snail extends Animal {
      */
     @Override
     public String toString() {
-        return "§";
+        return "SL";
     }
 }
