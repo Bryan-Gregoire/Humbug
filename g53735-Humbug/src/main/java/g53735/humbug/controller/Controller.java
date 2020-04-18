@@ -81,7 +81,7 @@ public class Controller {
 
     private int winOrLose(int nLevel) {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
-            System.out.println("Well done");
+            System.out.println("Well done, you finished the level " + nLevel);
             nLevel++;
             if (nLevel < 71) {
                 game.startLevel(nLevel);
