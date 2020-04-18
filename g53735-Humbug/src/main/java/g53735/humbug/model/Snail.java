@@ -18,7 +18,7 @@ public class Snail extends Animal {
 
     /**
      * Constructor of Snail.
-     * 
+     *
      */
     public Snail() {
     }
@@ -58,12 +58,12 @@ public class Snail extends Animal {
         if (!free) {
             return snail;
         }
-
-        if (board.getSquareType(nextPos) == SquareType.STAR) {
+        snail = nextPos;
+        if (board.getSquareType(snail) == SquareType.STAR) {
             this.setOnStar(true);
-            board.setSquareType(nextPos, SquareType.GRASS);
+            board.setSquareType(snail, SquareType.GRASS);
         }
-        return snail = nextPos;
+        return snail;
     }
 
     /**

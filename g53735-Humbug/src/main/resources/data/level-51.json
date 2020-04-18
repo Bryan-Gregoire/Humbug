@@ -1,0 +1,120 @@
+{
+    "board": {
+        "squares": [
+            [
+                null,
+                {
+                    "type": "STAR"
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR" 
+                },
+                {
+                    "type": "STAR"
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ]
+        ]
+    },
+    "animals": [
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 3
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 3 
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 3
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 4
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 5
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 6
+            }
+        }
+    ],
+    "nMoves": 16
+}

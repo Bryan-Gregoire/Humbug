@@ -1,0 +1,95 @@
+{
+    "board": {
+        "squares": [
+            [
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS",
+                    "northWall": true
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR",
+                    "southWall": true
+                },
+                null,
+                null
+            ]
+        ]
+    },
+    "animals": [
+        {
+            "type": "Bumbelbee",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 1
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 5 
+            }
+        },
+        {
+            "type": "Ladybird",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 2
+            }
+        },
+        {
+            "type": "Spider",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 3
+            }
+        }
+    ],
+    "nMoves": 7
+}

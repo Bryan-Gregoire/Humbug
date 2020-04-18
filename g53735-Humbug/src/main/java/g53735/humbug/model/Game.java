@@ -11,7 +11,7 @@ public class Game implements Model {
     private Board board;
     private Animal[] animals;
     private int remainingMoves;
-    private int currentLevel;
+    //private int currentLevel;
 
     /**
      * Get the board.

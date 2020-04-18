@@ -36,7 +36,8 @@ public class Controller {
      */
     public void startGame(int nLevel) {
         game.startLevel(nLevel);
-        while (game.getLevelStatus() == LevelStatus.IN_PROGRESS) {
+        while (game.getLevelStatus() == LevelStatus.IN_PROGRESS
+                && nLevel <= 100) {
             view.displayRemaining(game.getRemainingMoves());
             view.displayBoard(game.getBoard(), game.getAnimals());
             Position position = view.askPosition();
@@ -47,12 +48,7 @@ public class Controller {
             } catch (Exception e) {
                 System.out.println("");
             }
-            try {
-                nLevel = winOrLose(nLevel);
-            } catch (Exception e) {
-                System.out.println("It was the last level for the moment,"
-                        + " we will add more levels later :)");
-            }
+            nLevel = winOrLose(nLevel);
         }
     }
 
@@ -87,7 +83,17 @@ public class Controller {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
             System.out.println("Well done");
             nLevel++;
-            game.startLevel(nLevel);
+            if (nLevel < 71) {
+                game.startLevel(nLevel);
+            } else if (nLevel != 100) {
+                while (nLevel != 100) {
+                    nLevel++;
+                }
+                game.startLevel(nLevel);
+            } else {
+                view.displayBoard(game.getBoard(), game.getAnimals());
+                System.out.println("Well done, it was the last level");
+            }
         }
         if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
             System.out.println("You lost, try again");

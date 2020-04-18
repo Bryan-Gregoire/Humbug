@@ -1,0 +1,97 @@
+{
+    "board": {
+        "squares": [
+            [
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+                null,
+                {
+                    "type": "STAR"
+                },
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "type":"STAR"
+                },
+                {
+                    "type":"STAR"
+                }
+            ],
+            [
+                null,
+                {
+                    "type":"GRASS"
+                },
+                {
+                    "type":"GRASS"
+                },
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ]
+        ]
+    },
+    "animals": [
+        {
+            "type": "Spider",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 4
+            }
+        },
+        {
+            "type": "Spider",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 5
+            }
+        },
+        {
+            "type": "Snail",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 2 
+            }
+        },
+        {
+            "type": "Butterfly",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 2
+            }
+        }
+    ],
+    "nMoves": 11
+}
