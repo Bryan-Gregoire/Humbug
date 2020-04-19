@@ -172,12 +172,28 @@ public class View implements InterfaceView {
      */
     private String[][] animalOnBoard(String[][] boardDisplay,
             Animal... animals) {
-        for (Animal animal : animals) {
-            int row = animal.getPositionOnBoard().getRow();
-            int col = animal.getPositionOnBoard().getColumn();
-            boardDisplay[row][col] = animal.toString();
-            if (animal.isOnStar()) {
-                boardDisplay[row][col] = "  ";
+        for (int i = 0; i < animals.length; i++) {
+            int row = animals[i].getPositionOnBoard().getRow();
+            int col = animals[i].getPositionOnBoard().getColumn();
+            boardDisplay[row][col] = animals[i].toString();
+            if (animals[i].isOnStar()) {
+                for (int j = 0; j < animals.length; j++) {
+                    if (i == j) {
+                        j++;
+                    }
+                    if (j >= animals.length) {
+                        break;
+                    }
+                    if (animals[i].getPositionOnBoard().
+                            equals(animals[j].getPositionOnBoard())
+                            && !animals[j].isOnStar()) {
+                        boardDisplay[row][col] = animals[j].toString();
+                        break;
+                    } else {
+                        boardDisplay[row][col] = "  ";
+
+                    }
+                }
             }
         }
         return boardDisplay;
