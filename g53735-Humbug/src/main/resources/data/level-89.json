@@ -9,25 +9,8 @@
                     "type": "STAR"
                 },
                 {
-                    "type": "STAR"
-                },
-                null,
-                null
-            ],
-            [
-                {
-                    "type": "STAR"
-                },
-                {
                     "type": "GRASS"
                 },
-                {
-                    "type": "STAR"
-                },
-                null,
-                null
-            ],
-            [
                 {
                     "type": "GRASS"
                 },
@@ -37,7 +20,6 @@
                 {
                     "type": "GRASS"
                 },
-                null,
                 {
                     "type": "GRASS"
                 }
@@ -46,49 +28,57 @@
                 null,
                 null,
                 null,
+                {
+                    "type": "GRASS"
+                },
+                null,
                 null,
                 null
             ],
             [
                 null,
                 null,
-                {
-                    "type": "GRASS"
-                }, 
                 null,
                 {
                     "type": "GRASS"
-                }
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "STAR"
+                },
+                null,
+                null,
+                null
             ]
         ]
     },
     "animals": [
         {
-            "type": "Snail",
-            "positionOnBoard": {
-                "row": 1,
-                "column": 1
-            }
-        },
-        {
-            "type": "Grasshopper",
-            "positionOnBoard": {
-                "row": 2,
-                "column": 1
-            }
-        },
-        {
             "type": "Bumbelbee",
             "positionOnBoard": {
-                "row": 2,
-                "column": 4
+                "row": 0,
+                "column": 3
             }
         },
         {
-            "type": "Bumbelbee",
+            "type": "Spider",
             "positionOnBoard": {
-                "row": 4,
-                "column": 2
+                "row": 0,
+                "column": 4 
+            }
+        },
+        {
+            "type": "Butterfly",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 6
             }
         }
     ],

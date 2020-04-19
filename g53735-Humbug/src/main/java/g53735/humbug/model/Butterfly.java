@@ -15,10 +15,9 @@ public class Butterfly extends Animal {
         super(positionOnBoard);
     }
 
-    
     /**
      * Constructor of Butterfly.
-     * 
+     *
      */
     public Butterfly() {
     }
@@ -45,6 +44,6 @@ public class Butterfly extends Animal {
      */
     @Override
     public String toString() {
-        return "BY";
+        return "BF";
     }
 }

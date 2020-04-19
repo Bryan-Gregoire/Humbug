@@ -105,7 +105,8 @@ public class Game implements Model {
         }
 
         for (Animal animal : getAnimals()) {
-            if (position.equals(animal.getPositionOnBoard())) {
+            if (position.equals(animal.getPositionOnBoard())
+                    && !animal.onStar) {
                 getLevelStatus();
                 if (animal.move(getBoard(), direction, getAnimals()) == null) {
                     throw new IllegalArgumentException("perdu");

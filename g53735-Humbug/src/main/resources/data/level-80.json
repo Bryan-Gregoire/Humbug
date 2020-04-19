@@ -2,20 +2,37 @@
     "board": {
         "squares": [
             [
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "STAR"
-                },
                 null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR"
+                },
                 null
             ],
             [
                 {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
                     "type": "STAR"
                 },
                 {
@@ -24,22 +41,8 @@
                 {
                     "type": "STAR"
                 },
-                null,
-                null
-            ],
-            [
                 {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "GRASS"
-                },
-                null,
-                {
-                    "type": "GRASS"
+                    "type": "STAR"
                 }
             ],
             [
@@ -47,48 +50,50 @@
                 null,
                 null,
                 null,
+                {
+                    "type": "GRASS"
+                },
                 null
             ],
             [
                 null,
                 null,
-                {
-                    "type": "GRASS"
-                }, 
+                null,
                 null,
                 {
                     "type": "GRASS"
-                }
+                },
+                null
             ]
         ]
     },
     "animals": [
         {
-            "type": "Snail",
+            "type": "Ladybird",
             "positionOnBoard": {
-                "row": 1,
-                "column": 1
+                "row": 0,
+                "column": 3
             }
         },
         {
-            "type": "Grasshopper",
+            "type": "Butterfly",
             "positionOnBoard": {
                 "row": 2,
-                "column": 1
+                "column": 0 
             }
         },
         {
             "type": "Bumbelbee",
             "positionOnBoard": {
                 "row": 2,
-                "column": 4
+                "column": 1
             }
         },
         {
-            "type": "Bumbelbee",
+            "type": "Spider",
             "positionOnBoard": {
                 "row": 4,
-                "column": 2
+                "column": 4
             }
         }
     ],

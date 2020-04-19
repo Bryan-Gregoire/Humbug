@@ -2,42 +2,36 @@
     "board": {
         "squares": [
             [
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "STAR"
-                },
                 null,
-                null
-            ],
-            [
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "STAR"
-                },
                 null,
-                null
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR",
+                    "southWall": true
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                }
             ],
             [
                 {
                     "type": "GRASS"
                 },
                 {
-                    "type": "GRASS"
+                    "type": "STAR"
+                },
+                null,
+                {
+                    "type": "STAR"
                 },
                 {
                     "type": "GRASS"
                 },
-                null,
                 {
                     "type": "GRASS"
                 }
@@ -47,50 +41,68 @@
                 null,
                 null,
                 null,
-                null
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
             ],
             [
                 null,
                 null,
-                {
-                    "type": "GRASS"
-                }, 
+                null,
                 null,
                 {
                     "type": "GRASS"
-                }
+                },
+                null
             ]
         ]
     },
     "animals": [
         {
-            "type": "Snail",
+            "type": "Butterfly",
             "positionOnBoard": {
                 "row": 1,
-                "column": 1
+                "column": 0
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 1,
+                "column": 4 
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 1,
+                "column": 5
             }
         },
         {
             "type": "Grasshopper",
             "positionOnBoard": {
                 "row": 2,
-                "column": 1
-            }
-        },
-        {
-            "type": "Bumbelbee",
-            "positionOnBoard": {
-                "row": 2,
                 "column": 4
             }
         },
         {
-            "type": "Bumbelbee",
+            "type": "Grasshopper",
             "positionOnBoard": {
-                "row": 4,
-                "column": 2
+                "row": 2,
+                "column": 5
+            }
+        },
+        {
+            "type": "Ladybird",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 4
             }
         }
     ],
-    "nMoves": 8
+    "nMoves": 10
 }

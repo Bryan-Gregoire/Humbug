@@ -1,0 +1,121 @@
+{
+    "board": {
+        "squares": [
+            [
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                }
+            ],
+            [
+                null,
+                null,
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR"
+                }
+            ],
+            [
+                null,
+                null,
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "STAR"
+                }
+            ]
+        ]
+    },
+    "animals": [
+        {
+            "type": "Butterfly",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 2
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 1,
+                "column": 1 
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 1,
+                "column": 2
+            }
+        },
+        {
+            "type": "Butterfly",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 0
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 1
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 2,
+                "column": 2
+            }
+        },
+        {
+            "type": "Snail",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 3
+            }
+        }
+    ],
+    "nMoves": 11
+}

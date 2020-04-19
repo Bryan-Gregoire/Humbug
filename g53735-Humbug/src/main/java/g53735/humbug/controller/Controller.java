@@ -79,20 +79,28 @@ public class Controller {
         return position;
     }
 
+    /**
+     * Check if check if the level is won or lost, if the level is won, we pass
+     * to the next level but if it is the last level we display the board. If
+     * the level is lost, we repeat the same level.
+     *
+     * @param nLevel the number of the level.
+     * @return the number of the new or same level.
+     */
     private int winOrLose(int nLevel) {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
             System.out.println("Well done, you finished the level " + nLevel);
             nLevel++;
-            if (nLevel < 71) {
+            if (nLevel < 91) {
                 game.startLevel(nLevel);
-            } else if (nLevel != 100) {
-                while (nLevel != 100) {
+            } else if (nLevel < 100) {
+                while (nLevel < 100) {
                     nLevel++;
                 }
                 game.startLevel(nLevel);
             } else {
                 view.displayBoard(game.getBoard(), game.getAnimals());
-                System.out.println("Well done, it was the last level");
+                System.out.println("Game over");
             }
         }
         if (game.getLevelStatus().equals(LevelStatus.FAIL)) {

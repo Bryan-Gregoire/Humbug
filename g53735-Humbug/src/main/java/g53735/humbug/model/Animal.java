@@ -18,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
     @Type(value = Grasshopper.class),
     @Type(value = Ladybird.class),
     @Type(value = Snail.class),
-    @Type(value = Spider.class),})
+    @Type(value = Spider.class),
+    @Type(value = Butterfly.class)})
 public abstract class Animal {
     
     protected Position positionOnBoard;

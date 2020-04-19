@@ -1,0 +1,117 @@
+{
+    "board": {
+        "squares": [
+            [
+                null,
+                null,
+                {
+                    "type": "GRASS",
+                    "westWall": true
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS",
+                    "eastWall": true
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                null,
+                {
+                    "type": "STAR"
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR",
+                    "southWall": true
+                },
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+
+                null,
+                null,
+                {
+                    "type":"GRASS"
+                },
+                null,
+                null,
+                null
+            ]
+        ]
+    },
+    "animals": [
+        {
+            "type": "Spider",
+            "positionOnBoard": {
+                "row": 0,
+                "column": 5
+            }
+        },
+        {
+            "type": "Ladybird",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 0 
+            }
+        },
+        {
+            "type": "Butterfly",
+            "positionOnBoard": {
+                "row": 4,
+                "column": 5
+            }
+        }
+    ],
+    "nMoves": 11
+}
