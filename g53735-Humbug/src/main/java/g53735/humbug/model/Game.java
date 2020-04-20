@@ -76,7 +76,8 @@ public class Game implements Model {
     }
 
     /**
-     * Initialize the game board and animals for a given level.
+     * Initialize the game board and animals for a given level and the remaining
+     * moves.
      *
      * @param level the given level.
      */

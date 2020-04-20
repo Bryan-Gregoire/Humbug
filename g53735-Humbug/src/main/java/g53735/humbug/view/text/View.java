@@ -228,32 +228,53 @@ public class View implements InterfaceView {
                                 System.out.print("\033[42m-----\033[0m");
                             } else {
                                 if (vBlocPos == 2 && hBlocPos == 1) {
-                                    System.out.print("\033[42m  " + value + " \033[0m");
-                                } else if ((vBlocPos == 1 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.NORTH))
-                                        || (vBlocPos == 2 && hBlocPos == 2 && board.getSquare(wallPos).hasWall(Direction.EAST))
-                                        || (vBlocPos == 3 && hBlocPos == 1 && board.getSquare(wallPos).hasWall(Direction.SOUTH))
-                                        || (vBlocPos == 2 && hBlocPos == 0 && board.getSquare(wallPos).hasWall(Direction.WEST))) {
+                                    System.out.print("\033[42m  " + value
+                                            + " \033[0m");
+                                } else if ((vBlocPos == 1 && hBlocPos == 1
+                                        && board.getSquare(wallPos).
+                                                hasWall(Direction.NORTH))
+                                        || (vBlocPos == 2 && hBlocPos == 2
+                                        && board.getSquare(wallPos).
+                                                hasWall(Direction.EAST))
+                                        || (vBlocPos == 3 && hBlocPos == 1
+                                        && board.getSquare(wallPos).
+                                                hasWall(Direction.SOUTH))
+                                        || (vBlocPos == 2 && hBlocPos == 0
+                                        && board.getSquare(wallPos).
+                                                hasWall(Direction.WEST))) {
                                     switch (hBlocPos) {
                                         case 0:
-                                            System.out.print("\033[42m| \033[0m\033[41m \033[0m\033[42m  \033[0m");
+                                            System.out.print("\033[42m| "
+                                                    + "\033[0m\033[41m "
+                                                    + "\033[0m\033[42m  "
+                                                    + "\033[0m");
                                             break;
                                         case 1:
-                                            System.out.print("\033[42m  \033[0m\033[41m \033[0m\033[42m  \033[0m");
+                                            System.out.print("\033[42m  "
+                                                    + "\033[0m\033[41m "
+                                                    + "\033[0m\033[42m  "
+                                                    + "\033[0m");
                                             break;
                                         case 2:
-                                            System.out.print("\033[42m  \033[0m\033[41m \033[0m\033[42m |\033[0m");
+                                            System.out.print("\033[42m  "
+                                                    + "\033[0m\033[41m "
+                                                    + "\033[0m\033[42m "
+                                                    + "|\033[0m");
                                             break;
                                     }
                                 } else {
                                     switch (hBlocPos) {
                                         case 0:
-                                            System.out.print("\033[42m|    \033[0m");
+                                            System.out.print("\033[42m|    "
+                                                    + "\033[0m");
                                             break;
                                         case 1:
-                                            System.out.print("\033[42m     \033[0m");
+                                            System.out.print("\033[42m    "
+                                                    + " \033[0m");
                                             break;
                                         case 2:
-                                            System.out.print("\033[42m    |\033[0m");
+                                            System.out.print("\033[42m   "
+                                                    + " |\033[0m");
                                             break;
 
                                     }

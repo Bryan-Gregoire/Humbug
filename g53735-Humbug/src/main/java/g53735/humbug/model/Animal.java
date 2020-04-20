@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
     @Type(value = Spider.class),
     @Type(value = Butterfly.class)})
 public abstract class Animal {
-    
+
     protected Position positionOnBoard;
     protected boolean onStar;
 
@@ -34,11 +34,10 @@ public abstract class Animal {
         this.positionOnBoard = positionOnBoard;
         this.onStar = false;
     }
-    
-    
+
     /**
      * Constructor of Animal.
-     * 
+     *
      */
     public Animal() {
     }
@@ -89,7 +88,16 @@ public abstract class Animal {
      */
     public abstract Position move(Board board, Direction direction,
             Animal... animals);
-    
+
+    /**
+     * The animal jump on a square in a given direction, if there is an animal
+     * on the square, it jumps on it to go to the next square.
+     *
+     * @param board the game board.
+     * @param direction the given direction.
+     * @param animals the animals on the game board.
+     * @return the new position of the animal.
+     */
     protected Position moveOnJumping(Board board, Direction direction,
             Animal... animals) {
         Position arrivalPos = this.positionOnBoard;
@@ -98,7 +106,7 @@ public abstract class Animal {
             this.setPositionOnBoard(null);
             return null;
         }
-        
+
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
@@ -112,7 +120,7 @@ public abstract class Animal {
             } else {
                 arrivalPos = nextPos;
                 nextPos = arrivalPos.next(direction);
-                
+
                 if (!board.isInside(nextPos)) {
                     this.setPositionOnBoard(null);
                     return null;
@@ -120,7 +128,7 @@ public abstract class Animal {
             }
             free = true;
         }
-        
+
         arrivalPos = nextPos;
         if (board.getSquareType(arrivalPos) == SquareType.STAR) {
             this.setOnStar(true);
@@ -130,7 +138,7 @@ public abstract class Animal {
     }
 
     /**
-     * The animal flies up to its destination, go to the next case if there is
+     * The animal flies up to his destination, go to the next case if there is
      * an animal on the square where the animal land. Change the position of the
      * animal.
      *
@@ -147,7 +155,7 @@ public abstract class Animal {
             this.setPositionOnBoard(null);
             return null;
         }
-        
+
         boolean free = true;
         while (free) {
             for (Animal animal : animals) {
@@ -168,7 +176,7 @@ public abstract class Animal {
             }
             free = true;
         }
-        
+
         initialPos = arrivalPos;
         if (board.getSquareType(initialPos) == SquareType.STAR) {
             this.setOnStar(true);

@@ -36,6 +36,7 @@ public class Controller {
      */
     public void startGame(int nLevel) {
         game.startLevel(nLevel);
+        System.out.println("Level: " + nLevel);
         while (game.getLevelStatus() == LevelStatus.IN_PROGRESS
                 && nLevel <= 100) {
             view.displayRemaining(game.getRemainingMoves());
@@ -89,14 +90,17 @@ public class Controller {
      */
     private int winOrLose(int nLevel) {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
+            view.displayBoard(game.getBoard(), game.getAnimals());
             System.out.println("Well done, you finished the level " + nLevel);
             nLevel++;
             if (nLevel < 91) {
+                System.out.println("Level: " + nLevel);
                 game.startLevel(nLevel);
             } else if (nLevel < 100) {
                 while (nLevel < 100) {
                     nLevel++;
                 }
+                System.out.println("Level: " + nLevel);
                 game.startLevel(nLevel);
             } else {
                 view.displayBoard(game.getBoard(), game.getAnimals());
@@ -105,6 +109,7 @@ public class Controller {
         }
         if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
             System.out.println("You lost, try again");
+            System.out.println("Level: " + nLevel);
             game.startLevel(nLevel);
         }
         return nLevel;

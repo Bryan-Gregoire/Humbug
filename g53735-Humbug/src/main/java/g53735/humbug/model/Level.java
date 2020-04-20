@@ -75,7 +75,7 @@ public class Level {
     }
 
     /**
-     * Read a json file that represents a level of the game .
+     * Read a json file that represents a level of the game.
      *
      * @param n the number of the level.
      * @return the level.

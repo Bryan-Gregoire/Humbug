@@ -15,7 +15,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("              HUMBUG             ");
         System.out.println("---------------------------------");
-        Controller controller = new Controller(new Game(), new View(new Scanner(System.in)));
+        Controller controller = new Controller(new Game(), new View(
+                new Scanner(System.in)));
         Scanner keyboard = new Scanner(System.in);
         System.out.print("What level do you want to play: ");
         int nLevel = keyboard.nextInt();

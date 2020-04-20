@@ -1,7 +1,7 @@
 package g53735.humbug.model;
 
 /**
- * State of the game.
+ * Status of the game.
  *
  * @author g53735
  */
