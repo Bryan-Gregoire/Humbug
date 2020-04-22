@@ -40,11 +40,18 @@ public interface InterfaceView {
      * @param message the given message to display.
      */
     void displayError(String message);
-    
+
     /**
      * Display the remaining moves.
-     * 
+     *
      * @param remainingMoves the remaining moves.
      */
     void displayRemaining(int remainingMoves);
+
+    /**
+     * Display the number of the current level.
+     *
+     * @param nbLevel number of the level.
+     */
+    void displayNumberLevel(int nbLevel);
 }

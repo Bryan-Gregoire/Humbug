@@ -97,6 +97,16 @@ public class View implements InterfaceView {
     public void displayRemaining(int remainingMoves) {
         System.out.println("You have " + remainingMoves + " movements left");
     }
+    
+    /**
+     * Display the number of the current level.
+     * 
+     * @param nbLevel number of the level.
+     */
+    @Override
+    public void displayNumberLevel(int nbLevel){
+        System.out.println("Level: " + nbLevel);
+    }
 
     /**
      * Ask a integer, while it is not a integer, ask again.
