@@ -93,7 +93,7 @@ public class Controller {
             System.out.println("Well done, you finished the level " + nLevel);
             System.out.println();
             nLevel++;
-            if (nLevel < 91) {
+            if (nLevel < 93) {
                 view.displayNumberLevel(nLevel);
                 game.startLevel(nLevel);
             } else if (nLevel < 100) {
