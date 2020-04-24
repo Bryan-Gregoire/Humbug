@@ -69,9 +69,6 @@ public class Game implements Model {
         if (win == true) {
             return LevelStatus.WIN;
         }
-        if (inProgress == animals.length - 1) {
-            return LevelStatus.IN_PROGRESS;
-        }
         return LevelStatus.IN_PROGRESS;
     }
 

@@ -97,14 +97,14 @@ public class View implements InterfaceView {
     public void displayRemaining(int remainingMoves) {
         System.out.println("You have " + remainingMoves + " movements left");
     }
-    
+
     /**
      * Display the number of the current level.
-     * 
+     *
      * @param nbLevel number of the level.
      */
     @Override
-    public void displayNumberLevel(int nbLevel){
+    public void displayNumberLevel(int nbLevel) {
         System.out.println("Level: " + nbLevel);
     }
 
@@ -187,6 +187,9 @@ public class View implements InterfaceView {
             int col = animals[i].getPositionOnBoard().getColumn();
             boardDisplay[row][col] = animals[i].toString();
             if (animals[i].isOnStar()) {
+                if (animals.length == 1) {
+                    boardDisplay[row][col] = "  ";
+                }
                 for (int j = 0; j < animals.length; j++) {
                     if (i == j) {
                         j++;
