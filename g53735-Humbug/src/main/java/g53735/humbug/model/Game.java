@@ -50,7 +50,6 @@ public class Game implements Model {
      */
     @Override
     public LevelStatus getLevelStatus() {
-        int inProgress = 0;
         boolean win = true;
         for (Animal animal : animals) {
             if (animal.positionOnBoard == null) {
@@ -61,9 +60,6 @@ public class Game implements Model {
             }
             if (!animal.onStar) {
                 win = false;
-            }
-            if (this.remainingMoves > 0 && animal.positionOnBoard != null) {
-                inProgress++;
             }
         }
         if (win == true) {
@@ -101,18 +97,23 @@ public class Game implements Model {
         if (getLevelStatus() == LevelStatus.NOT_STARTED) {
             throw new IllegalStateException("Level not started");
         }
+        Position init;
+        Position movePos;
 
         for (Animal animal : getAnimals()) {
             if (position.equals(animal.getPositionOnBoard())
                     && !animal.onStar) {
                 getLevelStatus();
-                if (animal.move(getBoard(), direction, getAnimals()) == null) {
+                init = animal.getPositionOnBoard();
+                movePos = animal.move(getBoard(), direction, getAnimals());
+                if (movePos == null) {
                     throw new IllegalArgumentException("perdu");
                 } else {
-                    animal.setPositionOnBoard(animal.move(getBoard(), direction,
-                            getAnimals()));
+                    animal.setPositionOnBoard(movePos);
                 }
-                this.remainingMoves--;
+                if (init != movePos) {
+                    this.remainingMoves--;
+                }
             }
         }
     }
