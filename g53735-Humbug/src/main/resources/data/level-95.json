@@ -7,48 +7,22 @@
                 {
                     "type": "GRASS"
                 },
-                null,
-                null
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                }
             ],
             [
                 {
                     "type": "GRASS"
                 },
                 {
-                    "type": "STAR"
-                },
-                {
-                    "type": "STAR"
+                    "type": "GRASS"
                 },
                 {
                     "type": "GRASS"
-                },
-                null
-            ],
-            [
-                null,
-                null,
-                {
-                    "type": "GRASS"
-                },
-                null,
-                null
-            ],
-            [
-                null,
-                null,
-                {
-                    "type": "STAR"
-                },
-                null,
-                null
-            ],
-            [
-                null,
-                null,
-                {
-                    "type": "GRASS",
-                    "westWall": true
                 },
                 {
                     "type": "GRASS"
@@ -58,11 +32,45 @@
                 }
             ],
             [
+                {
+                    "type": "GRASS"
+                },
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "STAR"
+                },
+                null,
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null
+            ],
+            [
                 null,
                 null,
                 {
-                    "type": "STAR",
-                    "southWall": true
+                    "type": "STAR"
+                },
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"  
+                },
+                {
+                    "type": "GRASS"
                 },
                 {
                     "type": "STAR"   
@@ -73,40 +81,33 @@
     },
     "animals": [
         {
-            "type": "Butterfly",
-            "positionOnBoard": {
-                "row": 1,
-                "column": 0
-            }
-        },
-        {
             "type": "Spider",
             "positionOnBoard": {
                 "row": 0,
-                "column": 2 
-            }
-        },
-        {
-            "type": "Spider",
-            "positionOnBoard": {
-                "row": 4,
                 "column": 2
             }
         },
         {
-            "type": "Spider",
+            "type": "Ladybird",
             "positionOnBoard": {
-                "row": 4,
-                "column": 3
+                "row": 0,
+                "column": 4 
             }
         },
         {
-            "type": "Spider",
+            "type": "Ladybird",
             "positionOnBoard": {
-                "row": 4,
-                "column": 3
+                "row": 1,
+                "column": 4
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 5,
+                "column": 1
             }
         }
     ],
-    "nMoves": 10
+    "nMoves": 11
 }

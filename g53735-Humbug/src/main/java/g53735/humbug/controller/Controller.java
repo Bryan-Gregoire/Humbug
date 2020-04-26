@@ -14,7 +14,7 @@ import g53735.humbug.view.text.View;
  * @author g53735
  */
 public class Controller {
-    
+
     private final Model game;
     private final InterfaceView view;
 
@@ -93,13 +93,7 @@ public class Controller {
             System.out.println("Well done, you finished the level " + nLevel);
             System.out.println();
             nLevel++;
-            if (nLevel < 93) {
-                view.displayNumberLevel(nLevel);
-                game.startLevel(nLevel);
-            } else if (nLevel < 100) {
-                while (nLevel < 100) {
-                    nLevel++;
-                }
+            if (nLevel < 101) {
                 view.displayNumberLevel(nLevel);
                 game.startLevel(nLevel);
             } else {

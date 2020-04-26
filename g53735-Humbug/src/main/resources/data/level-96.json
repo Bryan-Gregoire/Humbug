@@ -2,53 +2,26 @@
     "board": {
         "squares": [
             [
-                null,
-                null,
-                {
-                    "type": "GRASS"
-                },
-                null,
-                null
-            ],
-            [
-                {
-                    "type": "GRASS"
-                },
                 {
                     "type": "STAR"
                 },
-                {
-                    "type": "STAR"
-                },
-                {
-                    "type": "GRASS"
-                },
-                null
-            ],
-            [
-                null,
-                null,
-                {
-                    "type": "GRASS"
-                },
-                null,
-                null
-            ],
-            [
-                null,
-                null,
-                {
-                    "type": "STAR"
-                },
-                null,
-                null
-            ],
-            [
-                null,
-                null,
                 {
                     "type": "GRASS",
-                    "westWall": true
+                    "northWall": true
+                },
+                null,
+                null,
+                {
+                    "type": "GRASS"
+                }
+            ],
+            [
+                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
                 },
                 {
                     "type": "GRASS"
@@ -59,15 +32,30 @@
             ],
             [
                 null,
+                {
+                    "type": "STAR"
+                },
+                null,
                 null,
                 {
-                    "type": "STAR",
-                    "southWall": true
+                    "type": "STAR"
+                }
+            ],
+            [
+                null,
+                {
+                    "type": "GRASS",
+                    "westWall": true
                 },
                 {
-                    "type": "STAR"   
+                    "type": "GRASS"
                 },
-                null
+                {
+                    "type": "STAR"
+                },
+                {
+                    "type": "GRASS"
+                }
             ]
         ]
     },
@@ -75,36 +63,29 @@
         {
             "type": "Butterfly",
             "positionOnBoard": {
-                "row": 1,
-                "column": 0
-            }
-        },
-        {
-            "type": "Spider",
-            "positionOnBoard": {
                 "row": 0,
-                "column": 2 
+                "column": 1
             }
         },
         {
             "type": "Spider",
             "positionOnBoard": {
-                "row": 4,
+                "row": 3,
+                "column": 1 
+            }
+        },
+        {
+            "type": "Ladybird",
+            "positionOnBoard": {
+                "row": 3,
                 "column": 2
             }
         },
         {
             "type": "Spider",
             "positionOnBoard": {
-                "row": 4,
-                "column": 3
-            }
-        },
-        {
-            "type": "Spider",
-            "positionOnBoard": {
-                "row": 4,
-                "column": 3
+                "row": 3,
+                "column": 4
             }
         }
     ],

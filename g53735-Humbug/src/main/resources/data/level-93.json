@@ -3,19 +3,15 @@
         "squares": [
             [
                 null,
+                null,
                 {
-                    "type": "GRASS"
+                    "type": "STAR",
+                    "southWall": true
                 },
-                null,
-                null,
                 null,
                 null
             ],
             [
-                null,
-                {
-                    "type": "GRASS"
-                },
                 {
                     "type": "STAR"
                 },
@@ -23,37 +19,11 @@
                     "type": "GRASS"
                 },
                 {
-                    "type": "STAR"
-                },
-                null
-            ],
-            [
-                null,
-                {
-                    "type": "GRASS"
-                },
-                null,
-                null,
-                {
-                    "type": "GRASS"
-                },
-                null
-            ],
-            [
-                {
                     "type": "GRASS"
                 },
                 {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "GRASS"
-                },
-                {
-                    "type": "GRASS"
+                    "type": "GRASS",
+                    "southWall": true
                 },
                 {
                     "type": "STAR"
@@ -61,57 +31,107 @@
             ],
             [
                 null,
-                null,
                 {
                     "type": "STAR"
                 },
                 null,
                 {
-                    "type": "GRASS"
+                    "type": "STAR"
                 },
                 null
             ],
             [
-                null,
-                null,
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "STAR",
+                    "westWall": true
+                }
+            ],
+            [
+                {
+                    "type": "GRASS"
+                },
+                {
+                    "type": "GRASS"
+                },
                 {
                     "type": "GRASS"
                 },
                 null,
+                null
+            ],
+            [
                 {
-                    "type": "GRASS"   
+                    "type": "GRASS"
                 },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "type": "GRASS"
+                },
+                null,
+                null,
+                null,
                 null
             ]
         ]
     },
     "animals": [
         {
-            "type": "Butterfly",
+            "type": "Snail",
             "positionOnBoard": {
-                "row": 0,
+                "row": 1,
                 "column": 1
             }
         },
         {
-            "type": "Bumbelbee",
+            "type": "Butterfly",
             "positionOnBoard": {
                 "row": 1,
-                "column": 3 
-            }
-        },
-        {
-            "type": "Spider",
-            "positionOnBoard": {
-                "row": 5,
-                "column": 2
+                "column": 2 
             }
         },
         {
             "type": "Ladybird",
             "positionOnBoard": {
-                "row": 5,
-                "column": 4
+                "row": 1,
+                "column": 3
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 1
+            }
+        },
+        {
+            "type": "Grasshopper",
+            "positionOnBoard": {
+                "row": 3,
+                "column": 2
+            }
+        },
+        {
+            "type": "Spider",
+            "positionOnBoard": {
+                "row": 6,
+                "column": 0
             }
         }
     ],
