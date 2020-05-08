@@ -49,9 +49,9 @@ public interface InterfaceView {
     void displayRemaining(int remainingMoves);
 
     /**
-     * Display the number of the current level.
-     *
-     * @param nbLevel number of the level.
+     * Display the given message.
+     * 
+     * @param messsage the given message.
      */
-    void displayNumberLevel(int nbLevel);
+    void displayMessage(String messsage);
 }

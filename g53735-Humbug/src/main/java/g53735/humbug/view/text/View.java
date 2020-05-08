@@ -99,13 +99,13 @@ public class View implements InterfaceView {
     }
 
     /**
-     * Display the number of the current level.
+     * Display a given message.
      *
-     * @param nbLevel number of the level.
+     * @param message the message to display.
      */
     @Override
-    public void displayNumberLevel(int nbLevel) {
-        System.out.println("Level: " + nbLevel);
+    public void displayMessage(String message) {
+        System.out.println(message);
     }
 
     /**

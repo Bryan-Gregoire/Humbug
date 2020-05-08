@@ -36,7 +36,7 @@ public class Controller {
      */
     public void startGame(int nLevel) {
         game.startLevel(nLevel);
-        view.displayNumberLevel(nLevel);
+        view.displayMessage("Level: " + nLevel);
         while (game.getLevelStatus() == LevelStatus.IN_PROGRESS
                 && nLevel <= 100) {
             view.displayRemaining(game.getRemainingMoves());
@@ -63,13 +63,12 @@ public class Controller {
                 || !game.getAnimals()[i].getPositionOnBoard()
                         .equals(position) || game.getAnimals()[i].isOnStar()) {
             if (!game.getBoard().isInside(position)) {
-                System.out.println("Position is not on the game board");
+                view.displayMessage("Position is not on the game board");
                 position = view.askPosition();
             } else {
                 if (i == game.getAnimals().length - 1) {
                     i = 0;
-                    System.out.println("There is no animal in this"
-                            + " position.");
+                    view.displayMessage("There is no animal in this position");
                     position = view.askPosition();
                 } else {
                     i++;
@@ -90,21 +89,21 @@ public class Controller {
     private int winOrLose(int nLevel) {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
             view.displayBoard(game.getBoard(), game.getAnimals());
-            System.out.println("Well done, you finished the level " + nLevel);
+            view.displayMessage("Well done, you finished the level " + nLevel);
             System.out.println();
             nLevel++;
             if (nLevel < 101) {
-                view.displayNumberLevel(nLevel);
+                view.displayMessage("Level : " + nLevel);
                 game.startLevel(nLevel);
             } else {
                 view.displayBoard(game.getBoard(), game.getAnimals());
-                System.out.println("Game over");
+                view.displayMessage("Game over");
             }
         }
         if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
-            System.out.println("You lost, try again");
-            System.out.println();
-            view.displayNumberLevel(nLevel);
+            view.displayMessage("You lost, try again");
+            view.displayMessage("");
+            view.displayMessage("Level:" + nLevel);
             game.startLevel(nLevel);
         }
         return nLevel;
