@@ -18,7 +18,7 @@ public class Main {
         Controller controller = new Controller(new Game(), new View(
                 new Scanner(System.in)));
         Scanner keyboard = new Scanner(System.in);
-        System.out.print("What level do you want to play: ");
+        System.out.print("What level do you want to play(0-100): ");
         int nLevel = keyboard.nextInt();
         controller.startGame(nLevel);
     }

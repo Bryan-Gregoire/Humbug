@@ -52,12 +52,7 @@ public class Ladybird extends Animal {
         boolean free = true;
         int move = 0;
         while (free && move < 2) {
-            for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)
-                        && !animal.onStar) {
-                    free = false;
-                }
-            }
+            free = nextPosFree(nextPos, animals);
             if (!free) {
                 break;
             }
@@ -81,11 +76,9 @@ public class Ladybird extends Animal {
             }
             move++;
         }
-
-        if (board.getSquareType(ladyBird) == SquareType.STAR) {
-            this.setOnStar(true);
-            board.setSquareType(ladyBird, SquareType.GRASS);
-        }
+        
+        animalOnStar(board, ladyBird);
+        
         return ladyBird;
     }
 

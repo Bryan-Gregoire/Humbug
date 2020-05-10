@@ -109,12 +109,7 @@ public abstract class Animal {
 
         boolean free = true;
         while (free) {
-            for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(nextPos)
-                        && !animal.onStar) {
-                    free = false;
-                }
-            }
+            free = nextPosFree(nextPos, animals);
             if (free) {
                 break;
             } else {
@@ -130,10 +125,8 @@ public abstract class Animal {
         }
 
         arrivalPos = nextPos;
-        if (board.getSquareType(arrivalPos) == SquareType.STAR) {
-            this.setOnStar(true);
-            board.setSquareType(arrivalPos, SquareType.GRASS);
-        }
+        animalOnStar(board, arrivalPos);
+
         return arrivalPos;
     }
 
@@ -150,20 +143,15 @@ public abstract class Animal {
      */
     protected Position moveOneFlying(Board board, Position arrivalPos,
             Direction direction, Animal... animals) {
-        Position initialPos;
         if (!board.isInside(arrivalPos)) {
             this.setPositionOnBoard(null);
             return null;
         }
-
+        
+        Position initialPos;
         boolean free = true;
         while (free) {
-            for (Animal animal : animals) {
-                if (animal.getPositionOnBoard().equals(arrivalPos)
-                        && !animal.onStar) {
-                    free = false;
-                }
-            }
+            free = nextPosFree(arrivalPos, animals);
             if (free) {
                 break;
             } else {
@@ -178,10 +166,31 @@ public abstract class Animal {
         }
 
         initialPos = arrivalPos;
-        if (board.getSquareType(initialPos) == SquareType.STAR) {
-            this.setOnStar(true);
-            board.setSquareType(initialPos, SquareType.GRASS);
-        }
+        animalOnStar(board, initialPos);
+
         return initialPos;
+    }
+
+    /**
+     * Star square in grass square.
+     *
+     * @param board the given board.
+     * @param animalPos the given position.
+     */
+    protected void animalOnStar(Board board, Position animalPos) {
+        if (board.getSquareType(animalPos) == SquareType.STAR) {
+            this.setOnStar(true);
+            board.setSquareType(animalPos, SquareType.GRASS);
+        }
+    }
+
+    protected boolean nextPosFree(Position nextPos, Animal... animals) {
+        for (Animal animal : animals) {
+            if (animal.getPositionOnBoard().equals(nextPos)
+                    && !animal.onStar) {
+                return false;
+            }
+        }
+        return true;
     }
 }

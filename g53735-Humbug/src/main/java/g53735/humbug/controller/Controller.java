@@ -53,7 +53,8 @@ public class Controller {
     }
 
     /**
-     * Check if the given position is valid.
+     * Check if the given position is on the game board or if there is an
+     * animal.
      *
      * @param position the given position.
      */
@@ -90,17 +91,14 @@ public class Controller {
         if (game.getLevelStatus().equals(LevelStatus.WIN)) {
             view.displayBoard(game.getBoard(), game.getAnimals());
             view.displayMessage("Well done, you finished the level " + nLevel);
-            System.out.println();
             nLevel++;
             if (nLevel < 101) {
                 view.displayMessage("Level : " + nLevel);
                 game.startLevel(nLevel);
             } else {
-                view.displayBoard(game.getBoard(), game.getAnimals());
                 view.displayMessage("Game over");
             }
-        }
-        if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
+        } else if (game.getLevelStatus().equals(LevelStatus.FAIL)) {
             view.displayMessage("You lost, try again");
             view.displayMessage("");
             view.displayMessage("Level:" + nLevel);

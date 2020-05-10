@@ -49,20 +49,15 @@ public class Snail extends Animal {
             return snail;
         }
 
-        boolean free = true;
         for (Animal animal : animals) {
             if (animal.getPositionOnBoard().equals(nextPos) && !animal.onStar) {
-                free = false;
+                return snail;
             }
         }
-        if (!free) {
-            return snail;
-        }
+       
         snail = nextPos;
-        if (board.getSquareType(snail) == SquareType.STAR) {
-            this.setOnStar(true);
-            board.setSquareType(snail, SquareType.GRASS);
-        }
+        animalOnStar(board, snail);
+        
         return snail;
     }
 
