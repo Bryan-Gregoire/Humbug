@@ -147,7 +147,7 @@ public abstract class Animal {
             this.setPositionOnBoard(null);
             return null;
         }
-        
+
         Position initialPos;
         boolean free = true;
         while (free) {
@@ -184,6 +184,13 @@ public abstract class Animal {
         }
     }
 
+    /**
+     * Check if there is an animal at the next position.
+     *
+     * @param nextPos the given position to check.
+     * @param animals the given animals of the game.
+     * @return if there is an animal or no.
+     */
     protected boolean nextPosFree(Position nextPos, Animal... animals) {
         for (Animal animal : animals) {
             if (animal.getPositionOnBoard().equals(nextPos)
